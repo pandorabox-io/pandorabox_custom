@@ -1,3 +1,11 @@
+local MP = minetest.get_modpath("pandorabox_custom")
+pandorabox = {
+	http = minetest.request_http_api()
+}
+
+dofile(MP.."/forum.lua")
+
+pandorabox.http = nil
 
 
 -- 2018-06-20 removed smartrent mod
