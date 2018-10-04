@@ -4,7 +4,7 @@ pandorabox = {
 }
 
 dofile(MP.."/forum.lua")
-dofile(MP.."/players.lua")
+-- dofile(MP.."/players.lua")
 
 pandorabox.http = nil
 
