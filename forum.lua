@@ -21,7 +21,7 @@ minetest.register_chatcommand("forumregister", {
 	description="register in pandorabox forum with initial <password>",
 	func = function(name, param)
 
-		if not param then
+		if not param or param == "" then
 			minetest.chat_send_player(name, "no password given!")
 			return true
 		end
