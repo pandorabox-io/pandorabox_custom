@@ -1,8 +1,4 @@
 
--- does not work with blocks (yet)
--- they are overridden in technic
--- https://github.com/minetest/minetest/blob/master/doc/lua_api.txt
-
 local list = {
 	{ name="bucket:bucket_water", xp=200 },
 	{ name="bucket:bucket_river_water", xp=200 },
