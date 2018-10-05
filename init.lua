@@ -5,6 +5,7 @@ pandorabox = {
 
 dofile(MP.."/forum.lua")
 dofile(MP.."/players.lua")
+-- dofile(MP.."/onplace_restriction.lua")
 
 pandorabox.http = nil
 
