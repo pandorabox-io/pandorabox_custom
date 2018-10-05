@@ -14,7 +14,6 @@ local list = {
 	{ name="technic:uranium35_block", xp=50000 }
 }
 
-
 for _,entry in ipairs(list) do
 	print("Restricting placement of " .. entry.name .. " to xp level " .. entry.xp)
 
@@ -30,23 +29,25 @@ for _,entry in ipairs(list) do
 
 	local old_place = def.on_place
 
-	def.on_place = function(itemstack, placer, pointed_thing)
-		minetest.log("action", "[onplace-restriction] override for " .. entry.name)
-		if placer and placer.is_player and placer:is_player() then
-			local playername = placer:get_player_name()
-			local xp = xp_redo.get_xp(playername)
-
-			if xp < entry.xp then
-				-- too low
-				minetest.chat_send_player(playername, "Placement not allowed below " .. entry.xp .. " xp!")
-				minetest.log("action", "[onplace-restriction] Player " .. playername .. 
-					" tried to place " .. entry.name)
-				return itemstack
+	minetest.override_item(entry.name, {
+		on_place = function(itemstack, placer, pointed_thing)
+			minetest.log("action", "[onplace-restriction] override for " .. entry.name)
+			if placer and placer.is_player and placer:is_player() then
+				local playername = placer:get_player_name()
+				local xp = xp_redo.get_xp(playername)
+	
+				if xp < entry.xp then
+					-- too low
+					minetest.chat_send_player(playername, "Placement not allowed below " .. entry.xp .. " xp!")
+					minetest.log("action", "[onplace-restriction] Player " .. playername .. 
+						" tried to place " .. entry.name)
+					return itemstack
+				end
 			end
-		end
 
-		return old_place(itemstack, placer, pointed_thing)
-	end
+			return old_place(itemstack, placer, pointed_thing)
+		end
+	})
 
 end
 
