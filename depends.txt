@@ -4,3 +4,4 @@ bucket
 loot
 currency
 farming
+scifi_nodes
