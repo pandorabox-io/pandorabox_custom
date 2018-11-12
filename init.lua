@@ -33,6 +33,11 @@ minetest.register_on_joinplayer(function(player)
 		minetest.set_player_privs(player:get_player_name(), privs)
 	end
 
+	-- 2018-11-12
+	-- register last connected ip
+	local ip = minetest.get_player_ip(player:get_player_name())
+	player:set_attribute("last_ip", ip);
+
 end)
 
 -- 2018-08-08 cookable stairs
