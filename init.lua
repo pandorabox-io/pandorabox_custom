@@ -97,9 +97,9 @@ minetest.register_globalstep(function(dtime)
 
    local pos = player:getpos()
 
-   if pos.y > 17000 then
-      player:setpos({x=pos.x, y=16950, z=pos.z})
-      minetest.chat_send_player(player:get_player_name(), "The area above 17k is reserved for future use, sorry...")
+   if pos.y > 18000 then
+      player:setpos({x=pos.x, y=17950, z=pos.z})
+      minetest.chat_send_player(player:get_player_name(), "The area above 18k is reserved for future use, sorry...")
    end
 
    end
