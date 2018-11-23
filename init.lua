@@ -156,6 +156,9 @@ technic.cnc.register_all("scifi_nodes:black",
         "Black wall"
 )
 
+-- 2018-11-23
+-- removed invisibility potion
+minetest.register_alias("invisibility:potion", "default:cobble")
 
 
 
