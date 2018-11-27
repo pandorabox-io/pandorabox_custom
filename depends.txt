@@ -1,6 +1,7 @@
 default
 technic
 technic_cnc
+basic_materials
 bucket
 loot
 currency
