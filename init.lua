@@ -173,4 +173,6 @@ minetest.register_craft( {
 
 -- 2018-11-30 unknown item
 minetest.register_alias("chains:chandelier", "homedecor:chandelier_brass")
+minetest.register_alias("basic_materialsgold_wire", "basic_materials:gold_wire")
+
 
