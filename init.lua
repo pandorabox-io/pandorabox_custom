@@ -171,3 +171,6 @@ minetest.register_craft( {
 
 
 
+-- 2018-11-30 unknown item
+minetest.register_alias("chains:chandelier", "homedecor:chandelier_brass")
+
