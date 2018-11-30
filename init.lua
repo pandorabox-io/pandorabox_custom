@@ -7,7 +7,7 @@ dofile(MP.."/loot.lua")
 
 
 -- 2018-06-20 removed smartrent mod
-minetest.register_alias("smartrenting:panel", "air")
+-- active again: minetest.register_alias("smartrenting:panel", "air")
 
 -- 2018-06-20 update hunger mod and removed sprint mod
 -- fast priv retroactive
