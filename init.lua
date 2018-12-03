@@ -163,11 +163,12 @@ minetest.register_alias("invisibility:potion", "default:cobble")
 
 -- 2018-11-27
 -- brass to ingot issue in technic (got cleared there)
-minetest.register_craft( {
-        type = "shapeless",
-        output = "basic_materials:brass_ingot 9",
-        recipe = { "basic_materials:brass_block" },
-})
+-- 2018-03-12 fixed in technic
+--minetest.register_craft( {
+--        type = "shapeless",
+--        output = "basic_materials:brass_ingot 9",
+--        recipe = { "basic_materials:brass_block" },
+--})
 
 
 
