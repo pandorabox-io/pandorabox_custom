@@ -4,6 +4,7 @@ pandorabox = {
 
 dofile(MP.."/onplace_restriction.lua")
 dofile(MP.."/loot.lua")
+--dofile(MP.."/drawers.lua")
 
 -- https://stackoverflow.com/questions/2705793/how-to-get-number-of-entries-in-a-lua-table
 function tablelength(T)
