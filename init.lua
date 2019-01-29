@@ -172,6 +172,10 @@ technic_cnc.register_all("scifi_nodes:black",
 -- removed invisibility potion
 minetest.register_alias("invisibility:potion", "default:cobble")
 
+-- 2019-01-29
+-- cotton seed oil
+minetest.register_alias("technic:cottonseed_oil", "default:cobble")
+
 
 -- 2018-11-27
 -- brass to ingot issue in technic (got cleared there)
