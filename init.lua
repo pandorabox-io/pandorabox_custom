@@ -4,6 +4,7 @@ pandorabox = {
 
 dofile(MP.."/onplace_restriction.lua")
 dofile(MP.."/loot.lua")
+dofile(MP.."/privs.lua")
 dofile(MP.."/death.lua")
 --dofile(MP.."/drawers.lua")
 
