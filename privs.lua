@@ -11,3 +11,8 @@ minetest.register_privilege("protect_rails", {
 minetest.register_privilege("protect_public_places", {
 	description = "Protection for public places"
 })
+
+minetest.register_privilege("admin_travel", {
+        description = "can use the admins travelnets"
+})
+
