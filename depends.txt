@@ -8,3 +8,4 @@ currency
 farming
 scifi_nodes
 mesecons_mvps
+skybox
