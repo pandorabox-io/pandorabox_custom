@@ -29,3 +29,7 @@ minetest.register_privilege("protect_technic_city_infra", {
         description = "Protection for technic city infrastructure"
 })
 
+-- player fly
+minetest.register_privilege("skybox_fly", {
+	description = "can always fly"
+})
