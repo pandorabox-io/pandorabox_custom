@@ -2,6 +2,9 @@ local has_beacon_mod = minetest.get_modpath("beacon")
 
 local fly_near = {} -- [{ name="", distance=0 }]
 
+local storage = minetest.get_mod_storage()
+local global_fly_enabled = storage:get_int("global_fly") == 1
+
 if has_beacon_mod then
 	table.insert(fly_near, {
 		name="beacon:greenbase",
@@ -42,7 +45,7 @@ local update_fly = function(player)
 		return
 	end
 
-  local can_fly = skybox_enables_fly or is_near_fly_node
+  local can_fly = skybox_enables_fly or is_near_fly_node or global_fly_enabled
 
 	if privs.fly and can_fly then
 		-- already fly granted
@@ -84,3 +87,21 @@ minetest.register_globalstep(function(dtime)
 		minetest.log("warning", "[fly] update took " .. delta_us .. " us")
 	end
 end)
+
+minetest.register_chatcommand("global_fly_enable", {
+	description = "enables global fly",
+	privs = {skybox_fly_event=true},
+	func = function(name)
+    global_fly_enabled = true
+    storage:set_int("global_fly", 1)
+	end
+})
+
+minetest.register_chatcommand("global_fly_disable", {
+	description = "disables global fly",
+	privs = {skybox_fly_event=true},
+	func = function(name)
+    global_fly_enabled = false
+    storage:set_int("global_fly", 0)
+	end
+})

@@ -14,3 +14,4 @@
 * recipes/crafts
 * custom loots
 * additional protection privs for the priv-protector
+* fly
