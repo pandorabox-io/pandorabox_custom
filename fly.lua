@@ -19,7 +19,7 @@ local update_fly = function(player)
   local privs = minetest.get_player_privs(name)
 
   local player_is_admin = privs.privs
-  local player_can_always_fly = privs.skybox_fly
+  local player_can_always_fly = privs.player_fly
 
   local skybox_enables_fly = false
   for _,box in pairs(skybox.list) do
@@ -90,7 +90,7 @@ end)
 
 minetest.register_chatcommand("global_fly_enable", {
 	description = "enables global fly",
-	privs = {skybox_fly_event=true},
+	privs = {fly_event=true},
 	func = function(name)
     global_fly_enabled = true
     storage:set_int("global_fly", 1)
@@ -99,7 +99,7 @@ minetest.register_chatcommand("global_fly_enable", {
 
 minetest.register_chatcommand("global_fly_disable", {
 	description = "disables global fly",
-	privs = {skybox_fly_event=true},
+	privs = {fly_event=true},
 	func = function(name)
     global_fly_enabled = false
     storage:set_int("global_fly", 0)

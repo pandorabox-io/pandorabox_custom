@@ -30,11 +30,11 @@ minetest.register_privilege("protect_technic_city_infra", {
 })
 
 -- player fly
-minetest.register_privilege("skybox_fly", {
+minetest.register_privilege("player_fly", {
 	description = "can always fly"
 })
 
 -- player fly event
-minetest.register_privilege("skybox_fly_event", {
+minetest.register_privilege("fly_event", {
 	description = "can toggle global fly event"
 })
