@@ -31,11 +31,11 @@ for _,entry in ipairs(list) do
 			if placer and placer.is_player and placer:is_player() then
 				local playername = placer:get_player_name()
 				local xp = xp_redo.get_xp(playername)
-	
+
 				if xp < entry.xp then
 					-- too low
 					minetest.chat_send_player(playername, "Placement not allowed below " .. entry.xp .. " xp!")
-					minetest.log("action", "[onplace-restriction] Player " .. playername .. 
+					minetest.log("action", "[onplace-restriction] Player " .. playername ..
 						" tried to place " .. entry.name)
 					return itemstack
 				end
@@ -46,4 +46,3 @@ for _,entry in ipairs(list) do
 	})
 
 end
-

@@ -16,8 +16,8 @@ minetest.register_lbm({
 	run_at_every_load = true,
 	action = function(pos, node)
 		-- technic:mithril_locked_chest
-		local oldmeta = minetest.get_meta(pos)
+		-- local oldmeta = minetest.get_meta(pos)
 		-- TODO: owner?
-		
+
 	end
 })

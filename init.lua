@@ -1,6 +1,4 @@
 local MP = minetest.get_modpath("pandorabox_custom")
-pandorabox = {
-}
 
 dofile(MP.."/onplace_restriction.lua")
 dofile(MP.."/loot.lua")

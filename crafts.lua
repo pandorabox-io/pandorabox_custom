@@ -8,7 +8,7 @@ minetest.register_craft({
 
 
 -- 2018-09-07 dye fix
--- https://github.com/h-v-smacker/technic/blob/a5cfbfdb4989786aacdb24002c9c2bbeb97d028b/technic/machines/register/recipe_defusing.lua
+-- https://github.com/h-v-smacker/technic/blob/master/technic/machines/register/recipe_defusing.lua#L49
 
 local dyes = {
 	{"violet",     "Violet",     "excolor_violet"},
@@ -19,7 +19,7 @@ local dyes = {
 }
 
 for i = 1, #dyes do
-	local name, desc, craft_color_group = unpack(dyes[i])
+	local name, _, craft_color_group = unpack(dyes[i])
 	minetest.register_craft{
 		type = "shapeless",
 		output = "wool:" .. name,
