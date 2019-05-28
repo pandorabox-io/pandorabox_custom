@@ -9,4 +9,5 @@ farming
 scifi_nodes
 mesecons_mvps
 skybox
+sethome
 beacon?
