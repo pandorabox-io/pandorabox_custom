@@ -31,8 +31,10 @@ for _,entry in ipairs(list) do
 			if placer and placer.is_player and placer:is_player() then
 				local playername = placer:get_player_name()
 				local xp = xp_redo.get_xp(playername)
-
-				minetest.log("action", "[onplace] player " .. playername .. " places " .. entry.name .. " at " .. minetest.pos_to_string(pointed_thing.below))
+				
+				if pointed_thing.type == "node" and pointed_thing.under then
+					minetest.log("action", "[onplace] player " .. playername .. " places " .. entry.name .. " at " .. minetest.pos_to_string(pointed_thing.under))
+				end
 
 				if xp < entry.xp then
 					-- too low
