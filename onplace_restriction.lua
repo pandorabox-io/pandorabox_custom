@@ -32,6 +32,8 @@ for _,entry in ipairs(list) do
 				local playername = placer:get_player_name()
 				local xp = xp_redo.get_xp(playername)
 
+				minetest.log("action", "[onplace] player " .. playername .. " places " .. entry.name .. " at " .. minetest.pos_to_string(pointed_thing.below))
+
 				if xp < entry.xp then
 					-- too low
 					minetest.chat_send_player(playername, "Placement not allowed below " .. entry.xp .. " xp!")
