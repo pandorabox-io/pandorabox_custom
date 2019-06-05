@@ -10,4 +10,5 @@ scifi_nodes
 mesecons_mvps
 skybox
 sethome
+jumpdrive
 beacon?
