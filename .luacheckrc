@@ -3,7 +3,9 @@ allow_defined_top = true
 
 globals = {
 	"pandorabox",
-	"travelnet"
+	"travelnet",
+	"sethome",
+	"jumpdrive"
 }
 
 read_globals = {

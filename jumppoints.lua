@@ -19,13 +19,13 @@ local old_calculate_power = jumpdrive.calculate_power
 jumpdrive.calculate_power = function(radius, distance, sourcePos, targetPos)
 	for _, jumppoint in ipairs(jumppoints) do
 		-- check pull distance
-		local distance = vector.distance(targetPos, jumppoint.pos)
+		local pos_distance = vector.distance(targetPos, jumppoint.pos)
 		if jumppoint.push then
 			-- check push distance
-			distance = vector.distance(sourcePos, jumppoint.pos)
+			pos_distance = vector.distance(sourcePos, jumppoint.pos)
 		end
 
-		if distance < jumppoint.radius then
+		if pos_distance < jumppoint.radius then
 			return 0
 		end
 	end
@@ -43,7 +43,7 @@ local save_data = function()
       file:write(data);
       file:close();
    else
-      print(S("[pandorabox_custom] Error: Savefile '%s' could not be written."):format(tostring(path)));
+      print("[pandorabox_custom] Error: Savefile '" .. path .. "' could not be written.")
    end
 end
 
@@ -71,7 +71,7 @@ local load_data = function()
       return false
     end
   else
-    print(S("[pandorabox_custom] Error: Savefile '%s' not found."):format(tostring(path)));
+    print("[pandorabox_custom] Error: Savefile '" .. path .. "' not found.")
   end
 
   return true
