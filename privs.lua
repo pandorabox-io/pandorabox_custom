@@ -31,7 +31,8 @@ minetest.register_privilege("protect_technic_city_infra", {
 
 -- player fly
 minetest.register_privilege("player_fly", {
-	description = "can always fly"
+	description = "can always fly",
+	give_to_singleplayer = false
 })
 
 -- player fly event
@@ -41,6 +42,7 @@ minetest.register_privilege("fly_event", {
 
 -- no announcements for the player
 minetest.register_privilege("no_announce", {
-        description = "player does not get announced"
+        description = "player does not get announced",
+	give_to_singleplayer = false
 })
 
