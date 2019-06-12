@@ -38,3 +38,9 @@ minetest.register_privilege("player_fly", {
 minetest.register_privilege("fly_event", {
 	description = "can toggle global fly event"
 })
+
+-- no announcements for the player
+minetest.register_privilege("no_announce", {
+        description = "player does not get announced"
+})
+
