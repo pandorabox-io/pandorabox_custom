@@ -50,3 +50,9 @@ minetest.register_alias("technic:cottonseed_oil", "default:cobble")
 -- 2018-11-30 unknown item
 minetest.register_alias("chains:chandelier", "homedecor:chandelier_brass")
 minetest.register_alias("basic_materialsgold_wire", "basic_materials:gold_wire")
+
+-- 2019-06-21 digistuff upgrade
+minetest.register_alias("digistuff:publicbutton", "digistuff:button")
+minetest.register_alias("digistuff:publicbutton_on", "digistuff:button_on")
+minetest.register_alias("digistuff:publicbutton_off", "digistuff:button_off")
+
