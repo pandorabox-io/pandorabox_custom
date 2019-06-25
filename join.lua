@@ -1,16 +1,20 @@
 minetest.register_on_joinplayer(function(player)
 
+
+	local privs = minetest.get_player_privs(player:get_player_name())
+
 	-- 2018-08-07 home priv
-	if not minetest.check_player_privs(player, { home=true }) then
-		local privs = minetest.get_player_privs(player:get_player_name())
+	if not privs.home then
 		privs.home = true
 		minetest.set_player_privs(player:get_player_name(), privs)
 	end
 
-	-- 2018-11-12
-	-- register last connected ip
-	local ip = minetest.get_player_ip(player:get_player_name())
-	player:set_attribute("last_ip", ip);
+	-- 2019-06-25
+	-- no settime
+	if not privs.privs then
+		privs["settime"] = nil
+		minetest.set_player_privs(player:get_player_name(), privs)
+	end
 
 end)
 
