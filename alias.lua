@@ -56,3 +56,22 @@ minetest.register_alias("digistuff:publicbutton", "digistuff:button")
 minetest.register_alias("digistuff:publicbutton_on", "digistuff:button_on")
 minetest.register_alias("digistuff:publicbutton_off", "digistuff:button_off")
 
+-- 2019-06-26 homedecor upgrade
+
+local replacements = {}
+
+-- 2019-06-26 homedecor upgrade
+table.insert(replacements, {"stairs:slope_shingles_terracotta", "homedecor:shingle_side_terracotta"})
+table.insert(replacements, {"stairs:slope_shingles_wood", "homedecor:shingle_side_wood"})
+
+for i, replacement in ipairs(replacements) do
+	minetest.register_lbm({
+		name = "pandorabox_custom:replacement_" .. i,
+		nodenames = {replacement[1]},
+		run_at_every_load = true,
+		action = function(pos, node)
+			node.name = replacement[2]
+			minetest.swap_node(pos, node)
+		end
+	})
+end
