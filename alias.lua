@@ -63,6 +63,8 @@ local replacements = {}
 -- 2019-06-26 homedecor upgrade
 table.insert(replacements, {"stairs:slope_shingles_terracotta", "homedecor:shingle_side_terracotta"})
 table.insert(replacements, {"stairs:slope_shingles_wood", "homedecor:shingle_side_wood"})
+table.insert(replacements, {"stairs:stair_shingles_wood", "default:wood"})
+
 
 for i, replacement in ipairs(replacements) do
 	minetest.register_lbm({
