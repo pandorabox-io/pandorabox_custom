@@ -7,7 +7,7 @@ loot
 currency
 farming
 scifi_nodes
-mesecons_mvps
+mesecons_mvps?
 skybox
 sethome
 jumpdrive

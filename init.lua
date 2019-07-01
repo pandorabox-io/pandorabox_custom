@@ -14,7 +14,11 @@ dofile(MP.."/crafts.lua")
 dofile(MP.."/ylimit.lua")
 dofile(MP.."/grinder.lua")
 dofile(MP.."/cnc.lua")
-dofile(MP.."/mvps_stopper.lua")
+
+if minetest.get_modpath("mesecons_mvps") then
+	dofile(MP.."/mvps_stopper.lua")
+end
+
 dofile(MP.."/userlimit.lua")
 dofile(MP.."/sethome.lua")
 dofile(MP.."/letters.lua")
