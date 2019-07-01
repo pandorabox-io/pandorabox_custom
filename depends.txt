@@ -16,3 +16,5 @@ beacon?
 letters?
 unified_inventory?
 travelnet?
+telemosaic?
+missions?

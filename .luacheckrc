@@ -7,7 +7,8 @@ globals = {
 	"sethome",
 	"jumpdrive",
 	"minetest",
-	"unified_inventory"
+	"unified_inventory",
+	"telemosaic"
 }
 
 read_globals = {

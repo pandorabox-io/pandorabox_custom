@@ -2,7 +2,8 @@
 -- common
 
 local can_set_home = function(name, pos)
-	return not minetest.is_protected(pos, name)
+	-- check travel limit
+	return not minetest.is_protected(pos, name) and pandorabox.can_travel(minetest.get_player_by_name(name))
 end
 
 
