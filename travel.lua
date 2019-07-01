@@ -35,7 +35,7 @@ pandorabox.can_travel = function(player, pos)
 	if xp >= req_xp then
 		return true
 	else
-		minetest.chat_send_player(playername, "You need " .. req_xp " xp to travel to world-height of " .. math.floor(pos.y))
+		minetest.chat_send_player(playername, "You need " .. req_xp .. " xp to travel to world-height of " .. math.floor(pos.y))
 		return false
 	end
 end
