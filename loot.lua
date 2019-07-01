@@ -15,21 +15,25 @@ loot.register_loot(
        },
 })
 
-loot.register_loot(
-        { weights = { generic = 200 },
-          payload = { stack = ItemStack("currency:minegeld_5"),
-                      min_size = 1,
-                      max_size = 10,
-       },
-})
+if minetest.get_modpath("currency") then
 
-loot.register_loot(
-        { weights = { generic = 100 },
-          payload = { stack = ItemStack("currency:minegeld_10"),
-                      min_size = 1,
-                      max_size = 10,
-       },
-})
+	loot.register_loot(
+	        { weights = { generic = 200 },
+	          payload = { stack = ItemStack("currency:minegeld_5"),
+	                      min_size = 1,
+	                      max_size = 10,
+	       },
+	})
+
+	loot.register_loot(
+	        { weights = { generic = 100 },
+	          payload = { stack = ItemStack("currency:minegeld_10"),
+	                      min_size = 1,
+	                      max_size = 10,
+	       },
+	})
+end
+
 
 loot.register_loot(
         { weights = { generic = 200 },

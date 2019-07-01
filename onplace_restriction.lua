@@ -2,13 +2,16 @@
 local list = {
 	{ name="bucket:bucket_water", xp=200 },
 	{ name="bucket:bucket_river_water", xp=200 },
-	{ name="bucket:bucket_lava", xp=10000 },
-	{ name="technic:bucket_corium", xp=500000 },
-	{ name="technic:chernobylite_block", xp=100000 },
-	{ name="technic:uranium_block", xp=50000 },
-	{ name="technic:uranium0_block", xp=50000 },
-	{ name="technic:uranium35_block", xp=50000 }
+	{ name="bucket:bucket_lava", xp=10000 }
 }
+
+if minetest.get_modpath("technic") then
+	table.insert(list, { name="technic:bucket_corium", xp=500000 })
+	table.insert(list, { name="technic:chernobylite_block", xp=100000 })
+	table.insert(list, { name="technic:uranium_block", xp=50000 })
+	table.insert(list, { name="technic:uranium0_block", xp=50000 })
+	table.insert(list, { name="technic:uranium35_block", xp=50000 })
+end
 
 for _,entry in ipairs(list) do
 	print("Restricting placement of " .. entry.name .. " to xp level " .. entry.xp)
