@@ -12,7 +12,7 @@ end
 local old_set = sethome.set
 
 sethome.set = function(name, pos)
-	if can_set_home(pos, name) then
+	if can_set_home(name, pos) then
 		return old_set(name, pos)
 	else
 		return false
