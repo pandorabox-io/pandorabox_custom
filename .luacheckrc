@@ -5,7 +5,9 @@ globals = {
 	"pandorabox",
 	"travelnet",
 	"sethome",
-	"jumpdrive"
+	"jumpdrive",
+	"minetest",
+	"unified_inventory"
 }
 
 read_globals = {
@@ -24,7 +26,8 @@ read_globals = {
 	"dump",
 
 	-- Deps
-	"unified_inventory", "default", "advtrains",
+	"default", "advtrains",
+	"letters",
 
 	-- optional mods
 	"xban"
