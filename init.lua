@@ -12,7 +12,7 @@ end
 
 dofile(MP.."/privs.lua")
 dofile(MP.."/death.lua")
-dofile(MP.."/travelnet.lua")
+dofile(MP.."/travel.lua")
 
 if minetest.get_modpath("skybox") then
 	dofile(MP.."/skybox.lua")
