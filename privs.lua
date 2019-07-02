@@ -40,3 +40,6 @@ minetest.register_privilege("no_announce", {
 	give_to_singleplayer = false
 })
 
+
+-- jumpdrive
+minetest.register_privilege("jumpdrive_land", {"Can jump down to earth", give_to_singleplayer = false})

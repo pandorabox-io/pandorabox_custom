@@ -41,9 +41,28 @@ pandorabox.can_travel = function(player, pos)
 end
 
 
---if minetest.get_modpath("missions") then
-	-- TODO
---end
+if minetest.get_modpath("jumpdrive") then
+	jumpdrive.preflight_check = function(source, destination, radius, player)
+		local has_landing_priv = minetest.check_player_privs(player, {jumpdrive_land=true})
+
+		-- check for height limit, only space travel allowed
+		if destination.y > -20 and destination.y < 100 and not has_landing_priv then
+			return { success=false, message="Atmospheric travel not allowed!" }
+		end
+
+		-- check for upper limit
+		if destination.y > 18000 then
+			return { success=false, message="Region above 18k is reserved for now.." }
+		end
+
+		if not pandorabox.can_travel(player, destination) then
+			return { success=false, message="Jump failed" }
+		end
+
+		-- everything ok
+		return { success=true }
+	end
+end
 
 if minetest.get_modpath("telemosaic") then
 	local old_travel_allowed = telemosaic.travel_allowed
