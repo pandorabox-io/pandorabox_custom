@@ -33,19 +33,6 @@ jumpdrive.calculate_power = function(radius, distance, sourcePos, targetPos)
 	return old_calculate_power(radius, distance, sourcePos, targetPos)
 end
 
-local save_data = function()
-
-   local data = minetest.write_json(jumppoints, true);
-   local path = minetest.get_worldpath().."/jumppoints.json";
-
-   local file = io.open( path, "w" );
-   if( file ) then
-      file:write(data);
-      file:close();
-   else
-      print("[pandorabox_custom] Error: Savefile '" .. path .. "' could not be written.")
-   end
-end
 
 local load_data = function()
   local path = minetest.get_worldpath().."/jumppoints.json";
@@ -61,8 +48,8 @@ local load_data = function()
 
       local count = 0
       for _, jumppoint in ipairs(jumppoints) do
-        print("[pandorabox_custom] jumppoints '" .. jumppoint.name .. "', pos: " .. minetest.pos_to_string(jumppoint.pos) ..
-          ", radius: " .. jumppoint.radius)
+        print("[pandorabox_custom] jumppoints '" .. jumppoint.name .. "', pos: " ..
+		minetest.pos_to_string(jumppoint.pos) .. ", radius: " .. jumppoint.radius)
         count = count + 1
       end
 
