@@ -24,6 +24,7 @@ dofile(MP.."/death.lua")
 
 -- travel stuff
 dofile(MP.."/travel/travel.lua")
+dofile(MP.."/teleport_back.lua")
 
 if minetest.get_modpath("jumpdrive") then
 	-- limit jumpdrive travel

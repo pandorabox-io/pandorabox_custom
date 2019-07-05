@@ -3,7 +3,13 @@
 
 local can_set_home = function(name, pos)
 	-- check travel limit
-	return not minetest.is_protected(pos, name) and pandorabox.can_teleport(minetest.get_player_by_name(name), pos)
+	local can_teleport, errmsg = pandorabox.can_teleport(minetest.get_player_by_name(name), pos)
+	if not minetest.is_protected(pos, name) and can_teleport then
+		return true
+	else
+		minetest.chat_send_player(name, errmsg)
+		return false
+	end
 end
 
 

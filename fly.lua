@@ -74,7 +74,7 @@ end
 local timer = 0
 minetest.register_globalstep(function(dtime)
 	timer = timer + dtime
-	if timer < 0.5 then return end
+	if timer < 0.75 then return end
 	timer=0
 	local t0 = minetest.get_us_time()
 	local players = minetest.get_connected_players()
