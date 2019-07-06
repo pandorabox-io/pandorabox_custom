@@ -7,7 +7,9 @@ local can_set_home = function(name, pos)
 	if not minetest.is_protected(pos, name) and can_teleport then
 		return true
 	else
-		minetest.chat_send_player(name, errmsg)
+		if errmsg then
+			minetest.chat_send_player(name, errmsg)
+		end
 		return false
 	end
 end
