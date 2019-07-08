@@ -1,3 +1,40 @@
+
+local public_networks = {}
+
+public_networks["korlen"] = {
+	"shop",
+	"stable_shops",
+	"new_shops",
+	"tutorials",
+	"workshops"
+}
+
+
+-- who can attach to which network
+travelnet.allow_attach = function(player_name, owner_name, network_name)
+
+	local is_moderator = minetest.check_player_privs(player_name, { ban=true })
+	if owner_name == "admin" and network_name == "moderator" and is_moderator then
+		-- public moderator network
+		return true
+	end
+
+	local net_index =  public_networks[player_name]
+	if not net_index then
+		-- not in the list
+		return false
+	end
+
+	for _, name in ipairs(net_index) do
+		if name == network_name then
+			return true
+		end
+	end
+
+	return false
+end
+
+-- basic travelling stuff
 travelnet.allow_travel = function( player_name, owner_name, network_name, station_name_start, station_name_target )
 
 	local has_override_priv = minetest.check_player_privs(player_name, { protection_bypass=true })
