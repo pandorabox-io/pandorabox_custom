@@ -6,7 +6,13 @@ public_networks["korlen"] = {
 	"stable_shops",
 	"new_shops",
 	"tutorials",
-	"workshops"
+	"workshops",
+	"mars",
+	"moon",
+	"space",
+	"trains",
+	"unclaimed",
+	"earn"
 }
 
 
