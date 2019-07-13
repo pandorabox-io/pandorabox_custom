@@ -25,7 +25,7 @@ travelnet.allow_attach = function(player_name, owner_name, network_name)
 		return true
 	end
 
-	local net_index =  public_networks[player_name]
+	local net_index =  public_networks[owner_name]
 	if not net_index then
 		-- not in the list
 		return false
