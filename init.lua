@@ -88,4 +88,3 @@ if minetest.get_modpath("letters") then
 end
 
 
---dofile(MP.."/drawers.lua")
