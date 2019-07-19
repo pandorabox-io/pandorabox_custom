@@ -12,7 +12,8 @@ public_networks["korlen"] = {
 	"space",
 	"trains",
 	"unclaimed",
-	"earn"
+	"earn",
+	"restaurants"
 }
 
 
