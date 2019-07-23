@@ -87,4 +87,5 @@ if minetest.get_modpath("letters") then
 	dofile(MP.."/letters.lua")
 end
 
-
+-- announce chat cmd's
+dofile(MP.."/announce.lua")
