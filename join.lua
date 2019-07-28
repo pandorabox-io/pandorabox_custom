@@ -16,5 +16,12 @@ minetest.register_on_joinplayer(function(player)
 		minetest.set_player_privs(player:get_player_name(), privs)
 	end
 
+	-- 2019-07-28
+	-- https://github.com/pandorabox-io/pandorabox.io/issues/237
+	if not privs.tp then
+		privs["tp"] = true
+		minetest.set_player_privs(player:get_player_name(), privs)
+	end
+
 end)
 
