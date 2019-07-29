@@ -4,7 +4,6 @@ skybox.register({
 	name = "space",
 	miny = 1000,
 	maxy = 5000,
-	gravity = 0.8,
 	textures = {"space_sky.png","space_sky2.png","space_sky.png","space_sky.png","space_sky.png","space_sky.png"}
 })
 
@@ -13,7 +12,6 @@ skybox.register({
 	name = "moon",
 	miny = 5001,
 	maxy = 6000,
-	gravity = 0.1654,
 	always_day = true,
 	textures = {"space_sky.png","space_sky.png","space_sky.png","space_sky.png","space_sky.png","space_sky.png"}
 })
@@ -25,7 +23,6 @@ skybox.register({
 	name = "deepspace",
 	miny = 6001,
 	maxy = 10999,
-	gravity = 0.1,
 	always_day = true,
 	fly = true,
 	textures = {

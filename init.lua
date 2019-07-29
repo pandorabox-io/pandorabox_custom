@@ -44,6 +44,11 @@ if minetest.get_modpath("travelnet") then
 	dofile(MP.."/travel/travelnet.lua")
 end
 
+if minetest.get_modpath("gravity_manager") then
+	-- register gravity zones
+	dofile(MP.."/gravity_manager.lua")
+end
+
 if minetest.get_modpath("skybox") then
 	-- planetary skyboxes
 	dofile(MP.."/skybox.lua")
