@@ -18,3 +18,4 @@ unified_inventory?
 travelnet?
 telemosaic?
 missions?
+spacecannon?

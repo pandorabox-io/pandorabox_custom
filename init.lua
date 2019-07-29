@@ -87,6 +87,11 @@ if minetest.get_modpath("letters") then
 	dofile(MP.."/letters.lua")
 end
 
+-- spacecannon mod
+if minetest.get_modpath("spacecannon") then
+	dofile(MP.."/spacecannon.lua")
+end
+
 -- announce chat cmd's
 dofile(MP.."/announce.lua")
 
