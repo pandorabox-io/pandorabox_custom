@@ -17,5 +17,5 @@ gravity_manager.register({
 gravity_manager.register({
 	miny = 6001,
 	maxy = 10999,
-	gravity = 0.1
+	gravity = 0.01
 })
