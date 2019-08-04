@@ -11,8 +11,8 @@ minetest.register_globalstep(function(dtime)
 		return
 	end
 
-	-- every 2 seconds
-	if timer < 2 then return end
+	-- every 10 seconds
+	if timer < 10 then return end
 	timer = 0
 
 	for _,player in ipairs(minetest.get_connected_players()) do
