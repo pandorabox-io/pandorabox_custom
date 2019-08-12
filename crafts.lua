@@ -39,3 +39,55 @@ minetest.register_craft({
 		'default:bronzeblock'
 	}
 })
+
+
+
+
+-- sand/sandstone dyeing recipes
+
+local sands = {
+	{"default:sand", "dye:white"},
+	{"default:silver_sand", "dye:grey"},
+	{"default:desert_sand", "dye:brown"}
+}
+
+for i = 1, #sands do
+	local output_sand, dye = unpack(sands[i])
+	for i = 1, #sands do
+		local input_sand, _ = unpack(sands[i])
+		if input_sand ~= output_sand then
+			minetest.register_craft({
+				output = output_sand .. " 8",
+				recipe = {
+					{input_sand, input_sand, input_sand},
+					{input_sand, dye, input_sand},
+					{input_sand, input_sand, input_sand}
+				},
+			})
+		end
+	end
+end
+
+
+local sandstones = {
+	{"default:sandstone", "dye:white"},
+	{"default:silver_sandstone", "dye:grey"},
+	{"default:desert_sandstone", "dye:brown"}
+}
+
+for i = 1, #sandstones do
+	local output_sandstone, dye = unpack(sandstones[i])
+	for i = 1, #sandstones do
+		local input_sandstone, _ = unpack(sandstones[i])
+		if input_sandstone ~= output_sandstone then
+			minetest.register_craft({
+				output = output_sandstone .. " 4",
+				recipe = {
+					{"", input_sandstone, ""},
+					{input_sandstone, dye, input_sandstone},
+					{"", input_sandstone, ""}
+				},
+			})
+		end
+	end
+end
