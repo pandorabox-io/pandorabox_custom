@@ -63,6 +63,12 @@ minetest.register_alias("stairs:slope_shingles_terracotta", "homedecor:shingle_s
 minetest.register_alias("stairs:slope_shingles_wood", "homedecor:shingle_side_wood")
 minetest.register_alias("stairs:stair_shingles_wood", "default:wood")
 
+-- 2019-08-16 smartrenting removal (again, the 2nd time)
+minetest.register_alias("smartrenting:panel", "default:stone")
+minetest.register_alias("smartrenting:card", "default:stone")
+
+
+-- for future use
 local replacements = {}
 for i, replacement in ipairs(replacements) do
 	minetest.register_lbm({
