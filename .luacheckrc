@@ -8,7 +8,9 @@ globals = {
 	"jumpdrive",
 	"minetest",
 	"unified_inventory",
-	"telemosaic"
+	"telemosaic",
+	"gravity_manager",
+	"spacecannon"
 }
 
 read_globals = {

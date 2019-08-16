@@ -53,7 +53,7 @@ local sands = {
 
 for i = 1, #sands do
 	local output_sand, dye = unpack(sands[i])
-	for i = 1, #sands do
+	for j = 1, #sands do
 		local input_sand, _ = unpack(sands[i])
 		if input_sand ~= output_sand then
 			minetest.register_craft({
@@ -77,7 +77,7 @@ local sandstones = {
 
 for i = 1, #sandstones do
 	local output_sandstone, dye = unpack(sandstones[i])
-	for i = 1, #sandstones do
+	for j = 1, #sandstones do
 		local input_sandstone, _ = unpack(sandstones[i])
 		if input_sandstone ~= output_sandstone then
 			minetest.register_craft({
