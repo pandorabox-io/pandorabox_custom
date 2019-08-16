@@ -67,6 +67,15 @@ minetest.register_alias("stairs:stair_shingles_wood", "default:wood")
 minetest.register_alias("smartrenting:panel", "default:stone")
 minetest.register_alias("smartrenting:card", "default:stone")
 
+-- 2019-08-16 bushes removal
+minetest.register_alias("bushes:youngtree2_bottom", "air")
+minetest.register_alias("bushes:bushbranches1", "air")
+minetest.register_alias("bushes:bushbranches2", "air")
+minetest.register_alias("bushes:bushbranches3", "air")
+minetest.register_alias("bushes:bushbranches4", "air")
+minetest.register_alias("bushes:BushLeaves1", "air")
+minetest.register_alias("bushes:BushLeaves2", "air")
+
 
 -- for future use
 local replacements = {}
