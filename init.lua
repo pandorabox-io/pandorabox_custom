@@ -16,6 +16,9 @@ if minetest.get_modpath("loot") then
 	dofile(MP.."/loot.lua")
 end
 
+-- /spawn command
+dofile(MP.."/spawn.lua")
+
 -- custom privs
 dofile(MP.."/privs.lua")
 
