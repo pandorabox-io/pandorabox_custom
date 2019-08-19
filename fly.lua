@@ -1,4 +1,5 @@
 local has_beacon_mod = minetest.get_modpath("beacon")
+local use_player_monoids = minetest.global_exists("player_monoids")
 
 local fly_near = {} -- [{ name="", distance=0 }]
 
@@ -13,62 +14,44 @@ if has_beacon_mod then
 end
 
 
+local player_can_fly = function(player)
+	local pos = player:get_pos()
+	for _, box in pairs(skybox.list) do
+		if pos.y > box.miny and pos.y < box.maxy then
+			-- height match found
+			if box.fly then
+				return true
+			end
+			break
+		end
+	end
+
+	for _, def in pairs(fly_near) do
+		if minetest.find_node_near(pos, def.distance, def.name) then
+			return true
+		end
+	end
+
+	return global_fly_enabled
+end
+
 local update_fly = function(player)
-  local pos = player:get_pos()
-  local name = player:get_player_name()
-  local privs = minetest.get_player_privs(name)
-
-  local player_is_admin = privs.privs
-  local player_can_always_fly = privs.player_fly
-
-  local skybox_enables_fly = false
-  for _,box in pairs(skybox.list) do
-    if pos.y > box.miny and pos.y < box.maxy then
-      -- height match found
-      if box.fly then
-        skybox_enables_fly = true
-      end
-    end
-  end
-
-  local is_near_fly_node = false
-  for _, def in pairs(fly_near) do
-    if minetest.find_node_near(pos, def.distance, {def.name}) then
-      is_near_fly_node = true
-      break
-    end
-  end
-
-
+	local name = player:get_player_name()
+	local privs = minetest.get_player_privs(name)
+	local player_is_admin = privs.privs
+	local player_can_always_fly = privs.player_fly
 	if player_is_admin or player_can_always_fly then
 		-- not touching admin privs or skybox override
 		return
 	end
 
-  local can_fly = skybox_enables_fly or is_near_fly_node or global_fly_enabled
-
-	if privs.fly and can_fly then
-		-- already fly granted
-		return
-	end
-
-	if not privs.fly and not can_fly then
-		-- no fly
-		return
-	end
-
-	if not privs.fly and can_fly then
-		-- grant fly
-		privs.fly = true
+	local can_fly = player_can_fly(player)
+	if use_player_monoids then
+		player_monoids.fly:add_change(player, can_fly, "pandorabox_custom:fly")
+	elseif privs.fly ~= can_fly then
+		privs.fly = can_fly or nil
 		minetest.set_player_privs(name, privs)
-
-	elseif privs.fly and not can_fly then
-		-- revoke fly
-		privs.fly = nil
-		minetest.set_player_privs(name, privs)
-
 	end
-
 end
 
 local timer = 0
