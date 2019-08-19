@@ -100,6 +100,9 @@ end
 -- announce chat cmd's
 dofile(MP.."/announce.lua")
 
+-- recipe redefinitions
+dofile(MP.."/recipes.lua")
+
 -- general hacks
 dofile(MP.."/hacks.lua")
 
