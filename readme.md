@@ -1,7 +1,7 @@
 
 # Pandorabox custom stuff mod
 
-<img src="https://travis-ci.com/pandorabx-io/pandorabox_custom.svg?branch=master"></img>
+[![Build Status](https://travis-ci.com/pandorabox-io/pandorabox_custom.svg?branch=master)](https://travis-ci.com/pandorabox-io/pandorabox_custom)
 
 * Death messages
 * cnc items
