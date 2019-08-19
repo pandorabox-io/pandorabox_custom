@@ -11,3 +11,14 @@ if minetest.get_modpath("ccompass") and minetest.get_modpath("digtron") then
 		}
 	})
 end
+
+if minetest.get_modpath("charcoal") then
+	-- charcoal / tar clash
+	minetest.clear_craft({ output = "charcoal:charcoal_lump" })
+	minetest.register_craft({
+	        output = "charcoal:charcoal_lump 4",
+	        type = "cooking",
+	        recipe = "group:wood",
+		cooktime = 4
+	})
+end
