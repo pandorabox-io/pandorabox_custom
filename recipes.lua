@@ -22,3 +22,16 @@ if minetest.get_modpath("charcoal") then
 		cooktime = 4
 	})
 end
+
+if minetest.get_modpath("castle_weapons") then
+	minetest.clear_craft({ output = "castle_weapons:crossbow_bolt" })
+	minetest.register_craft({
+		output = "castle_weapons:crossbow_bolt 6",
+		recipe = {
+			{'default:stick', 'default:stick', 'default:steel_ingot'},
+			{'default:stick', '', ''},
+			{'', '', ''}
+		}
+	})
+
+end
