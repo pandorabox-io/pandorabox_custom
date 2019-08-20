@@ -30,7 +30,7 @@ read_globals = {
 
 	-- Deps
 	"default", "advtrains",
-	"letters",
+	"letters", "player_monoids",
 
 	-- optional mods
 	"xban"

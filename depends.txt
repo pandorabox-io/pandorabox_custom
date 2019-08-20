@@ -24,3 +24,4 @@ digtron?
 ccompass?
 charcoal?
 castle_weapons?
+player_monoids?
