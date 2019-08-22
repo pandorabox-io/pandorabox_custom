@@ -12,5 +12,6 @@ minetest.register_chatcommand("dump_pos", {
 		local pos = player:get_pos()
 		minetest.log("warning", "[dump_pos] Position of " .. pname .. ": " .. minetest.pos_to_string(pos))
 	end
+	return true, "positions dumped to log!"
     end
 })
