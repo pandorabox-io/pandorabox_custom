@@ -5,8 +5,12 @@
 minetest.register_chatcommand("dump_pos", {
     description = "Teleport you to spawn point.",
     privs = { ban = true },
-    func = function(name)
-	minetest.log("warning", "[dump_pos] dumping player positions, initiated by player: " .. name)
+    func = function(name, params)
+	minetest.log(
+		"warning",
+		"[dump_pos] dumping player positions, initiated by player: " ..
+			name .. " reason: " .. (params or "")
+	)
 	for _, player in ipairs(minetest.get_connected_players()) do
 		local pname = player:get_player_name()
 		local pos = player:get_pos()
