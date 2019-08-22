@@ -19,6 +19,9 @@ end
 -- /spawn command
 dofile(MP.."/spawn.lua")
 
+-- /dump_pos command
+dofile(MP.."/dump_pos.lua")
+
 -- custom privs
 dofile(MP.."/privs.lua")
 
