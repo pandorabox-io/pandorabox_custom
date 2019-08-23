@@ -43,6 +43,7 @@ minetest.register_craft({
 
 
 
+-- 2019-08-12
 -- sand/sandstone dyeing recipes
 
 local sands = {
