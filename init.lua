@@ -78,7 +78,7 @@ dofile(MP.."/crafts.lua")
 if minetest.get_modpath("technic") then
 	-- grinder recipes
 	dofile(MP.."/grinder.lua")
-	
+
 	-- extractor recipes
 	dofile(MP.."/extractor.lua")
 end
