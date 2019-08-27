@@ -40,6 +40,11 @@ if minetest.get_modpath("jumpdrive") then
 	dofile(MP.."/jumppoints.lua")
 end
 
+if minetest.get_modpath("pipeworks") then
+	-- pipeworks commands
+	dofile(MP.."/pipeworks.lua")
+end
+
 if minetest.get_modpath("telemosaic") then
 	-- limit telemosaic travel
 	dofile(MP.."/travel/telemosaic.lua")
