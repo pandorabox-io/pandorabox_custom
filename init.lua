@@ -121,3 +121,6 @@ dofile(MP.."/recipes.lua")
 -- general hacks
 dofile(MP.."/hacks.lua")
 
+if minetest.settings:get_bool("enable_integration_test") then
+	dofile(MP.."/integration_test.lua")
+end
