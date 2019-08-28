@@ -47,7 +47,9 @@ local update_fly = function(player)
 
 	local can_fly = player_can_fly(player)
 	if use_player_monoids then
-		player_monoids.fly:add_change(player, can_fly, "pandorabox_custom:fly")
+		if player_monoids.fly:value(player) ~= can_fly then
+			player_monoids.fly:add_change(player, can_fly, "pandorabox_custom:fly")
+		end
 	elseif privs.fly ~= can_fly then
 		privs.fly = can_fly or nil
 		minetest.set_player_privs(name, privs)
