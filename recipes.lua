@@ -21,6 +21,16 @@ if minetest.get_modpath("charcoal") then
 	        recipe = "group:wood",
 		cooktime = 4
 	})
+
+	-- "manual" craft for https://github.com/pandorabox-io/pandorabox.io/issues/291
+	minetest.register_craft({
+	        output = "dye:black",
+		recipe = {
+			{'charcoal:charcoal_lump', 'charcoal:charcoal_lump', 'charcoal:charcoal_lump'},
+			{'charcoal:charcoal_lump', 'charcoal:charcoal_lump', 'charcoal:charcoal_lump'},
+			{'charcoal:charcoal_lump', 'charcoal:charcoal_lump', 'charcoal:charcoal_lump'}
+		}
+	})
 end
 
 if minetest.get_modpath("castle_weapons") then
