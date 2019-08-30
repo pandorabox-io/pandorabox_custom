@@ -64,19 +64,6 @@ pandorabox.can_teleport = function(player, pos)
 
 	-- walk-only areas here
 
-	-- amun system
-	-- x=10000, z=15000, y=9700
-	-- system-radius=500
-	-- sun-radius=250, planet-radius=100
-
-	local amun_sun_pos = { x=10000, z=15000, y=9700 }
-	local distance = vector.distance(amun_sun_pos, pos)
-
-	if distance > 50 and distance < 800 then
-		-- only allow teleporting in the center of the system
-		return false, "Can't travel into Amun subspace-bubble!"
-	end
-
 	return true
 end
 
