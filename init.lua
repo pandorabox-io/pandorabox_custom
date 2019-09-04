@@ -32,6 +32,11 @@ dofile(MP.."/death.lua")
 dofile(MP.."/travel/travel.lua")
 dofile(MP.."/teleport_back.lua")
 
+if minetest.get_modpath("farming") then
+	-- farming customizations
+	dofile(MP.."/farming.lua")
+end
+
 if minetest.get_modpath("jumpdrive") then
 	-- limit jumpdrive travel
 	dofile(MP.."/travel/jumpdrive.lua")

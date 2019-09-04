@@ -5,7 +5,7 @@ basic_materials?
 bucket?
 loot?
 currency?
-farming
+farming?
 scifi_nodes?
 mesecons_mvps?
 xp_redo?
