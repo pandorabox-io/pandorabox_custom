@@ -35,13 +35,22 @@ local player_can_fly = function(player)
 	return global_fly_enabled
 end
 
-local update_fly = function(player)
-	local name = player:get_player_name()
+-- returns:
+--  true = manipulate fly privs
+--  false = no manipulation on privs
+local do_fly_priv_manipulation = function(name)
 	local privs = minetest.get_player_privs(name)
 	local player_is_admin = privs.privs
 	local player_can_always_fly = privs.player_fly
-	if player_is_admin or player_can_always_fly then
-		-- not touching admin privs or skybox override
+
+	-- not touching admin privs
+	return not player_is_admin and not player_can_always_fly
+end
+
+local update_fly = function(player)
+	local name = player:get_player_name()
+
+	if not do_fly_priv_manipulation(name) then
 		return
 	end
 
@@ -50,11 +59,27 @@ local update_fly = function(player)
 		if player_monoids.fly:value(player) ~= can_fly then
 			player_monoids.fly:add_change(player, can_fly, "pandorabox_custom:fly")
 		end
-	elseif privs.fly ~= can_fly then
-		privs.fly = can_fly or nil
-		minetest.set_player_privs(name, privs)
+	else
+		local privs = minetest.get_player_privs(name)
+		if privs.fly ~= can_fly then
+			privs.fly = can_fly or nil
+			minetest.set_player_privs(name, privs)
+		end
 	end
 end
+
+-- strip away fly privs on non-admins
+minetest.register_on_leaveplayer(function(player)
+	local name = player:get_player_name()
+
+	if not do_fly_priv_manipulation(name) then
+		return
+	end
+
+	local privs = minetest.get_player_privs(name)
+	privs.fly = nil
+	minetest.set_player_privs(name, privs)
+end)
 
 local timer = 0
 minetest.register_globalstep(function(dtime)
