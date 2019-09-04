@@ -26,3 +26,5 @@ charcoal?
 castle_weapons?
 player_monoids?
 pipeworks?
+mobs_redo?
+mobs_turtles?

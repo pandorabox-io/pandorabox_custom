@@ -32,6 +32,11 @@ dofile(MP.."/death.lua")
 dofile(MP.."/travel/travel.lua")
 dofile(MP.."/teleport_back.lua")
 
+if minetest.get_modpath("mobs_redo") then
+	-- mob tuning
+	dofile(MP.."/mobs.lua")
+end
+
 if minetest.get_modpath("farming") then
 	-- farming customizations
 	dofile(MP.."/farming.lua")
