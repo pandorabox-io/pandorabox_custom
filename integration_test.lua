@@ -1,4 +1,6 @@
 
+minetest.log("warning", "[pandorabox_custom] integration-test enabled!")
+
 minetest.register_on_mods_loaded(function()
 	minetest.after(1, function()
 		local data = minetest.write_json({ success = true }, true);
