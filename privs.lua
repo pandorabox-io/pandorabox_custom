@@ -17,6 +17,12 @@ minetest.register_privilege("protect_public_infrastructure", {
         description = "Protection for common public infrastructure (machines, etc)"
 })
 
+-- pseudo-server
+minetest.register_privilege("server_control", {
+        description = "Can operate the server command center"
+})
+
+
 -- specific privs
 
 minetest.register_privilege("protect_technic_city_infra", {
