@@ -16,7 +16,7 @@ minetest.register_on_mods_loaded(function()
 
 		file = io.open(minetest.get_worldpath().."/registered_nodes.txt", "w" );
 		if file then
-			for name, node in ipairs(minetest.registered_nodes) do
+			for name in pairs(minetest.registered_nodes) do
 				file:write(name .. '\n')
 			end
 			file:close()
