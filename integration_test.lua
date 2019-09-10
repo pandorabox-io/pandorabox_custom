@@ -8,12 +8,18 @@ minetest.register_on_mods_loaded(function()
 		minetest.log("warning", "[pandorabox_custom] starting integration test")
 
 		local data = minetest.write_json({ success = true }, true);
-		local path = minetest.get_worldpath().."/integration_test.json";
+		local file = io.open(minetest.get_worldpath().."/integration_test.json", "w" );
+		if file then
+			file:write(data)
+			file:close()
+		end
 
-		local file = io.open( path, "w" );
-		if( file ) then
-			file:write(data);
-			file:close();
+		file = io.open(minetest.get_worldpath().."/registered_nodes.txt", "w" );
+		if file then
+			for name, node in ipairs(minetest.registered_nodes) do
+				file:write(name .. '\n')
+			end
+			file:close()
 		end
 
 		minetest.log("warning", "[pandorabox_custom] integration tests done!")
