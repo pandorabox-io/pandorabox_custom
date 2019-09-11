@@ -45,3 +45,11 @@ if minetest.get_modpath("castle_weapons") then
 	})
 
 end
+
+-- book renewal
+minetest.register_craft({
+        type = "shapeless",
+        output = "default:book",
+        recipe = {"default:book_written", "default:paper"}
+})
+
