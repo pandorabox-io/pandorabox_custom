@@ -6,6 +6,9 @@ local MP = minetest.get_modpath("pandorabox_custom")
 -- unknown item aliasing
 dofile(MP.."/alias.lua")
 
+-- xban issue
+dofile(MP.."/get_player_ip.lua")
+
 -- cleanups
 dofile(MP.."/cleanup.lua")
 
