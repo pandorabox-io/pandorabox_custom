@@ -8,3 +8,8 @@ if minetest.get_modpath("technic") then
 	mesecon.register_mvps_stopper("technic:constructor_mk3_off")
 	mesecon.register_mvps_stopper("technic:constructor_mk3_on")
 end
+
+mesecon.register_mvps_stopper("default:chest_open")
+mesecon.register_mvps_stopper("default:chest_locked_open")
+mesecon.register_mvps_stopper("default:chest_locked")
+
