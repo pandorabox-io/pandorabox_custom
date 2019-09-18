@@ -97,6 +97,9 @@ if minetest.get_modpath("technic") then
 
 	-- extractor recipes
 	dofile(MP.."/extractor.lua")
+
+	-- tweaks
+	dofile(MP.."/technic.lua")
 end
 
 if minetest.get_modpath("technic_cnc") then
