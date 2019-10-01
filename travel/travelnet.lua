@@ -1,25 +1,7 @@
 
 local public_networks = {}
 
-public_networks["korlen"] = {
-	"shop",
-	"stable_shops",
-	"new_shops",
-	"nice_shops",
-	"great_shops",
-	"cool_shops",
-	"amazing_shops",
-	"tutorials",
-	"workshops",
-	"mars",
-	"moon",
-	"space",
-	"trains",
-	"unclaimed",
-	"earn",
-	"restaurants"
-}
-
+public_networks["korlen"] = true
 
 -- who can attach to which network
 travelnet.allow_attach = function(player_name, owner_name, network_name)
@@ -30,16 +12,8 @@ travelnet.allow_attach = function(player_name, owner_name, network_name)
 		return true
 	end
 
-	local net_index =  public_networks[owner_name]
-	if not net_index then
-		-- not in the list
-		return false
-	end
-
-	for _, name in ipairs(net_index) do
-		if name == network_name then
-			return true
-		end
+	if public_networks[owner_name] then
+		return true
 	end
 
 	return false
