@@ -1,6 +1,6 @@
 
 -- /dump_pos
--- prints all players with theyr current position into the logs
+-- prints all players with their current position into the logs
 -- best used for persistent lag which could be abm/position related (mesecons)
 minetest.register_chatcommand("dump_pos", {
     description = "Teleport you to spawn point.",
