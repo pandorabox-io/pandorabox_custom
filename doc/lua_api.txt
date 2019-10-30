@@ -14,7 +14,7 @@ in run-time loaded mods.
 A mod is a self-contained bunch of scripts, textures and other related
 things, which is loaded by and interfaces with Minetest.
 
-Mods are contained and ran solely on the server side. Definitions and media
+Mods are contained and run solely on the server side. Definitions and media
 files are automatically transferred to the client.
 
 If you see a deficiency in the API, feel free to attempt to add the
