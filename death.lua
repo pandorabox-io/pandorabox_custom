@@ -9,12 +9,14 @@ minetest.register_on_dieplayer(function(player)
 	pos.y = math.floor(pos.y + 0.5)
 	pos.z = math.floor(pos.z + 0.5)
 
-	minetest.log("action", "[death] player '" .. player_name .. "' died at " .. minetest.pos_to_string(pos))
-	minetest.chat_send_player(player_name, "You died at " .. minetest.pos_to_string(pos))
+	local pos_string = minetest.pos_to_string(pos)
+
+	minetest.log("action", "[death] player '" .. player_name .. "' died at " .. pos_string)
+	minetest.chat_send_player(player_name, "You died at " .. pos_string)
 
 	local hud_id = player:hud_add({
 		hud_elem_type = "waypoint",
-		name = "Bones of " .. player_name,
+		name = "Bones " .. pos_string,
 		text = "m",
 		number = 0xFFFFFF,
 		world_pos = pos
