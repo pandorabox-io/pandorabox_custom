@@ -13,3 +13,15 @@ mesecon.register_mvps_stopper("default:chest_open")
 mesecon.register_mvps_stopper("default:chest_locked_open")
 mesecon.register_mvps_stopper("default:chest_locked")
 
+if minetest.get_modpath("computer") then
+	mesecon.register_mvps_stopper("computer:tetris_arcade")
+end
+
+if minetest.get_modpath("fancy_vend") then
+	mesecon.register_mvps_stopper("fancy_vend:display_node")
+	mesecon.register_mvps_stopper("fancy_vend:player_vendor")
+	mesecon.register_mvps_stopper("fancy_vend:player_depo")
+	mesecon.register_mvps_stopper("fancy_vend:admin_vendor")
+	mesecon.register_mvps_stopper("fancy_vend:admin_depo")
+end
+
