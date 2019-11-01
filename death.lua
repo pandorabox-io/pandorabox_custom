@@ -14,9 +14,17 @@ minetest.register_on_dieplayer(function(player)
 	minetest.log("action", "[death] player '" .. player_name .. "' died at " .. pos_string)
 	minetest.chat_send_player(player_name, "You died at " .. pos_string)
 
+	local bone_string = "Bones"
+	if player.get_attribute then
+		-- [xp_redo] keeps track of deathcount, let's see if it is there
+		local count = player:get_attribute("died")
+		if count then
+			bone_string = "Bone #" .. tostring(count)
+		end
+	end -- if not fake player
 	local hud_id = player:hud_add({
 		hud_elem_type = "waypoint",
-		name = "Bones " .. pos_string,
+		name = bone_string .. " " .. pos_string,
 		text = "m",
 		number = 0xFFFFFF,
 		world_pos = pos
