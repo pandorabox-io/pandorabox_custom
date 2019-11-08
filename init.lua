@@ -22,6 +22,9 @@ if minetest.get_modpath("loot") then
 	dofile(MP.."/loot.lua")
 end
 
+-- death fix stuff (stolen from https://github.com/BlockySurvival/bls_custom/blob/master/fix_dead_on_login.lua)
+dofile(MP.."/fix_dead_on_login.lua")
+
 -- /spawn command
 dofile(MP.."/spawn.lua")
 
