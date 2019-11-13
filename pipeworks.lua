@@ -30,7 +30,7 @@ minetest.register_chatcommand("pipeworks_stats", {
 -- idea and implementation originally by @SwissalpS
 -- (https://github.com/pandorabox-io/pipeworks/commit/fe699d96213332c8dd5b9b7fd6fb0ec37eb3e500)
 for i=1,10 do
-  minetest.override_item("pipeworks:teleport_tube_" .. i, {
+  minetest.override_item("pipeworks:mese_sand_tube_" .. i, {
     on_construct = function(pos)
       local meta = minetest.get_meta(pos)
       meta:set_int("dist", 0)
