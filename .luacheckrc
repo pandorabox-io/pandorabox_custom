@@ -25,7 +25,7 @@ read_globals = {
 	-- Minetest
 	"minetest",
 	"vector", "ItemStack",
-	"dump",
+	"dump", "screwdriver",
 
 	-- Deps
 	"default", "advtrains",
