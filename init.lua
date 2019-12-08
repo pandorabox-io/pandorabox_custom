@@ -46,6 +46,11 @@ if minetest.get_modpath("farming") then
 	dofile(MP.."/farming.lua")
 end
 
+if minetest.get_modpath("advtrains") then
+	-- advtrains stuff
+	dofile(MP.."/advtrains.lua")
+end
+
 if minetest.get_modpath("jumpdrive") then
 	-- limit jumpdrive travel
 	dofile(MP.."/travel/jumpdrive.lua")
