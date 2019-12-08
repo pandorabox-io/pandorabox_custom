@@ -1,7 +1,7 @@
 
 # Pandorabox custom stuff mod
 
-[![Build Status](https://travis-ci.com/pandorabox-io/pandorabox_custom.svg?branch=master)](https://travis-ci.com/pandorabox-io/pandorabox_custom)
+![](https://github.com/pandorabox-io/pandorabox_custom/workflows/luacheck/badge.svg)
 
 * Death messages
 * cnc items
@@ -17,3 +17,4 @@
 * custom loots
 * additional protection privs for the priv-protector
 * fly
+* advtrains
