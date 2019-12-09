@@ -23,12 +23,15 @@ minetest.register_chatcommand("advtrains_cleanup", {
   description = "cleans up all non-automated trains",
   privs = { server = true },
   func = function(name, param)
-		for _, train in pairs(advtrains.trains) do
-			if not active_trains[train.id] then
-				advtrains.remove_train(train.id)
-			end
+	local count = 0
+	for _, train in pairs(advtrains.trains) do
+		if not active_trains[train.id] then
+			advtrains.remove_train(train.id)
+			count = count + 1
 		end
 	end
+	return true, "Removed " .. count .. " trains"
+  end
 })
 
 
