@@ -39,7 +39,7 @@ minetest.register_chatcommand("advtrains_stats", {
 		local wagon_count = 0
 		local active_train_count = 0
 
-		for _ in ipairs(active_trains) do
+		for _ in pairs(active_trains) do
 			active_train_count = active_train_count + 1
 		end
 
