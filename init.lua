@@ -15,6 +15,7 @@ dofile(MP.."/cleanup.lua")
 -- bucket and xp limitation
 if minetest.get_modpath("bucket") and minetest.get_modpath("xp_redo") then
 	dofile(MP.."/onplace_restriction.lua")
+	dofile(MP.."/xp_priv.lua")
 end
 
 -- loot customization
