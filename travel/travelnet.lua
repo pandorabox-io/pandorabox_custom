@@ -4,12 +4,29 @@ local public_networks = {}
 public_networks["korlen"] = true
 
 -- who can dig the box
-travelnet.allow_dig = function(player_name, owner_name, network_name)
+travelnet.allow_dig = function(player_name, owner_name, network_name, pos)
+
+	if not pos then
+		-- no position available, skip additional checks
+		return false
+	end
+
+	if minetest.is_protected(pos, player_name) then
+		-- protected travelnet, no removal possible
+		return false
+	end
+
 	local is_moderator = minetest.check_player_privs(player_name, { ban=true })
 	if is_moderator then
-		-- allow moderators to remove the travelnet
+		-- allow moderators to remove travelnets
 		return true
 	end
+
+	if public_networks[owner_name] then
+		-- allow removal of public travelnet boxes if they aren't protected or under your protection
+		return true
+	end
+
 end
 
 -- who can attach to which network
