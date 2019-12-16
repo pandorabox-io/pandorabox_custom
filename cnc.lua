@@ -39,7 +39,7 @@ if minetest.get_modpath("prefab") then
    technic_cnc.register_all("prefab:concrete",
       {cracky = 2, not_in_creative_inventory=1},
       {"prefab_concrete.png"},
-      "Concreete"
+      "Concrete"
    )
 
 end
