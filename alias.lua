@@ -76,6 +76,9 @@ minetest.register_alias("bushes:bushbranches4", "air")
 minetest.register_alias("bushes:BushLeaves1", "air")
 minetest.register_alias("bushes:BushLeaves2", "air")
 
+-- 2019-12 prefab fork with moreblocks conflict
+minetest.register_alias_force("prefab:concrete_stair", "prefab:stair_concrete")
+minetest.register_alias_force("prefab:concrete_slab", "prefab:slab_concrete")
 
 -- for future use
 local replacements = {}
