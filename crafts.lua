@@ -92,3 +92,19 @@ for i = 1, #sandstones do
 		end
 	end
 end
+
+
+-- 2019-12-22
+-- dirt with dry grass crafting
+
+minetest.register_craft({
+	output = "default:dry_dirt_with_dry_grass",
+	type = "shapeless",
+	recipe = {"default:dry_grass_1", "default:dry_dirt"},
+})
+
+minetest.register_craft({
+	output = "default:dirt_with_dry_grass",
+	type = "shapeless",
+	recipe = {"default:dry_grass_1", "default:dirt"},
+})
