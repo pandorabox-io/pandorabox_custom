@@ -12,6 +12,20 @@ if minetest.get_modpath("ccompass") and minetest.get_modpath("digtron") then
 	})
 end
 
+if minetest.get_modpath("mypaths") then
+	-- fake grass collides with compressed dirt
+	-- changing fake grass recipe
+	minetest.clear_craft({ output = "mypaths:grass" })
+	minetest.register_craft({
+		output = "mypaths:grass 9",
+		recipe = {
+			{"default:grass_1", "default:grass_1","default:grass_1"},
+			{"default:grass_1", "default:dirt","default:grass_1"},
+			{"default:grass_1", "default:grass_1","default:grass_1"},
+		}
+	})
+end
+
 if minetest.get_modpath("charcoal") then
 	-- charcoal / tar clash
 	minetest.clear_craft({ output = "charcoal:charcoal_lump" })
@@ -52,4 +66,3 @@ minetest.register_craft({
         output = "default:book",
         recipe = {"default:book_written", "default:paper"}
 })
-
