@@ -1,6 +1,18 @@
 
 local privs = {
-  -- { xp = 10000, name = "" },
+	{ xp = 10000, name = "areas_protect" },
+	{ xp = 40000, name = "lavastone_remove" },
+
+	{ xp = 50000, name = "train_operator" },
+	{ xp = 50000, name = "train_place" },
+	{ xp = 50000, name = "track_builder" },
+	{ xp = 50000, name = "railway_operator" },
+	{ xp = 50000, name = "interlocking" },
+
+	{ xp = 300000, name = "missions_teleport" },
+	{ xp = 450000, name = "jumpdrive_land" },
+	{ xp = 500000, name = "areas_high_limit" }
+
 }
 
 
