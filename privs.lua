@@ -22,6 +22,11 @@ minetest.register_privilege("server_control", {
         description = "Can operate the server command center"
 })
 
+-- pseudo-server
+minetest.register_privilege("spawn_builder", {
+        description = "Can build at spawn"
+})
+
 
 -- specific privs
 
