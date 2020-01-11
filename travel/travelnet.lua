@@ -2,6 +2,7 @@
 local public_networks = {}
 
 public_networks["korlen"] = true
+public_networks["shared"] = true
 
 -- who can dig the box
 travelnet.allow_dig = function(player_name, owner_name, network_name, pos)
