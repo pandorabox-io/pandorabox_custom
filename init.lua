@@ -29,9 +29,6 @@ dofile(MP.."/fix_dead_on_login.lua")
 -- /spawn command
 dofile(MP.."/spawn.lua")
 
--- /dump_pos command
-dofile(MP.."/dump_pos.lua")
-
 -- custom privs
 dofile(MP.."/privs.lua")
 
@@ -89,9 +86,6 @@ dofile(MP.."/stats.lua")
 -- join priv set/revoke
 dofile(MP.."/join.lua")
 
--- no_announce priv
-dofile(MP.."/join_announce.lua")
-
 -- craft overrides
 dofile(MP.."/crafts.lua")
 
@@ -130,9 +124,6 @@ if minetest.get_modpath("spacecannon") then
 	dofile(MP.."/spacecannon.lua")
 end
 
--- announce chat cmd's
-dofile(MP.."/announce.lua")
-
 -- recipe redefinitions
 dofile(MP.."/recipes.lua")
 
@@ -144,10 +135,11 @@ if minetest.get_modpath("player_monoids") then
 	dofile(MP.."/spawn_fast_walk.lua")
 end
 
-if minetest.settings:get_bool("enable_integration_test") then
-	dofile(MP.."/integration_test.lua")
-end
-
+-- custom powered stand from scifi_nodes
 if minetest.get_modpath("scifi_nodes") then
 	dofile(MP.."/scifi_override.lua")
+end
+
+if minetest.settings:get_bool("enable_integration_test") then
+	dofile(MP.."/integration_test.lua")
 end

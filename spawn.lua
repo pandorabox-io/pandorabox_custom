@@ -16,6 +16,6 @@ local function teleport_to_spawn(name)
 end
 
 minetest.register_chatcommand("spawn", {
-    description = "Teleport you to spawn point.",
+    description = "Teleports you to the spawn point.",
     func = teleport_to_spawn,
 })

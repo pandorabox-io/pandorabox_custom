@@ -45,12 +45,6 @@ minetest.register_privilege("fly_event", {
 	description = "can toggle global fly event"
 })
 
--- no announcements for the player
-minetest.register_privilege("no_announce", {
-        description = "player does not get announced",
-	give_to_singleplayer = false
-})
-
 
 -- jumpdrive
 minetest.register_privilege("jumpdrive_land", {
