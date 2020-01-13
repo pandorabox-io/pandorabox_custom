@@ -139,6 +139,11 @@ dofile(MP.."/recipes.lua")
 -- general hacks
 dofile(MP.."/hacks.lua")
 
+-- spawn fast walk
+if minetest.get_modpath("player_monoids") then
+	dofile(MP.."/spawn_fast_walk.lua")
+end
+
 if minetest.settings:get_bool("enable_integration_test") then
 	dofile(MP.."/integration_test.lua")
 end
