@@ -1,11 +1,7 @@
 
 
-local spawn_pos = {x=0, y=0, z=0}
+local spawn_pos = minetest.string_to_pos(minetest.settings:get("static_spawnpoint") or "(0, 0, 0)")
 local range = 150
-
-if minetest.setting_get_pos("static_spawnpoint") then
-    spawn_pos = minetest.setting_get_pos("static_spawnpoint")
-end
 
 local player_map = {} -- playername => boolean
 
