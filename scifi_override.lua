@@ -153,7 +153,7 @@ local function override_node(node_name, info_name)
 end
 
 override_node("scifi_nodes:itemholder", "Item holder")
-override_node("scifi_nodes:powered_stand", "Poered stand")
+override_node("scifi_nodes:powered_stand", "Powered stand")
 
 -- automatically restore entities lost from powered_stands/itemholders due to /clearobjects or similar
 minetest.register_lbm({
