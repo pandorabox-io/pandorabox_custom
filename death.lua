@@ -30,6 +30,12 @@ minetest.register_on_dieplayer(function(player)
 		world_pos = pos
 	})
 
-	minetest.after(BONES_WAYPOINT_EXPIRES_SECONDS, function() player:hud_remove(hud_id) end)
+	minetest.after(BONES_WAYPOINT_EXPIRES_SECONDS, function()
+		-- retrieve player by name, the "player" object should not be carried across server-steps
+		player = minetest.get_player_by_name(player_name)
+		if player then
+			player:hud_remove(hud_id)
+		end
+	end)
 
 end)
