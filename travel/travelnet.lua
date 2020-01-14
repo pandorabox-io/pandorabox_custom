@@ -1,8 +1,18 @@
 
+-- public networks
+--
+-- they are attachable and removable if not protected
 local public_networks = {}
 
+-- semi public networks
+--
+-- only moderators ("ban" priv) can attach/remove them
+local semi_public_networks = {}
+
+-- TODO: externalize to file
 public_networks["korlen"] = true
-public_networks["shared"] = true
+semi_public_networks["shared"] = true
+semi_public_networks["admin"] = true
 
 -- who can dig the box
 travelnet.allow_dig = function(player_name, owner_name, network_name, pos)
@@ -13,7 +23,7 @@ travelnet.allow_dig = function(player_name, owner_name, network_name, pos)
 	end
 
 	if minetest.is_protected(pos, player_name) then
-		-- protected travelnet, no removal possible
+		-- protected travelnet, no removal possible (even with "ban" privs)
 		return false
 	end
 
@@ -33,13 +43,14 @@ end
 -- who can attach to which network
 travelnet.allow_attach = function(player_name, owner_name, network_name)
 
-	local is_moderator = minetest.check_player_privs(player_name, { ban=true })
-	if owner_name == "admin" and network_name == "moderator" and is_moderator then
-		-- public moderator network
+	if public_networks[owner_name] then
+		-- public networks are always attachable
 		return true
 	end
 
-	if public_networks[owner_name] then
+	local is_moderator = minetest.check_player_privs(player_name, { ban=true })
+	if is_moderator and semi_public_networks[owner_name] then
+		-- travelnet attachable with players that have "ban" privs
 		return true
 	end
 
