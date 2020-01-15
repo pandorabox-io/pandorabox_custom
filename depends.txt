@@ -29,3 +29,5 @@ pipeworks?
 computer?
 fancy_vend?
 mypaths?
+moreblocks?
+bakedclay?

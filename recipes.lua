@@ -66,3 +66,12 @@ minetest.register_craft({
         output = "default:book",
         recipe = {"default:book_written", "default:paper"}
 })
+
+if minetest.get_modpath("moreblocks") and minetest.get_modpath("bakedclay") then
+	-- moreblocks stick recipe conflicts with bakedclay dye recipe for default:dry_shrub
+	-- https://github.com/pandorabox-io/pandorabox.io/issues/414
+	minetest.clear_craft({
+		output = "default:stick",
+		recipe = {"default:dry_shrub"}
+	})
+end
