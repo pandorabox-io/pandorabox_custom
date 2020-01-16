@@ -140,6 +140,10 @@ if minetest.get_modpath("scifi_nodes") then
 	dofile(MP.."/scifi_override.lua")
 end
 
+if minetest.get_modpath("bonemeal") then
+	dofile(MP.."/bonemeal.lua")
+end
+
 if minetest.settings:get_bool("enable_integration_test") then
 	dofile(MP.."/integration_test.lua")
 end

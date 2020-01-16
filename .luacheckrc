@@ -9,7 +9,8 @@ globals = {
 	"unified_inventory",
 	"telemosaic",
 	"gravity_manager",
-	"spacecannon"
+	"spacecannon",
+	"bonemeal"
 }
 
 read_globals = {
