@@ -1,8 +1,5 @@
 
 local privs = {
-	{ xp = 100, name = "home" },
-	{ xp = 10, name = "tp" },
-
 	{ xp = 500, name = "news_bypass" },
 
 	{ xp = 10000, name = "areas_protect" },
