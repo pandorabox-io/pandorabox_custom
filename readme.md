@@ -8,7 +8,6 @@
 * stairsplus items
 * aliases (removed) items and nodes
 * mvps stopper
-* skyboxes (moon, space, deepspace, cave)
 * join checks
 * y limit check
 * startup stats
