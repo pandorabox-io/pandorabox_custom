@@ -7,6 +7,10 @@ minetest.find_path = function()
 	return nil
 end
 
+-- unregister ip-ban command (use xban instead)
+-- there are still problems with the ipv6 range comming in from a single ipv4 ip
+minetest.unregister_chatcommand("ban")
+
 -- stolen from
 -- https://github.com/minetest/minetest_game/blob/d2e051f1795576213f807ec0feac5f72f51c6113/mods/default/nodes.lua
 -- fixes https://github.com/pandorabox-io/pandorabox.io/issues/358
