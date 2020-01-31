@@ -17,12 +17,15 @@ end
 local player_can_fly = function(player)
 	local pos = player:get_pos()
 	for _, box in pairs(skybox.list) do
-		if pos.y > box.miny and pos.y < box.maxy then
-			-- height match found
-			if box.fly then
-				return true
-			end
-			break
+		local match = false
+		if box.miny and box.maxy then
+			match = pos.y > box.miny and pos.y < box.maxy
+		elseif type(box.match) == "function" then
+			match = box.match(player, pos)
+		end
+
+		if match and box.fly then
+			return true
 		end
 	end
 
