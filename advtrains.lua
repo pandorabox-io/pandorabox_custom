@@ -16,7 +16,7 @@ advtrains.path_get_index_by_offset = function(train, index, offset)
   if data then
     return data[1], data[2], data[3]
   else
-    local r1, r2, r3 = old_path_get_index_by_offset(train, index. offset)
+    local r1, r2, r3 = old_path_get_index_by_offset(train, index, offset)
     cache[key] = { r1, r2, r3 }
     return r1, r2, r3
   end
