@@ -16,7 +16,7 @@ advtrains.path_get = function(train, index)
   else
     -- cached
     result1 = data[1]
-    result2 = data[1]
+    result2 = data[2]
   end
 
   return result1, result2
