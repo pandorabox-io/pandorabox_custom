@@ -22,8 +22,9 @@ advtrains.path_get = function(train, index)
   return result1, result2
 end
 
-
-minetest.register_globalstep(function(dtime)
+local old_mainloop_trainlogic = advtrains.mainloop_trainlogic
+advtrains.mainloop_trainlogic = function(...)
+  old_mainloop_trainlogic(...)
   -- flush cache every step
   cache = {}
-end)
+end
