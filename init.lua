@@ -72,6 +72,11 @@ if minetest.get_modpath("gravity_manager") then
 	dofile(MP.."/gravity_manager.lua")
 end
 
+if minetest.get_modpath("planetoidgen") then
+	-- register planets
+	dofile(MP.."/planets.lua")
+end
+
 if minetest.get_modpath("skybox") then
 	-- planetary skyboxes
 	dofile(MP.."/skybox.lua")
