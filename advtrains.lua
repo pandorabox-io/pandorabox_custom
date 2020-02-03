@@ -6,7 +6,7 @@ local old_get_rail_info_at = advtrains.get_rail_info_at
 
 -- memoize function
 advtrains.get_rail_info_at = function(pos, drives_on)
-  local key = pos.x .. "/" .. pos.y .. "/" .. pos.z .. "/"
+  local key = math.floor(pos.x) .. "/" .. math.floor(pos.y) .. "/" .. math.floor(pos.z) .. "/"
   if drives_on then
     key = key .. "true"
   else
