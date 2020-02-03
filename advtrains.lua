@@ -8,9 +8,9 @@ local old_get_rail_info_at = advtrains.get_rail_info_at
 advtrains.get_rail_info_at = function(pos, drives_on)
   local key = pos.x .. "/" .. pos.y .. "/" .. pos.z .. "/"
   if drives_on then
-    key = key + "true"
+    key = key .. "true"
   else
-    key = key + "false"
+    key = key .. "false"
   end
 
   local data = cache[key]
