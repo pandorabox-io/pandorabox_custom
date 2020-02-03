@@ -10,7 +10,8 @@ globals = {
 	"telemosaic",
 	"gravity_manager",
 	"spacecannon",
-	"bonemeal"
+	"bonemeal",
+	"advtrains"
 }
 
 read_globals = {
@@ -28,11 +29,9 @@ read_globals = {
 	"vector", "ItemStack",
 	"dump", "screwdriver",
 
-	-- Deps
+	-- optional mods
 	"default", "advtrains",
 	"letters", "player_monoids",
 	"pipeworks", "planetoidgen",
-
-	-- optional mods
 	"xban"
 }

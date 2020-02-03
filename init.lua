@@ -57,6 +57,11 @@ if minetest.get_modpath("pipeworks") then
 	dofile(MP.."/pipeworks.lua")
 end
 
+if minetest.get_modpath("advtrains") then
+	-- advtrains stuff
+	dofile(MP.."/advtrains.lua")
+end
+
 if minetest.get_modpath("telemosaic") then
 	-- limit telemosaic travel
 	dofile(MP.."/travel/telemosaic.lua")
