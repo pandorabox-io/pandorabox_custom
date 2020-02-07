@@ -7,6 +7,15 @@ minetest.find_path = function()
 	return nil
 end
 
+-- https://github.com/minetest/minetest/pull/9350
+-- Workaround for bug https://www.lua.org/bugs.html#5.2.3-1
+-- thx HybridDog ;)
+local actual_unpack = unpack
+function unpack(t, a, b)
+	assert(not b or b < 2^30)
+	return actual_unpack(t, a, b)
+end
+
 -- unregister ip-ban command (use xban instead)
 -- there are still problems with the ipv6 range comming in from a single ipv4 ip
 minetest.unregister_chatcommand("ban")
