@@ -10,7 +10,8 @@ globals = {
 	"telemosaic",
 	"gravity_manager",
 	"spacecannon",
-	"bonemeal"
+	"bonemeal",
+	"unpack"
 }
 
 read_globals = {
