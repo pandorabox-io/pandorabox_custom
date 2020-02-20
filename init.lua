@@ -80,9 +80,6 @@ end
 if minetest.get_modpath("skybox") then
 	-- planetary skyboxes
 	dofile(MP.."/skybox.lua")
-
-	-- fly check
-	dofile(MP.."/fly.lua")
 end
 
 -- item/nodes stats
