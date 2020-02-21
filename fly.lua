@@ -1,18 +1,7 @@
-local has_beacon_mod = minetest.get_modpath("beacon")
 local use_player_monoids = minetest.global_exists("player_monoids")
-
-local fly_near = {} -- [{ name="", distance=0 }]
 
 local storage = minetest.get_mod_storage()
 local global_fly_enabled = storage:get_int("global_fly") == 1
-
-if has_beacon_mod then
-	table.insert(fly_near, {
-		name="beacon:greenbase",
-		distance=20
-	})
-end
-
 
 local player_can_fly = function(player)
 	local pos = player:get_pos()
@@ -25,12 +14,6 @@ local player_can_fly = function(player)
 		end
 
 		if match and box.fly then
-			return true
-		end
-	end
-
-	for _, def in pairs(fly_near) do
-		if minetest.find_node_near(pos, def.distance, def.name) then
 			return true
 		end
 	end
