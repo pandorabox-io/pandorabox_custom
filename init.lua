@@ -12,6 +12,9 @@ dofile(MP.."/get_player_ip.lua")
 -- cleanups
 dofile(MP.."/cleanup.lua")
 
+-- prejoin log
+dofile(MP.."/prejoin.lua")
+
 -- bucket and xp limitation
 if minetest.get_modpath("bucket") and minetest.get_modpath("xp_redo") then
 	dofile(MP.."/onplace_restriction.lua")
