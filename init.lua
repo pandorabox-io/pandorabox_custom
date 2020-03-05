@@ -21,6 +21,11 @@ if minetest.get_modpath("bucket") and minetest.get_modpath("xp_redo") then
 	dofile(MP.."/xp_priv.lua")
 end
 
+-- player cleanup
+if minetest.get_modpath("xp_redo") then
+	dofile(MP.."/player_cleanup.lua")
+end
+
 -- loot customization
 if minetest.get_modpath("loot") then
 	dofile(MP.."/loot.lua")
