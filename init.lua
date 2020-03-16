@@ -21,6 +21,11 @@ if minetest.get_modpath("bucket") and minetest.get_modpath("xp_redo") then
 	dofile(MP.."/xp_priv.lua")
 end
 
+-- advtrains_platform nodes
+if minetest.get_modpath("advtrains_platform") then
+	dofile(MP.."/advtrains_platform.lua")
+end
+
 -- player cleanup
 if minetest.get_modpath("xp_redo") then
 	dofile(MP.."/player_cleanup.lua")
