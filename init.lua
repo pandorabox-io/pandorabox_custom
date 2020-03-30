@@ -7,7 +7,7 @@ local MP = minetest.get_modpath("pandorabox_custom")
 dofile(MP.."/alias.lua")
 
 -- warning message for default password (if set)
-if minetest.settings:get_string("default_password") then
+if minetest.settings:get("default_password") then
 	dofile(MP.."/default_password_warn.lua")
 end
 

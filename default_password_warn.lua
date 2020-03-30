@@ -1,5 +1,5 @@
 
-local default_pw = minetest.settings:get_string("default_password")
+local default_pw = minetest.settings:get("default_password")
 
 minetest.register_on_joinplayer(function(player)
   local playername = player:get_player_name()
