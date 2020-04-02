@@ -80,6 +80,9 @@ minetest.register_alias("bushes:BushLeaves2", "air")
 minetest.register_alias_force("prefab:concrete_stair", "prefab:stair_concrete")
 minetest.register_alias_force("prefab:concrete_slab", "prefab:slab_concrete")
 
+-- 2020-04-02 radioactive gas removal
+minetest.register_alias("radioactive_gas:gas", "vacuum:vacuum")
+
 -- for future use
 local replacements = {}
 for i, replacement in ipairs(replacements) do
