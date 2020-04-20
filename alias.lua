@@ -62,6 +62,8 @@ minetest.register_alias("digistuff:publicbutton_off", "digistuff:button_off")
 minetest.register_alias("stairs:slope_shingles_terracotta", "homedecor:shingle_side_terracotta")
 minetest.register_alias("stairs:slope_shingles_wood", "homedecor:shingle_side_wood")
 minetest.register_alias("stairs:stair_shingles_wood", "default:wood")
+minetest.register_alias("stairs:stair_shingles_asphalt", "default:wood")
+
 
 -- 2019-08-16 smartrenting removal (again, the 2nd time)
 minetest.register_alias("smartrenting:panel", "default:stone")
