@@ -11,6 +11,7 @@ globals = {
 	"gravity_manager",
 	"spacecannon",
 	"bonemeal",
+	"mobs",
 	"unpack"
 }
 
