@@ -6,7 +6,7 @@ local S = mobs.intllib
 
 minetest.override_item("mobs:beehive", {
 on_dig = function(pos, node, digger)
-	if minetest.is_protected(pos, digger) then
+	if digger and minetest.is_protected(pos, digger:get_player_name()) then
 		return
 	end
 	local meta = minetest.get_meta(pos)
