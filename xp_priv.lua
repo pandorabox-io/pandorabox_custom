@@ -1,7 +1,5 @@
 
 local privs = {
-	{ xp = 500, name = "news_bypass" },
-
 	{ xp = 10000, name = "areas_protect" },
 	{ xp = 40000, name = "lavastone_remove" },
 
@@ -14,7 +12,6 @@ local privs = {
 	{ xp = 300000, name = "missions_teleport" },
 	{ xp = 450000, name = "jumpdrive_land" },
 	{ xp = 500000, name = "areas_high_limit" }
-
 }
 
 
