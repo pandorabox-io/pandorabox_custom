@@ -13,7 +13,10 @@ local assert_mods = {
 local assert_nodes = {
 	"jumpdrive:engine",
 	"advtrains_platform:platform_high_concrete",
-	"advtrains_platform:platform_high_white"
+	"advtrains_platform:platform_high_white",
+	"technic:HV_cable",
+	"technic:MV_cable",
+	"technic:LV_cable"
 }
 
 -- defered integration test function
