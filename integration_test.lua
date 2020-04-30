@@ -19,6 +19,21 @@ local assert_nodes = {
 	"technic:lv_cable"
 }
 
+local function test_mobs(callback)
+	-- forceload chunk @ 0,0,0
+	for x = 0, 16*5, 16 do
+		for y = 0, 16*5, 16 do
+			for z = 0, 16*5, 16 do
+				minetest.forceload_block(vector.new(x, y, z))
+			end
+		end
+	end
+
+	minetest.add_entity({x=10,y=10,z=10}, "mobs_monster:mese_monster")
+
+	minetest.after(5, callback)
+end
+
 -- defered integration test function
 minetest.register_on_mods_loaded(function()
 	minetest.log("warning", "[pandorabox_custom] all mods loaded, starting delayed test-function")
@@ -49,15 +64,17 @@ minetest.register_on_mods_loaded(function()
 			end
 		end
 
-		-- write success flag
-		local data = minetest.write_json({ success = true }, true);
-		file = io.open(minetest.get_worldpath().."/integration_test.json", "w" );
-		if file then
-			file:write(data)
-			file:close()
-		end
+		test_mobs(function()
+			-- write success flag
+			local data = minetest.write_json({ success = true }, true);
+			file = io.open(minetest.get_worldpath().."/integration_test.json", "w" );
+			if file then
+				file:write(data)
+				file:close()
+			end
 
-		minetest.log("warning", "[pandorabox_custom] integration tests done!")
-		minetest.request_shutdown("success")
+			minetest.log("warning", "[pandorabox_custom] integration tests done!")
+			minetest.request_shutdown("success")
+		end)
 	end)
 end)
