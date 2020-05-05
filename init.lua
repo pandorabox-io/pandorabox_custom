@@ -162,6 +162,11 @@ if minetest.get_modpath("player_monoids") then
 	dofile(MP.."/spawn_fast_walk.lua")
 end
 
+-- maptools custmization
+if minetest.get_modpath("maptools") then
+	dofile(MP.."/maptools.lua")
+end
+
 -- custom powered stand from scifi_nodes
 if minetest.get_modpath("scifi_nodes") then
 	dofile(MP.."/scifi_override.lua")
