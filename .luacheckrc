@@ -12,7 +12,8 @@ globals = {
 	"spacecannon",
 	"bonemeal",
 	"mobs",
-	"unpack"
+	"unpack",
+	"protector"
 }
 
 read_globals = {
