@@ -32,9 +32,12 @@ if minetest.get_modpath("advtrains_platform") then
 end
 
 -- player cleanup
+-- NOTE: temporarily disabled, might be the cause of https://github.com/pandorabox-io/pandorabox.io/issues/471
+--[[
 if minetest.get_modpath("xp_redo") then
 	dofile(MP.."/player_cleanup.lua")
 end
+--]]
 
 -- loot customization
 if minetest.get_modpath("loot") then
