@@ -2,5 +2,6 @@
 
 -- Players should be able to climb bamboo trunks
 minetest.override_item("bamboo:trunk", {
+	walkable = true,
 	climbable = true
 })
