@@ -150,6 +150,9 @@ if minetest.get_modpath("farming") and minetest.get_modpath("homedecor_gastronom
     type = "shapeless",
     output = 'farming:bread 9',
     recipe = {'farming:flour', 'homedecor:beer_mug', 'farming:salt'},
+    replacements = {
+      {"homedecor:beer_mug", "vessels:drinking_glass"}
+    }
   })
 end
 
@@ -161,5 +164,8 @@ if minetest.get_modpath("farming") and minetest.get_modpath("wine") then
       'farming:flour', 'homedecor:beer_mug', 'farming:salt',
       'farming:sugar'
     },
+		replacements = {
+      {"homedecor:beer_mug", "vessels:drinking_glass"}
+    }
   })
 end
