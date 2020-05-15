@@ -81,21 +81,6 @@ if minetest.get_modpath("moreblocks") and minetest.get_modpath("bakedclay") then
 	})
 end
 
--- Fix to make salt production easier.
--- (Currently salt leaves an empty bucket in a furnace.)
--- Ignores check for bucket and vessels, both are included in a default game.
-if minetest.get_modpath("farming") then
-	minetest.register_craft({
-		output = 'farming:salt',
-		recipe = {
-			{'bucket:bucket_water', 'vessels:glass_bottle'}
-		},
-		replacements = {
-			{"bucket:bucket_water", "bucket:bucket_empty"}
-		}
-	})
-end
-
 -- Updated bread recipes.
 --
 -- We are using yeast in beer for cooking more of it.
