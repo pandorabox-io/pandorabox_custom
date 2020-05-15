@@ -95,3 +95,71 @@ if minetest.get_modpath("farming") then
 		}
 	})
 end
+
+-- Updated bread recipes.
+--
+-- We are using yeast in beer for cooking more of it.
+-- Beer does contain live yeast sometimes; nowadays it can be removed,
+-- but generally that's how it is.
+--
+-- Optionally, we add more sugar for yeast to eat.
+-- It makes 11 bread instead of 9.
+--
+-- Recipe also requires salt.
+
+if minetest.get_modpath("farming") and minetest.get_modpath("wine") then
+  minetest.register_craft({
+    type = "shapeless",
+    output = 'farming:bread 9',
+    recipe = {'farming:flour', 'wine:glass_beer', 'farming:salt'},
+  })
+end
+
+if minetest.get_modpath("farming") and minetest.get_modpath("wine") then
+  minetest.register_craft({
+    type = "shapeless",
+    output = 'farming:bread 11',
+    recipe = {
+      'farming:flour', 'wine:glass_beer', 'farming:salt',
+      'farming:sugar'
+    },
+  })
+end
+
+if minetest.get_modpath("farming") and minetest.get_modpath("wine") then
+  minetest.register_craft({
+    type = "shapeless",
+    output = 'farming:bread 9',
+    recipe = {'farming:flour', 'wine:glass_wheat_beer', 'farming:salt'},
+  })
+end
+
+if minetest.get_modpath("farming") and minetest.get_modpath("wine") then
+  minetest.register_craft({
+    type = "shapeless",
+    output = 'farming:bread 11',
+    recipe = {
+      'farming:flour', 'wine:glass_wheat_beer', 'farming:salt',
+      'farming:sugar'
+    },
+  })
+end
+
+if minetest.get_modpath("farming") and minetest.get_modpath("homedecor_gastronomy") then
+  minetest.register_craft({
+    type = "shapeless",
+    output = 'farming:bread 9',
+    recipe = {'farming:flour', 'homedecor:beer_mug', 'farming:salt'},
+  })
+end
+
+if minetest.get_modpath("farming") and minetest.get_modpath("wine") then
+  minetest.register_craft({
+    type = "shapeless",
+    output = 'farming:bread 11',
+    recipe = {
+      'farming:flour', 'homedecor:beer_mug', 'farming:salt',
+      'farming:sugar'
+    },
+  })
+end
