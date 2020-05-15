@@ -107,65 +107,54 @@ end
 --
 -- Recipe also requires salt.
 
-if minetest.get_modpath("farming") and minetest.get_modpath("wine") then
-  minetest.register_craft({
-    type = "shapeless",
-    output = 'farming:bread 9',
-    recipe = {'farming:flour', 'wine:glass_beer', 'farming:salt'},
-  })
-end
-
-if minetest.get_modpath("farming") and minetest.get_modpath("wine") then
-  minetest.register_craft({
-    type = "shapeless",
-    output = 'farming:bread 11',
-    recipe = {
-      'farming:flour', 'wine:glass_beer', 'farming:salt',
-      'farming:sugar'
-    },
-  })
-end
-
-if minetest.get_modpath("farming") and minetest.get_modpath("wine") then
-  minetest.register_craft({
-    type = "shapeless",
-    output = 'farming:bread 9',
-    recipe = {'farming:flour', 'wine:glass_wheat_beer', 'farming:salt'},
-  })
-end
-
-if minetest.get_modpath("farming") and minetest.get_modpath("wine") then
-  minetest.register_craft({
-    type = "shapeless",
-    output = 'farming:bread 11',
-    recipe = {
-      'farming:flour', 'wine:glass_wheat_beer', 'farming:salt',
-      'farming:sugar'
-    },
-  })
-end
-
-if minetest.get_modpath("farming") and minetest.get_modpath("homedecor_gastronomy") then
-  minetest.register_craft({
-    type = "shapeless",
-    output = 'farming:bread 9',
-    recipe = {'farming:flour', 'homedecor:beer_mug', 'farming:salt'},
-    replacements = {
-      {"homedecor:beer_mug", "vessels:drinking_glass"}
-    }
-  })
-end
-
-if minetest.get_modpath("farming") and minetest.get_modpath("wine") then
-  minetest.register_craft({
-    type = "shapeless",
-    output = 'farming:bread 11',
-    recipe = {
-      'farming:flour', 'homedecor:beer_mug', 'farming:salt',
-      'farming:sugar'
-    },
-		replacements = {
-      {"homedecor:beer_mug", "vessels:drinking_glass"}
-    }
-  })
+if minetest.get_modpath("farming") then
+	if minetest.get_modpath("wine") then
+		minetest.register_craft({
+			type = "shapeless",
+			output = 'farming:bread 9',
+			recipe = {'farming:flour', 'wine:glass_beer', 'farming:salt'},
+		})
+		minetest.register_craft({
+			type = "shapeless",
+			output = 'farming:bread 11',
+			recipe = {
+				'farming:flour', 'wine:glass_beer', 'farming:salt',
+				'farming:sugar'
+			},
+		})
+		minetest.register_craft({
+			type = "shapeless",
+			output = 'farming:bread 9',
+			recipe = {'farming:flour', 'wine:glass_wheat_beer', 'farming:salt'},
+		})
+		minetest.register_craft({
+			type = "shapeless",
+			output = 'farming:bread 11',
+			recipe = {
+				'farming:flour', 'wine:glass_wheat_beer', 'farming:salt',
+				'farming:sugar'
+			},
+		})
+	end
+	if minetest.get_modpath("homedecor_gastronomy") then
+		minetest.register_craft({
+			type = "shapeless",
+			output = 'farming:bread 9',
+			recipe = {'farming:flour', 'homedecor:beer_mug', 'farming:salt'},
+			replacements = {
+				{"homedecor:beer_mug", "vessels:drinking_glass"}
+			}
+		})
+		minetest.register_craft({
+			type = "shapeless",
+			output = 'farming:bread 11',
+			recipe = {
+				'farming:flour', 'homedecor:beer_mug', 'farming:salt',
+				'farming:sugar'
+			},
+			replacements = {
+				{"homedecor:beer_mug", "vessels:drinking_glass"}
+			}
+		})
+	end
 end
