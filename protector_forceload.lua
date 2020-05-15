@@ -31,17 +31,22 @@ end
 
 local reload_period = 1
 local time_left = reload_period + 10
-local load_radius = 16
 
 minetest.register_globalstep(function(dtime)
 	time_left = time_left - dtime
 	if time_left < 0 then
 		time_left = reload_period
 		for _, player in ipairs(minetest.get_connected_players()) do
-			minetest.get_voxel_manip(
-        vector.subtract(player:get_pos(), load_radius),
-        vector.subtract(player:get_pos(), load_radius)
-      )
+      local pos = player:get_pos()
+      local distance = 16
+
+      -- load mapblocks in a cross pattern
+      load_from_cache(vector.add(pos, {x=-distance, y=0, z=0}))
+      load_from_cache(vector.add(pos, {x=0, y=-distance, z=0}))
+      load_from_cache(vector.add(pos, {x=0, y=0, z=-distance}))
+      load_from_cache(vector.add(pos, {x=distance, y=0, z=0}))
+      load_from_cache(vector.add(pos, {x=0, y=distance, z=0}))
+      load_from_cache(vector.add(pos, {x=0, y=0, z=distance}))
 		end
 	end
 end)
