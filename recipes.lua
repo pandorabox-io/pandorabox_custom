@@ -152,7 +152,7 @@ end
 
 -- Update for dry dirt and a dirt road recipe.
 -- Dirt road should be harder than simple dried dirt.
-if minetest.get_modpath("mypaths") and minetest.get_modpath("technnic") then
+if minetest.get_modpath("mypaths") and minetest.get_modpath("technic") then
 	minetest.clear_craft({ output = 'mypaths:dirt_road' })
 	minetest.register_craft({
 		output = "default:dry_dirt",
