@@ -161,6 +161,6 @@ minetest.register_craft({
   cooktime = 4
 })
 technic.register_compressor_recipe({
-  input = "default:dry_dirt 2",
+  input = {"default:dry_dirt 2"},
   output = "mypaths:dirt_road"
 })
