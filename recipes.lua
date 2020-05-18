@@ -141,26 +141,27 @@ if minetest.get_modpath("farming") then
 			}
 		})
 	end
+	-- Cooking dough to bread
+	minetest.register_craft({
+		type = "cooking",
+		cooktime = 15,
+		output = "farming:bread",
+		recipe = "farming:dough"
+	})
 end
-
--- Cooking dough to bread
-minetest.register_craft({
-	type = "cooking",
-	cooktime = 15,
-	output = "farming:bread",
-	recipe = "farming:dough"
-})
 
 -- Update for dry dirt and a dirt road recipe.
 -- Dirt road should be harder than simple dried dirt.
-minetest.clear_craft({ output = 'mypaths:dirt_road' })
-minetest.register_craft({
-  output = "default:dry_dirt",
-  type = "cooking",
-  recipe = "default:dirt",
-  cooktime = 4
-})
-technic.register_compressor_recipe({
-  input = {"default:dry_dirt 2"},
-  output = "mypaths:dirt_road"
-})
+if minetest.get_modpath("mypaths") and minetest.get_modpath("technnic") then
+	minetest.clear_craft({ output = 'mypaths:dirt_road' })
+	minetest.register_craft({
+		output = "default:dry_dirt",
+		type = "cooking",
+		recipe = "default:dirt",
+		cooktime = 4
+	})
+	technic.register_compressor_recipe({
+		input = {"default:dry_dirt 2"},
+		output = "mypaths:dirt_road"
+	})
+end
