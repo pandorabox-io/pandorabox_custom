@@ -85,6 +85,13 @@ minetest.register_alias_force("prefab:concrete_slab", "prefab:slab_concrete")
 -- 2020-04-02 radioactive gas removal
 minetest.register_alias("radioactive_gas:gas", "vacuum:vacuum")
 
+-- 2020-05-26 digiline_routing removal
+minetest.register_alias("digiline_routing:diode", "default:cobble")
+minetest.register_alias("digiline_routing:filter", "default:cobble")
+minetest.register_alias("digiline_routing:filter_b", "default:cobble")
+minetest.register_alias("digiline_routing:splitter", "default:cobble")
+minetest.register_alias("digiline_routing:splitter_b", "default:cobble")
+
 -- for future use
 local replacements = {}
 for i, replacement in ipairs(replacements) do
