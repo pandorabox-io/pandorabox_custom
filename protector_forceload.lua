@@ -40,7 +40,8 @@ minetest.register_globalstep(function(dtime)
       local pos = player:get_pos()
       local distance = 16
 
-      -- load mapblocks in a cross pattern
+      -- load mapblocks forcefully
+      load_from_cache(pos)
       load_from_cache(vector.add(pos, {x=-distance, y=0, z=0}))
       load_from_cache(vector.add(pos, {x=0, y=-distance, z=0}))
       load_from_cache(vector.add(pos, {x=0, y=0, z=-distance}))
