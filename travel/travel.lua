@@ -1,54 +1,37 @@
-local has_xp_redo_mod = minetest.get_modpath("xp_redo")
-
 -- current world height limit
 local max_height = 18000
-
-
 
 -- generic travel check
 -- returns (success, error_message)
 pandorabox.can_travel = function(player, pos)
 
+	-- world height limit
 	if pos.y > max_height then
-		-- world height limit
 		return false, "The area above " ..  max_height .. " is reserved for future use, sorry..."
 	end
 
-	if not has_xp_redo_mod then
-		-- no xp system
-		return true
+	-- moon
+	if pos.y > 5000 and pos.y < 6000 and not minetest.check_player_privs(player, "moon_access") then
+		return false, "You need the 'moon_access' priv to go to the moon!"
 	end
 
-	local req_xp = 0
-
-	if pos.y > 5000 then
-		-- moon
-		req_xp = 10000
+	-- asteroids
+	if pos.y > 6000 and pos.y < 10000 and not minetest.check_player_privs(player, "asteroids_access") then
+		return false, "You need the 'asteroids_access' priv to go to the asteroids!"
 	end
 
-	if pos.y > 6000 then
-		-- asteroids
-		req_xp = 20000
+	-- mars
+	if pos.y > 10000 and pos.y < 17000 and not minetest.check_player_privs(player, "mars_access") then
+		return false, "You need the 'mars_access' priv to go to the mars!"
 	end
 
-	if pos.y > 10000 then
-		-- mars
-		req_xp = 50000
+	-- warzone
+	if pos.y > 17000 and pos.y < 18000 and not minetest.check_player_privs(player, "warzone_access") then
+		return false, "You need the 'warzone_access' priv to go to the warzone!"
 	end
 
-	if pos.y > 17000 then
-		-- warzone
-		req_xp = 100000
-	end
-
-	local playername = player:get_player_name()
-	local xp = xp_redo.get_xp(playername)
-
-	if xp >= req_xp then
-		return true
-	else
-		return false, "You need " .. req_xp .. " xp to travel to world-height of " .. math.floor(pos.y)
-	end
+	-- non-restricted area
+	return true
 end
 
 
@@ -63,15 +46,7 @@ pandorabox.can_teleport = function(player, pos)
 	end
 
 	-- walk-only areas here
+	-- TODO: maybe add warzone here
 
 	return true
 end
-
-
-
-
-
-
-
-
-

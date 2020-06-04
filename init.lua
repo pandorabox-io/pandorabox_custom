@@ -54,6 +54,7 @@ dofile(MP.."/spawn.lua")
 dofile(MP.."/privs/common.lua")
 dofile(MP.."/privs/protection.lua")
 dofile(MP.."/privs/fly.lua")
+dofile(MP.."/privs/layers.lua")
 
 -- death message
 dofile(MP.."/death.lua")
