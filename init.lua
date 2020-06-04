@@ -50,8 +50,10 @@ dofile(MP.."/fix_dead_on_login.lua")
 -- /spawn command
 dofile(MP.."/spawn.lua")
 
--- custom privs
-dofile(MP.."/privs.lua")
+-- various privileges
+dofile(MP.."/privs/common.lua")
+dofile(MP.."/privs/protection.lua")
+dofile(MP.."/privs/fly.lua")
 
 -- death message
 dofile(MP.."/death.lua")
