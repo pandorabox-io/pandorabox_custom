@@ -35,7 +35,6 @@ read_globals = {
 	"default", "advtrains",
 	"letters", "player_monoids",
 	"pipeworks", "planetoidgen",
-
-	-- optional mods
+	"farming",
 	"xban"
 }

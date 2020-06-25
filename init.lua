@@ -68,7 +68,7 @@ if minetest.get_modpath("protector") then
 	dofile(MP.."/protector_forceload.lua")
 end
 
-if minetest.get_modpath("farming") then
+if minetest.get_modpath("farming") and farming.mod == "redo" then
 	-- farming customizations
 	dofile(MP.."/farming.lua")
 end
