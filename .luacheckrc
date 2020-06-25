@@ -1,6 +1,7 @@
 unused_args = false
 
 globals = {
+	"minetest",
 	"pandorabox",
 	"travelnet",
 	"sethome",
@@ -27,7 +28,6 @@ read_globals = {
 	"xp_redo",
 
 	-- Minetest
-	"minetest",
 	"vector", "ItemStack",
 	"dump", "screwdriver",
 
