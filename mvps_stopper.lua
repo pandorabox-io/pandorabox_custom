@@ -25,23 +25,3 @@ if minetest.get_modpath("fancy_vend") then
 	mesecon.register_mvps_stopper("fancy_vend:admin_depo")
 end
 
-if minetest.get_modpath("drawers") then
-	-- mitigate potential drawers duplication hack
-	-- TODO: upstream fix
-	mesecon.register_mvps_stopper("drawers:acacia_wood1")
-	mesecon.register_mvps_stopper("drawers:acacia_wood2")
-	mesecon.register_mvps_stopper("drawers:acacia_wood4")
-	mesecon.register_mvps_stopper("drawers:aspen_wood1")
-	mesecon.register_mvps_stopper("drawers:aspen_wood2")
-	mesecon.register_mvps_stopper("drawers:aspen_wood4")
-	mesecon.register_mvps_stopper("drawers:junglewood1")
-	mesecon.register_mvps_stopper("drawers:junglewood2")
-	mesecon.register_mvps_stopper("drawers:junglewood4")
-	mesecon.register_mvps_stopper("drawers:pine_wood1")
-	mesecon.register_mvps_stopper("drawers:pine_wood2")
-	mesecon.register_mvps_stopper("drawers:pine_wood4")
-	mesecon.register_mvps_stopper("drawers:wood1")
-	mesecon.register_mvps_stopper("drawers:wood2")
-	mesecon.register_mvps_stopper("drawers:wood4")
-	mesecon.register_mvps_stopper("drawers:controller") -- just in case
-end
