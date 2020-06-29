@@ -11,3 +11,8 @@ minetest.register_privilege("bypass_onplace_restriction", {
 	description = "Can place stuff without onplace restrictions",
 	give_to_singleplayer = false
 })
+
+minetest.register_privilege("staff", {
+	description = "pandorabox staff",
+	give_to_singleplayer = false
+})
