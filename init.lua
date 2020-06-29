@@ -48,7 +48,7 @@ end
 dofile(MP.."/fix_dead_on_login.lua")
 
 -- /spawn command
-dofile(MP.."/spawn.lua")
+dofile(MP.."/chat/spawn.lua")
 
 -- various privileges
 dofile(MP.."/privs/common.lua")
@@ -103,6 +103,8 @@ end
 if minetest.get_modpath("travelnet") then
 	-- limit travelnet
 	dofile(MP.."/travel/travelnet.lua")
+	-- server control room teleport command (/control)
+	dofile(MP.."/chat/control.lua")
 end
 
 if minetest.get_modpath("gravity_manager") then

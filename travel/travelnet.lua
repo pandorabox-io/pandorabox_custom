@@ -49,8 +49,9 @@ travelnet.allow_attach = function(player_name, owner_name, network_name)
 	end
 
 	local is_moderator = minetest.check_player_privs(player_name, { ban=true })
-	if is_moderator and semi_public_networks[owner_name] then
-		-- travelnet attachable with players that have "ban" privs
+	local is_staff = minetest.check_player_privs(player_name, { staff=true })
+	if (is_moderator or is_staff) and semi_public_networks[owner_name] then
+		-- travelnet attachable with players that have "ban" or "staff" privs
 		return true
 	end
 
