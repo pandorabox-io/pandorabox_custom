@@ -205,6 +205,12 @@ if minetest.settings:get_bool("enable_recipe_test") then
 	dofile(MP.."/recipe_test.lua")
 end
 
-if minetest.get_modpath("technic") and minetest.get_modpath("mobs_animal") then
-	dofile(MP.."/mobs_bees.lua")
+if minetest.get_modpath("mobs_animal") then
+	-- additional animals/textures
+	dofile(MP.."/mobs_animal.lua")
+
+	if minetest.get_modpath("technic") then
+		-- beehive enhancements (technic centrifuge)
+		dofile(MP.."/mobs_bees.lua")
+	end
 end
