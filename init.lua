@@ -206,5 +206,5 @@ if minetest.settings:get_bool("enable_recipe_test") then
 end
 
 if minetest.get_modpath("technic") and minetest.get_modpath("mobs_animal") then
-	dofile(MP.."/mobs_animal.lua")
+	dofile(MP.."/mobs_bees.lua")
 end
