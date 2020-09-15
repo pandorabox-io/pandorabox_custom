@@ -20,8 +20,19 @@ end
 -- there are still problems with the ipv6 range comming in from a single ipv4 ip
 minetest.unregister_chatcommand("ban")
 
--- disable digiline functionality temporarily
+-- fix digiline nic functionality temporarily
 -- issue: https://github.com/pandorabox-io/pandorabox.io/issues/539
 if minetest.get_modpath("digistuff") then
-	minetest.override_item("digistuff:nic",{ digiline = { receptor = {}, effector = {} } })
+	local old_action = minetest.registered_nodes["digistuff:nic"].digiline.effector.action
+	minetest.override_item("digistuff:nic",{
+		digiline = {
+			receptor = {},
+			effector = {
+				action = function(pos,node,channel,msg)
+					msg = string.gsub(msg, "%s", "%%20")
+					return old_action(pos,node,channel,msg)
+				end
+			}
+		}
+	})
 end
