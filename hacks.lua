@@ -22,7 +22,7 @@ minetest.unregister_chatcommand("ban")
 
 -- fix digiline nic functionality temporarily
 -- issue: https://github.com/pandorabox-io/pandorabox.io/issues/539
-if minetest.get_modpath("digistuff") then
+if minetest.get_modpath("digistuff") and minetest.registered_nodes["digistuff:nic"] then
 	local old_action = minetest.registered_nodes["digistuff:nic"].digiline.effector.action
 	minetest.override_item("digistuff:nic",{
 		digiline = {
