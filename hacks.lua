@@ -29,6 +29,7 @@ if minetest.get_modpath("digistuff") and minetest.registered_nodes["digistuff:ni
 			receptor = {},
 			effector = {
 				action = function(pos,node,channel,msg)
+					if type(msg) ~= "string" then return end
 					msg = string.gsub(msg, "%s", "%%20")
 					return old_action(pos,node,channel,msg)
 				end
