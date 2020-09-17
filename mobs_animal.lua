@@ -79,4 +79,4 @@ if minetest.get_modpath("bamboo") then
 	})
 end
 
-mobs:register_egg("pandorabox_custom:panda_viking", S("Panda"), "mobs_panda_inv.png")
+mobs:register_egg("pandorabox_custom:panda_viking", "Viking "..S("Panda"), "mobs_panda_inv.png")
