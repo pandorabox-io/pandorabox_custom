@@ -1,3 +1,4 @@
+--[[
 local function apply_overrides()
 	local additionalnodes = {
 		["beacon:black"] = "channel",
@@ -86,5 +87,4 @@ local function apply_overrides()
 end
 
 -- TODO: call apply_overrides() in a delayed callback after all mods have been loaded
--- this is just to satisfy checks
-if false then apply_overrides() end
+--]]
