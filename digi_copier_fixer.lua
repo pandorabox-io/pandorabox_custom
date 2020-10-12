@@ -115,7 +115,7 @@ local function apply_overrides()
 	end
 
 	-- supply converter
-	local osForceField = function(pos, node, player, new_channel, old_channel)
+	local osSupplyConverter = function(pos, node, player, new_channel, old_channel)
 		local meta = minetest.get_meta(pos)
 		-- TODO: This one is more complex
 	end
