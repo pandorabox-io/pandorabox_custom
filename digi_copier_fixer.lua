@@ -1,4 +1,3 @@
---[[
 local function apply_overrides()
 	local additionalnodes = {
 		["beacon:black"] = "channel",
@@ -12,7 +11,7 @@ local function apply_overrides()
 		["beacon:white"] = "channel",
 		["beacon:yellow"] = "channel",
 		["digiline_global_memory:controller"] = "channel",
-		["digiline_routing:filter"] = "channel",
+		["digiline_routing:filter"] = "channel", -- infotext is not updated
 		["digilines:chest"] = "channel",
 		["digilines:lcd"] = "channel",
 		["digilines:lightsensor"] = "channel",
@@ -29,8 +28,8 @@ local function apply_overrides()
 		["digiterms:scifi_widescreen"] = "channel",
 		["digiterms:white_keyboard"] = "channel",
 		["drawers:controller"] = "digilineChannel",
-		["jumpdrive:engine"] = "channel",
-		["jumpdrive:fleet_controller"] = "channel",
+		["jumpdrive:engine"] = "channel", -- formspec is not updated (reset button does it)
+		["jumpdrive:fleet_controller"] = "channel", -- formspec is not updated (reset button does it)
 		["monitoring_digilines:metric_controller"] = "channel",
 		["pipeworks:autocrafter"] = "channel",
 		["pipeworks:digiline_detector_tube_1"] = "channel",
@@ -44,8 +43,8 @@ local function apply_overrides()
 		["pipeworks:digiline_detector_tube_9"] = "channel",
 		["pipeworks:digiline_detector_tube_10"] = "channel",
 		["pipeworks:digiline_filter"] = "channel",
-		["technic:forcefield_emitter_off"] = "channel",
-		["technic:forcefield_emitter_on"] = "channel",
+		["technic:forcefield_emitter_off"] = "channel", -- formspec is not updated
+		["technic:forcefield_emitter_on"] = "channel", -- formspec is not updated
 		["technic:hv_battery_box0"] = "channel",
 		["technic:hv_battery_box1"] = "channel",
 		["technic:hv_battery_box2"] = "channel",
@@ -76,15 +75,66 @@ local function apply_overrides()
 		["technic:mv_battery_box7"] = "channel",
 		["technic:mv_battery_box8"] = "channel",
 		["technic:quarry"] = "channel",
+		["technic:supply_converter"] = "channel",  -- formspec is not updated
+		["technic:switching_station"] = "channel",
 		["textline:lcd"] = "channel",
 	}
 
-	for name,field in pairs(additionalnodes) do
-		if minetest.registered_nodes[name] and not minetest.registered_nodes[name]._digistuff_channelcopier_fieldname then
-			minetest.override_item(name,{_digistuff_channelcopier_fieldname = field})
+	for name, field in pairs(additionalnodes) do
+		if minetest.registered_nodes[name]
+			and not minetest.registered_nodes[name]._digistuff_channelcopier_fieldname then
+				minetest.override_item(name,{ _digistuff_channelcopier_fieldname = field })
 		end
 	end
+
+	-- after channel change, some need special attention
+
+	-- routing filter
+	local osRoutingFilter = function(pos, node, player, new_channel, old_channel)
+		local FILTER_INFOTEXT = "Digiline Filter (channel \"%s\")"
+		local meta = minetest.get_meta(pos)
+		meta:set_string("infotext", FILTER_INFOTEXT:format(meta:get_string("channel")))
+	end
+
+	-- jumpdrive engine
+	local osJumpdrive = function(pos, node, player, new_channel, old_channel)
+		local meta = minetest.get_meta(pos)
+		jumpdrive.migrate_engine_meta(pos, meta)
+		jumpdrive.update_formspec(meta, pos)
+	end
+	-- jumpdrive fleet controller
+	local osFleetController = function(pos, node, player, new_channel, old_channel)
+		local meta = minetest.get_meta(pos)
+		jumpdrive.fleet.update_formspec(meta, pos)
+	end
+
+	-- force field
+	local osForceField = function(pos, node, player, new_channel, old_channel)
+		--local meta = minetest.get_meta(pos)
+		-- TODO: This one is more complex
+	end
+
+	-- supply converter
+	local osSupplyConverter = function(pos, node, player, new_channel, old_channel)
+		--local meta = minetest.get_meta(pos)
+		-- TODO: This one is more complex
+	end
+
+	local onsets = {
+		["digiline_routing:filter"] = osRoutingFilter,
+		["jumpdrive:engine"] = osJumpdrive,
+		["jumpdrive:fleet_controller"] = osFleetController,
+		["technic:forcefield_emitter_off"] = osForceField,
+		["technic:forcefield_emitter_on"] = osForceField,
+		["technic:supply_converter"] = osSupplyConverter,
+	}
+
+	for name, field in pairs(onsets) do
+		if minetest.registered_nodes[name] and not minetest.registered_nodes[name]._digistuff_channelcopier_onset then
+			minetest.override_item(name,{ _digistuff_channelcopier_onset = field })
+		end
+	end
+
 end
 
--- TODO: call apply_overrides() in a delayed callback after all mods have been loaded
---]]
+apply_overrides()
