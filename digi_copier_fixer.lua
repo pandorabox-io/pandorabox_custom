@@ -74,6 +74,7 @@ local function apply_overrides()
 		["technic:mv_battery_box6"] = "channel",
 		["technic:mv_battery_box7"] = "channel",
 		["technic:mv_battery_box8"] = "channel",
+		["technic:power_monitor"] = "channel",
 		["technic:quarry"] = "channel",
 		["technic:supply_converter"] = "channel",  -- formspec is not updated
 		["technic:switching_station"] = "channel",
@@ -110,14 +111,14 @@ local function apply_overrides()
 
 	-- force field
 	local osForceField = function(pos, node, player, new_channel, old_channel)
-		--local meta = minetest.get_meta(pos)
-		-- TODO: This one is more complex
+		local nodedef = minetest.registered_nodes[node.name]
+		nodedef.on_receive_fields(pos, "", { channel = new_channel }, player)
 	end
 
 	-- supply converter
 	local osSupplyConverter = function(pos, node, player, new_channel, old_channel)
-		--local meta = minetest.get_meta(pos)
-		-- TODO: This one is more complex
+		local nodedef = minetest.registered_nodes[node.name]
+		nodedef.on_receive_fields(pos, "", { channel = new_channel }, player)
 	end
 
 	local onsets = {
