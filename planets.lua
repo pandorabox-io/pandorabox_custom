@@ -20,36 +20,6 @@ planetoidgen.register_planet({
   radius = 250, type = "class-m", name = "Eula's planet", airshell = true
 })
 
--- amun system
-planetoidgen.register_planet({
-  pos = { x = 10000, y = 9700, z = 15000 },
-  radius = 250, type = "sun", name = "system-1 sun"
-})
-planetoidgen.register_planet({
-  pos = { x = 10000, y = 9700, z = 15600 },
-  radius = 100, type = "class-m", name = "system-1 top", airshell = true
-})
-planetoidgen.register_planet({
-  pos = { x = 10520, y = 9700, z = 15300 },
-  radius = 100, type = "class-n", name = "system-1 top-right stone"
-})
-planetoidgen.register_planet({
-  pos = { x = 10520, y = 9700, z = 14700 },
-  radius = 100, type = "class-m", name = "system-1 bottom-right", airshell = true
-})
-planetoidgen.register_planet({
-  pos = { x = 10000, y = 9700, z = 14400 },
-  radius = 100, type = "class-p", name = "system-1 bottom ice", airshell = true
-})
-planetoidgen.register_planet({
-  pos = { x = 9480, y = 9700, z = 14700 },
-  radius = 100, type = "class-m", name = "system-1 bottom-left", airshell = true
-})
-planetoidgen.register_planet({
-  pos = { x = 9480, y = 9700, z = 15300 },
-  radius = 100, type = "class-h", name = "system-1 top-left desert", airshell = true
-})
-
 -- unnamed system
 planetoidgen.register_planet({
   pos = { x = 9000, y = 9500, z = 5000 },
