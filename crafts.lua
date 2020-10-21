@@ -1,4 +1,6 @@
+
 -- 2018-08-08 cookable stairs
+
 minetest.register_craft({
 	type = "cooking",
 	output = "moreblocks:stair_stone",
@@ -29,9 +31,9 @@ end
 
 
 
-
 -- 2018-09-07
 -- bronze block to ingots
+
 minetest.register_craft({
 	type = "shapeless",
 	output = 'default:bronze_ingot 9',
@@ -39,7 +41,6 @@ minetest.register_craft({
 		'default:bronzeblock'
 	}
 })
-
 
 
 
@@ -69,7 +70,6 @@ for i = 1, #sands do
 	end
 end
 
-
 local sandstones = {
 	{"default:sandstone", "dye:white"},
 	{"default:silver_sandstone", "dye:grey"},
@@ -94,6 +94,7 @@ for i = 1, #sandstones do
 end
 
 
+
 -- 2019-12-22
 -- dirt with dry grass crafting
 
@@ -108,3 +109,71 @@ minetest.register_craft({
 	type = "shapeless",
 	recipe = {"default:dry_grass_1", "default:dirt"},
 })
+
+
+
+-- 2020-20-21
+-- cookable tools and armor (91 recipes total)
+
+local cookable_items = {
+	{"farming:scythe_mithril", "moreores:mithril_ingot 3"},
+	{"multitools:multitool_mithril", "moreores:mithril_ingot 9"}
+}
+
+local tool_materials = {
+	["wood"] = {"charcoal:charcoal_lump", 4},
+	["stone"] = {"default:stone", 1},
+	["steel"] = {"default:steel_ingot", 1},
+	["bronze"] = {"default:bronze_ingot", 1},
+	["silver"] = {"moreores:silver_ingot", 1, "moreores"},
+	["mithril"] = {"moreores:mithril_ingot", 1, "moreores"},
+}
+
+local tool_items = {["hoe"] = 2, ["shovel"] = 1, ["sword"] = 2, ["axe"] = 3, ["pick"] = 3}
+
+for m,v in pairs(tool_materials) do
+	for t,q in pairs(tool_items) do
+		if not (m == "bronze" and t == "hoe") then
+			local n = v[3] or (t == "hoe" and "farming" or "default")
+			table.insert(cookable_items, {
+				n..":"..t.."_"..m,
+				v[1].." "..(v[2] * q)
+			})
+		end
+	end
+end
+
+local armor_materials = {
+	["wood"] = {"charcoal:charcoal_lump", 4},
+	["steel"] = {"default:steel_ingot", 1},
+	["bronze"] = {"default:bronze_ingot", 1},
+	["gold"] = {"default:gold_ingot", 1},
+	["mithril"] = {"moreores:mithril_ingot", 1},
+	["brass"] = {"basic_materials:brass_ingot", 1, "technic_armor"},
+	["carbon"] = {"default:steel_ingot", 1, "technic_armor"},
+	["cast"] = {"default:steel_ingot", 1, "technic_armor"},
+	["lead"] = {"technic:lead_ingot", 1, "technic_armor"},
+	["silver"] = {"moreores:silver_ingot", 1, "technic_armor"},
+	["stainless"] = {"technic:stainless_steel_ingot", 1, "technic_armor"},
+	["tin"] = {"default:tin_ingot", 1, "technic_armor"}
+}
+
+local armor_items = {["boots"] = 4, ["chestplate"] = 8, ["helmet"] = 5, ["leggings"] = 7, ["shield"] = 7}
+
+for m,v in pairs(armor_materials) do
+	for t,q in pairs(armor_items) do
+		local n = v[3] or (t == "shield" and "shields" or "3d_armor")
+		table.insert(cookable_items, {
+			n..":"..t.."_"..m,
+			v[1].." "..(v[2] * q)
+		})
+	end
+end
+
+for _,v in pairs(cookable_items) do
+	minetest.register_craft({
+		type = "cooking",
+		output = v[2],
+		recipe = v[1]
+	})
+end

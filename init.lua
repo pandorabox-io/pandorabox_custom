@@ -134,9 +134,6 @@ dofile(MP.."/stats.lua")
 -- join priv set/revoke
 dofile(MP.."/join.lua")
 
--- craft overrides
-dofile(MP.."/crafts.lua")
-
 if minetest.get_modpath("technic") then
 	-- grinder recipes
 	dofile(MP.."/grinder.lua")
@@ -174,6 +171,9 @@ end
 
 -- recipe redefinitions
 dofile(MP.."/recipes.lua")
+
+-- craft overrides
+dofile(MP.."/crafts.lua")
 
 -- general hacks
 dofile(MP.."/hacks.lua")
