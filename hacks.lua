@@ -37,12 +37,3 @@ if minetest.get_modpath("digistuff") and minetest.registered_nodes["digistuff:ni
 		}
 	})
 end
-
--- override signs_lib's static_save property
--- false causes it to stay loaded over the server lifetime (*all* visited signs)
--- related: https://github.com/pandorabox-io/pandorabox.io/issues/544
-if minetest.get_modpath("signs_lib") then
-	local def = minetest.registered_entities["signs_lib:text"]
-	assert(def)
-	def.static_save = true
-end
