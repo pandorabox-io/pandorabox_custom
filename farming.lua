@@ -26,3 +26,17 @@ minetest.override_item("default:blueberries", {
 minetest.override_item("farming:blueberries", {
   description = default.get_translator("Blueberries")
 })
+
+-- undo change to rhubarb light values
+-- see https://github.com/pandorabox-io/pandorabox-mods/pull/1235
+
+if farming.registered_plants["farming:rhubarb"] then
+	for i=1,3 do
+		minetest.override_item("farming:rhubarb_"..i, {
+			minlight = 13,
+			maxlight = 15,
+		})
+	end
+	farming.registered_plants["farming:rhubarb"].minlight = 13
+	farming.registered_plants["farming:rhubarb"].maxlight = 15
+end

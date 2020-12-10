@@ -14,6 +14,7 @@ globals = {
 	"bonemeal",
 	"mobs",
 	"unpack",
+	"farming",
 	"protector"
 }
 
@@ -35,6 +36,5 @@ read_globals = {
 	"default", "advtrains",
 	"letters", "player_monoids",
 	"pipeworks", "planetoidgen",
-	"farming",
 	"xban"
 }
