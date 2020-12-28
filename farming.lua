@@ -33,7 +33,7 @@ minetest.override_item("farming:blueberries", {
 if farming.registered_plants["farming:rhubarb"] then
 	for i=1,3 do
 		minetest.override_item("farming:rhubarb_"..i, {
-			minlight = 13,
+			minlight = 12,
 			maxlight = 15,
 		})
 	end
