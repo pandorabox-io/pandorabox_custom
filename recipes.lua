@@ -165,3 +165,25 @@ if minetest.get_modpath("mypaths") and minetest.get_modpath("technic") then
 		output = "mypaths:dirt_road"
 	})
 end
+
+-- Add recipes for silver and mithril hoes
+-- moreoes does not add recipes due to "rare material" hoes being removed from Minetest Game:
+-- https://github.com/minetest-mods/moreores/blob/3fe0ba8fcb3a19222c23c0d1b01a671df43d655c/init.lua#L219-L222
+if minetest.get_modpath("farming") and minetest.get_modpath("moreores") then
+	minetest.register_craft({
+		output = "moreores:hoe_silver",
+		recipe = {
+			{"moreores:silver_ingot", "moreores:silver_ingot", ""},
+			{"", "group:stick", ""},
+			{"", "group:stick", ""}
+		}
+	})
+	minetest.register_craft({
+		output = "moreores:hoe_mithril",
+		recipe = {
+			{"moreores:mithril_ingot", "moreores:mithril_ingot", ""},
+			{"", "group:stick", ""},
+			{"", "group:stick", ""}
+		}
+	})
+end
