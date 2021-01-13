@@ -12,7 +12,7 @@ minetest.get_player_ip = function(name)
 		return
 	end
 
-	if ip == "172.20.0.1" then
+	if ip == "192.168.80.1" then
 		-- proxied ip, ignore
 		-- TODO: this is not a constant
 		return
