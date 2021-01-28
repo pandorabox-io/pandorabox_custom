@@ -76,11 +76,6 @@ if minetest.get_modpath("farming") and farming.mod == "redo" then
 	dofile(MP.."/farming.lua")
 end
 
-if minetest.get_modpath("bamboo") then
-	-- bamboo/plant stuff
-	dofile(MP.."/plant_overrides.lua")
-end
-
 if minetest.get_modpath("jumpdrive") then
 	-- limit jumpdrive travel
 	dofile(MP.."/travel/jumpdrive.lua")
