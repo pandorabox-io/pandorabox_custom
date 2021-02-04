@@ -37,3 +37,17 @@ if minetest.get_modpath("digistuff") and minetest.registered_nodes["digistuff:ni
 		}
 	})
 end
+
+-- prevent big towers of papyrus and bamboo from being auto-dug
+-- https://github.com/pandorabox-io/pandorabox.io/issues/611
+function default.dig_up(pos, node, digger)
+	if digger == nil then return end
+	local np = {x = pos.x, y = pos.y + 1, z = pos.z}
+	local nn = minetest.get_node(np)
+	if nn.name == node.name then
+		local dp = digger:get_pos()
+		if (np.y - dp.y) <= 10 then
+			minetest.node_dig(np, nn, digger)
+		end
+	end
+end

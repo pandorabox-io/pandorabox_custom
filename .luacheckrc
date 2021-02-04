@@ -3,6 +3,7 @@ unused_args = false
 globals = {
 	"minetest",
 	"pandorabox",
+	"default",
 	"travelnet",
 	"sethome",
 	"jumpdrive",
@@ -33,7 +34,7 @@ read_globals = {
 	"dump", "screwdriver",
 
 	-- Deps
-	"default", "advtrains",
+	"advtrains",
 	"letters", "player_monoids",
 	"pipeworks", "planetoidgen",
 	"xban"
