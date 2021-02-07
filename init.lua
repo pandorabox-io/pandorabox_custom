@@ -5,6 +5,7 @@ local MP = minetest.get_modpath("pandorabox_custom")
 
 -- anticheat stuff
 dofile(MP .. "/anticheat/inv_move.lua")
+dofile(MP .. "/anticheat/noclip_drown.lua")
 
 -- unknown item aliasing
 dofile(MP.."/alias.lua")
