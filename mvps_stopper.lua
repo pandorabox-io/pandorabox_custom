@@ -25,3 +25,12 @@ if minetest.get_modpath("fancy_vend") then
 	mesecon.register_mvps_stopper("fancy_vend:admin_depo")
 end
 
+if minetest.get_modpath("digistuff") then
+	if not minetest.registered_nodes["digistuff:piston"].after_place_node then
+		minetest.override_item("digistuff:piston", {
+			after_place_node = function(pos, placer)
+				mesecon.mvps_set_owner(pos, placer)
+			end
+		})
+	end
+end
