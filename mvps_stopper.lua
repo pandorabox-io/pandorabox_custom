@@ -28,9 +28,7 @@ end
 if minetest.get_modpath("digistuff") then
 	if not minetest.registered_nodes["digistuff:piston"].after_place_node then
 		minetest.override_item("digistuff:piston", {
-			after_place_node = function(pos, placer)
-				mesecon.mvps_set_owner(pos, placer)
-			end
+			after_place_node = mesecon.mvps_set_owner
 		})
 	end
 end
