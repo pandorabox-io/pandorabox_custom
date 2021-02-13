@@ -37,5 +37,5 @@ read_globals = {
 	"advtrains",
 	"letters", "player_monoids",
 	"pipeworks", "planetoidgen",
-	"xban", "moreblocks", "stairsplus"
+	"xban", "stairsplus"
 }
