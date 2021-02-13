@@ -214,3 +214,8 @@ end
 if minetest.get_modpath("digistuff") then
 	dofile(MP .. "/digi_copier_fixer.lua")
 end
+
+-- custom staursplus/moreblocks nodes
+if minetest.get_modpath("moreblocks") then
+	dofile(MP .. "/moreblocks.lua")
+end
