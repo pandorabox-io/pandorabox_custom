@@ -10,6 +10,7 @@ local function apply_overrides()
 		["beacon:violet"] = "channel",
 		["beacon:white"] = "channel",
 		["beacon:yellow"] = "channel",
+		["digicontrol:filter"] = "channel",
 		["digiline_global_memory:controller"] = "channel",
 		["digiline_routing:filter"] = "channel", -- infotext is not updated
 		["digilines:chest"] = "channel",
@@ -30,6 +31,10 @@ local function apply_overrides()
 		["drawers:controller"] = "digilineChannel",
 		["jumpdrive:engine"] = "channel", -- formspec is not updated (reset button does it)
 		["jumpdrive:fleet_controller"] = "channel", -- formspec is not updated (reset button does it)
+		["mesecons_detector:node_detector_off"] = "digiline_channel",
+		["mesecons_detector:node_detector_on"] = "digiline_channel",
+		["mesecons_detector:object_detector_off"] = "digiline_channel",
+		["mesecons_detector:object_detector_on"] = "digiline_channel",
 		["monitoring_digilines:metric_controller"] = "channel",
 		["pipeworks:autocrafter"] = "channel",
 		["pipeworks:digiline_detector_tube_1"] = "channel",
@@ -65,6 +70,9 @@ local function apply_overrides()
 		["technic:lv_battery_box6"] = "channel",
 		["technic:lv_battery_box7"] = "channel",
 		["technic:lv_battery_box8"] = "channel",
+		["technic:mithril_chest"] = "channel",
+		["technic:mithril_locked_chest"] = "channel",
+		["technic:mithril_protected_chest"] = "channel",
 		["technic:mv_battery_box0"] = "channel",
 		["technic:mv_battery_box1"] = "channel",
 		["technic:mv_battery_box2"] = "channel",
