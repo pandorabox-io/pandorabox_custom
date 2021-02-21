@@ -6,6 +6,9 @@ local list = {
 }
 
 if minetest.get_modpath("technic") then
+	table.insert(list, { name="technic:water_can", xp=200 })
+	table.insert(list, { name="technic:river_water_can", xp=200 })
+	table.insert(list, { name="technic:lava_can", xp=10000 })
 	table.insert(list, { name="technic:bucket_corium", xp=500000 })
 	table.insert(list, { name="technic:chernobylite_block", xp=100000 })
 	table.insert(list, { name="technic:uranium_block", xp=50000 })
