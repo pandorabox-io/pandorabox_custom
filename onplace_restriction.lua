@@ -20,11 +20,7 @@ for _,entry in ipairs(list) do
 	print("Restricting placement of " .. entry.name .. " to xp level " .. entry.xp)
 
 
-	local def = minetest.registered_nodes[entry.name]
-	if not def then
-		def = minetest.registered_craftitems[entry.name]
-	end
-
+	local def = minetest.registered_items[entry.name]
 	if not def then
 		error("node not found: " .. entry.name)
 	end
