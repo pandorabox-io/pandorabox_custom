@@ -16,3 +16,8 @@ minetest.register_privilege("staff", {
 	description = "pandorabox staff",
 	give_to_singleplayer = false
 })
+
+minetest.register_privilege("spacecannon_unrestricted", {
+	description = "can use the spacecannon everywhere",
+	give_to_singleplayer = false
+})
