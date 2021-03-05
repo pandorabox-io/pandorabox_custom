@@ -13,6 +13,7 @@ local privs = {
 	{ xp = 50000, name = "interlocking" },
 
 	{ xp = 100000, name = "warzone_access" },
+	{ xp = 200000, name = "spacecannon_unrestricted" },
 	{ xp = 300000, name = "missions_teleport" },
 	{ xp = 450000, name = "jumpdrive_land" },
 	{ xp = 500000, name = "areas_high_limit" }
