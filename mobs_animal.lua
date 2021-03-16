@@ -80,3 +80,32 @@ if minetest.get_modpath("bamboo") then
 end
 
 mobs:register_egg("pandorabox_custom:panda_viking", "Viking "..S("Panda"), "mobs_panda_inv.png")
+
+-- Chicken customizations
+
+minetest.register_craft({
+	type = "shapeless",
+	recipe = { "mobs_animal:chicken", "farming:cutting_board" },
+	output = "mobs:chicken_raw 2",
+	replacements = {
+		{ "farming:cutting_board", "farming:cutting_board" },
+		{ "mobs_animal:chicken", "mobs:chicken_feather" },
+	},
+})
+
+local chicken_do_custom = minetest.registered_entities["mobs_animal:chicken"].do_custom
+minetest.registered_entities["mobs_animal:chicken"].do_custom = function(self, dtime, ...)
+	if not self.child then
+		self.feather_timer = (self.feather_timer or 0) + dtime
+		if self.feather_timer > 20 then
+			self.feather_timer = 0
+			if math.random(1, 500) == 1 then
+				local pos = self.object:get_pos()
+				if pos then
+					minetest.add_item(pos, "mobs:chicken_feather")
+				end
+			end
+		end
+	end
+	return chicken_do_custom(self, dtime, ...)
+end
