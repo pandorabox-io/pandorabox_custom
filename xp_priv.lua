@@ -10,7 +10,6 @@ local privs = {
 	{ xp = 50000, name = "train_place" },
 	{ xp = 50000, name = "track_builder" },
 	{ xp = 50000, name = "railway_operator" },
-	{ xp = 50000, name = "interlocking" },
 
 	{ xp = 100000, name = "warzone_access" },
 	{ xp = 200000, name = "spacecannon_unrestricted" },
