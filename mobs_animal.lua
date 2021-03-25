@@ -93,6 +93,16 @@ minetest.register_craft({
 	},
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	recipe = { "mobs_animal:chicken_set", "farming:cutting_board" },
+	output = "mobs:chicken_raw 2",
+	replacements = {
+		{ "farming:cutting_board", "farming:cutting_board" },
+		{ "mobs_animal:chicken_set", "mobs:chicken_feather" },
+	},
+})
+
 local chicken_do_custom = minetest.registered_entities["mobs_animal:chicken"].do_custom
 minetest.registered_entities["mobs_animal:chicken"].do_custom = function(self, dtime, ...)
 	if not self.child then
