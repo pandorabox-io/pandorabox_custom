@@ -173,6 +173,9 @@ dofile(MP.."/crafts.lua")
 -- general hacks
 dofile(MP.."/hacks.lua")
 
+-- account creation control
+dofile(MP.."/disallow_new_players.lua")
+
 -- spawn fast walk
 if minetest.get_modpath("player_monoids") then
 	dofile(MP.."/spawn_fast_walk.lua")
