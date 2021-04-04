@@ -51,3 +51,27 @@ function default.dig_up(pos, node, digger)
 		end
 	end
 end
+
+-- change moreblocks texture used by advtrains_platform to the renamed one
+-- https://github.com/minetest-mods/moreblocks/blob/3b97ea5/stairsplus/registrations.lua#L144
+if minetest.get_modpath("moreblocks") then
+	local texture = "moreblocks_checker_stone_tile.png"
+	local sizes = {
+		"0510", "0520", "0525", "1010", "1020",
+		"1025", "2020", "2025", "2525",
+	}
+	for _,n in pairs(sizes) do
+		local node1 = "advtrains_platform:stone_tile_altpath_track_"..n
+		if minetest.registered_nodes[node1] then
+			minetest.override_item(node1, {
+				tiles = {texture}
+			})
+		end
+		local node2 = "advtrains_platform:stone_tile_altpath_track_narrow_"..n
+		if minetest.registered_nodes[node2] then
+			minetest.override_item(node2, {
+				tiles = {texture}
+			})
+		end
+	end
+end
