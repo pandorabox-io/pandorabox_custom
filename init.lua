@@ -85,9 +85,6 @@ if minetest.get_modpath("jumpdrive") then
 end
 
 if minetest.get_modpath("pipeworks") then
-	-- pipeworks commands
-	dofile(MP.."/pipeworks.lua")
-
 	if pipeworks.tptube then
 		dofile(MP.."/tp_tube_fixer.lua")
 	end
