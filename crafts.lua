@@ -112,7 +112,7 @@ minetest.register_craft({
 
 
 
--- 2020-20-21
+-- 2020-10-21
 -- cookable tools and armor (91 recipes total)
 
 local cookable_items = {

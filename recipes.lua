@@ -224,3 +224,23 @@ if minetest.get_modpath("pipeworks") then
 		})
 	end
 end
+
+-- craft recipes for digilines rtc and lightsensor
+if minetest.get_modpath("digilines") and minetest.get_modpath("basic_materials") then
+	minetest.register_craft({
+		output = "digilines:rtc",
+		recipe = {
+			{"basic_materials:plastic_sheet", "default:mese_crystal_fragment", "basic_materials:plastic_sheet"},
+			{"dye:black", "basic_materials:ic", "dye:black"},
+			{"basic_materials:plastic_sheet", "digilines:wire_std_00000000", "basic_materials:plastic_sheet"}
+		}
+	})
+	minetest.register_craft({
+		output = "digilines:lightsensor",
+		recipe = {
+			{"basic_materials:plastic_sheet", "default:glass", "basic_materials:plastic_sheet"},
+			{"basic_materials:plastic_sheet", "basic_materials:ic", "basic_materials:plastic_sheet"},
+			{"basic_materials:plastic_sheet", "digilines:wire_std_00000000", "basic_materials:plastic_sheet"}
+		}
+	})
+end
