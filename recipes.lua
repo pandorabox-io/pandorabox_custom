@@ -225,8 +225,9 @@ if minetest.get_modpath("pipeworks") then
 	end
 end
 
--- craft recipes for digilines rtc and lightsensor
+-- custom craft recipes for digilines rtc and lightsensor
 if minetest.get_modpath("digilines") and minetest.get_modpath("basic_materials") then
+	minetest.clear_craft({output = "digilines:rtc"})
 	minetest.register_craft({
 		output = "digilines:rtc",
 		recipe = {
@@ -235,6 +236,7 @@ if minetest.get_modpath("digilines") and minetest.get_modpath("basic_materials")
 			{"basic_materials:plastic_sheet", "digilines:wire_std_00000000", "basic_materials:plastic_sheet"}
 		}
 	})
+	minetest.clear_craft({output = "digilines:lightsensor"})
 	minetest.register_craft({
 		output = "digilines:lightsensor",
 		recipe = {
