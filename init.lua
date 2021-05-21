@@ -206,3 +206,6 @@ end
 if minetest.get_modpath("digistuff") then
 	dofile(MP .. "/digi_copier_fixer.lua")
 end
+
+-- stamina extras
+dofile(MP.."/exhaust.lua")
