@@ -12,6 +12,7 @@ globals = {
 	"telemosaic",
 	"gravity_manager",
 	"spacecannon",
+	"stamina",
 	"bonemeal",
 	"mobs",
 	"unpack",
