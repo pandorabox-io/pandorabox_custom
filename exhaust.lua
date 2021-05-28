@@ -1,6 +1,6 @@
 local timestamp = {}
-stamina.register_on_exhaust_player(function(player, change)
-	if type(player) ~= "userdata" or change < stamina.settings.exhaust_craft then return end
+stamina.register_on_exhaust_player(function(player, change, reason)
+	if type(player) ~= "userdata" or reason == "punch" or change < stamina.settings.exhaust_craft then return end
 	local now = minetest.get_us_time()
 	local name = player:get_player_name()
 	if timestamp[name] then
