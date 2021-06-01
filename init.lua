@@ -10,7 +10,7 @@ dofile(MP .. "/anticheat/inv_move.lua")
 dofile(MP.."/alias.lua")
 
 -- warning message for default password (if set)
-if minetest.settings:get("default_password") then
+if minetest.settings:get("default_password") ~= "" then
 	dofile(MP.."/default_password_warn.lua")
 end
 
@@ -208,4 +208,6 @@ if minetest.get_modpath("digistuff") then
 end
 
 -- stamina extras
-dofile(MP.."/exhaust.lua")
+if minetest.global_exists("stamina") then
+	dofile(MP.."/exhaust.lua")
+end
