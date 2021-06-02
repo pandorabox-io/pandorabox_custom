@@ -9,7 +9,7 @@ stamina.register_on_exhaust_player(function(player, change, reason)
 	local name = player:get_player_name()
 	if timestamp[name] then
 		if now - timestamp[name] >= exhaust_tick then
-			if (stamina.get_saturation(player) or 0) <= stamina.settings.starve_lvl then
+			if (stamina.get_saturation(player) or 0) < stamina.settings.starve_lvl then
 				timestamp[name] = now
 				player:set_hp(player:get_hp() - 1, "exhaust")
 			end
