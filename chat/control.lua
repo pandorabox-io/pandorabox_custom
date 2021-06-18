@@ -14,10 +14,9 @@ minetest.register_chatcommand("control", {
 		end
 
 		-- check if the travelnet station is valid
-		if travelnet.targets[owner_name] and
-			travelnet.targets[owner_name][network_name] and
-			travelnet.targets[owner_name][network_name][station_name] then
-				local station = travelnet.targets[owner_name][network_name][station_name]
+		local networks = travelnet.get_networks(owner_name)
+		if networks and networks[network_name] and networks[network_name][station_name] then
+				local station = networks[network_name][station_name]
 				local target_pos = station.pos
 				if target_pos then
 					player:setpos(target_pos)

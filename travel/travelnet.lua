@@ -71,9 +71,9 @@ travelnet.allow_travel = function( player_name, owner_name, network_name, statio
 	local target_pos
 
 	-- sanity check
-	if travelnet.targets[owner_name] and travelnet.targets[owner_name][network_name] and
-		travelnet.targets[owner_name][network_name][station_name_target] then
-		target_pos = travelnet.targets[owner_name][network_name][station_name_target].pos
+	local networks = travelnet.get_networks(owner_name)
+	if networks and networks[network_name] and networks[network_name][station_name_target] then
+		target_pos = networks[network_name][station_name_target].pos
 	else
 		-- error!
 		return false
@@ -81,9 +81,7 @@ travelnet.allow_travel = function( player_name, owner_name, network_name, statio
 
 	-- protected target with "(P) name"
 	if station_name_target and string.sub(station_name_target, 1, 3) == "(P)" then
-		if travelnet.targets[owner_name] and travelnet.targets[owner_name][network_name] and
-				travelnet.targets[owner_name][network_name][station_name_target] then
-
+		if networks and networks[network_name] and networks[network_name][station_name_target] then
 			minetest.load_area(target_pos)
 			if minetest.is_protected(target_pos, player_name) then
 				minetest.chat_send_player(player_name, "This station is protected!")
