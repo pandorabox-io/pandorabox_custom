@@ -66,11 +66,6 @@ dofile(MP.."/death.lua")
 dofile(MP.."/travel/travel.lua")
 dofile(MP.."/teleport_back.lua")
 
-if minetest.get_modpath("protector") then
-	-- protector customizations
-	dofile(MP.."/protector_forceload.lua")
-end
-
 if minetest.get_modpath("farming") and farming.mod == "redo" then
 	-- farming customizations
 	dofile(MP.."/farming.lua")
