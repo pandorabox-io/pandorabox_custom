@@ -246,3 +246,12 @@ if minetest.get_modpath("digilines") and minetest.get_modpath("basic_materials")
 		}
 	})
 end
+
+-- clear ehlphabet to paper recipe, moreblocks overrides the balance so it could potentially
+-- be abused for infinite paper
+if minetest.get_modpath("ehlphabet") and minetest.get_modpath("moreblocks") then
+	minetest.clear_craft({
+		recipe = {"ehlphabet:block"},
+		type = "shapeless"
+	})
+end
