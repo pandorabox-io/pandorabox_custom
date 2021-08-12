@@ -206,3 +206,8 @@ end
 if minetest.global_exists("stamina") then
 	dofile(MP.."/exhaust.lua")
 end
+
+-- illumination tweaks and extras
+if minetest.global_exists("illumination") then
+	dofile(MP.."/illumination.lua")
+end
