@@ -208,6 +208,6 @@ if minetest.global_exists("stamina") then
 end
 
 -- illumination tweaks and extras
-if minetest.global_exists("illumination") then
+if minetest.get_modpath("illumination") then
 	dofile(MP.."/illumination.lua")
 end
