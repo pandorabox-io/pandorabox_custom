@@ -14,6 +14,11 @@ if minetest.settings:get("default_password") ~= "" then
 	dofile(MP.."/default_password_warn.lua")
 end
 
+-- beerchat
+if minetest.get_modpath("beerchat") then
+	dofile(MP.."/beerchat.lua")
+end
+
 -- xban issue
 dofile(MP.."/get_player_ip.lua")
 
