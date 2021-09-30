@@ -17,7 +17,9 @@ globals = {
 	"mobs",
 	"unpack",
 	"farming",
-	"protector"
+	"protector",
+	-- Advtrains global functions
+	"atdebug", "atwarn"
 }
 
 read_globals = {
