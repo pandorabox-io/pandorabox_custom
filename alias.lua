@@ -98,3 +98,7 @@ for i, replacement in ipairs(replacements) do
 		end
 	})
 end
+
+-- 2021-10-02
+-- https://notabug.org/TenPlus1/farming/commit/f8533c415ba7007d31bcba10c47295c37321577a
+minetest.register_alias("farming:sunflower_seeds", "farming:seed_sunflower")
