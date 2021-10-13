@@ -57,7 +57,6 @@ if minetest.get_modpath("castle_weapons") then
 			{'', '', ''}
 		}
 	})
-
 end
 
 -- book renewal
@@ -252,6 +251,32 @@ end
 if minetest.get_modpath("ehlphabet") and minetest.get_modpath("moreblocks") then
 	minetest.clear_craft({
 		recipe = {"ehlphabet:block"},
+		type = "shapeless"
+	})
+end
+
+-- fix conflicting cobweb recipes
+-- use mobs:cobweb to craft homedecor:cobweb_corner
+if minetest.get_modpath("mobs_monster") and minetest.get_modpath("homedecor_cobweb") then
+	minetest.clear_craft({
+		output = "homedecor:cobweb_corner"
+	})
+	minetest.register_craft({
+		output = "homedecor:cobweb_corner",
+		recipe = {"mobs:cobweb"},
+		type = "shapeless"
+	})
+end
+
+-- fix recipe for ropes:ladder_wood conflicting with homedecor:table_legs_wood
+-- use default:ladder_wood to craft ropes:ladder_wood
+if minetest.get_modpath("ropes") then
+	minetest.clear_craft({
+		output = "ropes:ladder_wood"
+	})
+	minetest.register_craft({
+		output = "ropes:ladder_wood",
+		recipe = {"default:ladder_wood"},
 		type = "shapeless"
 	})
 end
