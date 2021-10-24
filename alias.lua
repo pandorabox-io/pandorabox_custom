@@ -85,6 +85,9 @@ minetest.register_alias_force("prefab:concrete_slab", "prefab:slab_concrete")
 -- 2020-04-02 radioactive gas removal
 minetest.register_alias("radioactive_gas:gas", "vacuum:vacuum")
 
+-- 2021-10 endless_apples removal
+minetest.register_alias("endless_apples:apple_mark", "default:apple_mark")
+
 -- for future use
 local replacements = {}
 for i, replacement in ipairs(replacements) do
