@@ -119,24 +119,24 @@ if minetest.get_modpath("farming") then
 			},
 		})
 	end
-	if minetest.get_modpath("homedecor_gastronomy") then
+	if minetest.get_modpath("home_workshop_misc") then
 		minetest.register_craft({
 			type = "shapeless",
 			output = 'farming:dough 9',
-			recipe = {'farming:flour', 'homedecor:beer_mug', 'farming:salt'},
+			recipe = {'farming:flour', 'home_workshop_misc:beer_mug', 'farming:salt'},
 			replacements = {
-				{"homedecor:beer_mug", "vessels:drinking_glass"}
+				{"home_workshop_misc:beer_mug", "vessels:drinking_glass"}
 			}
 		})
 		minetest.register_craft({
 			type = "shapeless",
 			output = 'farming:dough 11',
 			recipe = {
-				'farming:flour', 'homedecor:beer_mug', 'farming:salt',
+				'farming:flour', 'home_workshop_misc:beer_mug', 'farming:salt',
 				'farming:sugar'
 			},
 			replacements = {
-				{"homedecor:beer_mug", "vessels:drinking_glass"}
+				{"home_workshop_misc:beer_mug", "vessels:drinking_glass"}
 			}
 		})
 	end
