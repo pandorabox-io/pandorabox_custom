@@ -280,3 +280,24 @@ if minetest.get_modpath("ropes") then
 		type = "shapeless"
 	})
 end
+
+-- craftable lava
+if minetest.get_modpath("technic") then
+	if minetest.get_modpath("mobs_monster") then
+		-- lava orb fills lava can (8 lava sources)
+		local output = ItemStack("technic:lava_can")
+		minetest.register_craft({
+			type = "shapeless",
+			recipe = {"technic:lava_can", "mobs:lava_orb"},
+			output = output:get_definition().on_refill(output):to_string(),
+		})
+	end
+	if minetest.get_modpath("moreblocks") and minetest.get_modpath("bucket") then
+		-- slow melting of compressed cobble
+		technic.register_alloy_recipe({
+			input = {"moreblocks:cobble_compressed 10", "bucket:bucket_empty"},
+			output = "bucket:bucket_lava",
+			time = 20  -- seconds
+		})
+	end
+end
