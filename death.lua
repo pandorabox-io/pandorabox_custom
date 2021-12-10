@@ -15,10 +15,10 @@ minetest.register_on_dieplayer(function(player)
 	minetest.chat_send_player(player_name, "You died at " .. pos_string)
 
 	local bone_string = "Bones"
-	if player.get_attribute then
+	if player.get_meta then
 		-- [xp_redo] keeps track of deathcount, let's see if it is there
-		local count = player:get_attribute("died")
-		if count then
+		local count = player:get_meta():get_int("died")
+		if 0 < count then
 			bone_string = "Bone #" .. tostring(count)
 		end
 	end -- if not fake player
