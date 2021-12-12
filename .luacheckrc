@@ -38,5 +38,6 @@ read_globals = {
 	"advtrains",
 	"letters", "player_monoids",
 	"pipeworks", "planetoidgen",
-	"xban", "beerchat", "drawers"
+	"xban", "beerchat", "drawers",
+	"toolranks",
 }
