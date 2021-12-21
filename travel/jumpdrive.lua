@@ -5,7 +5,6 @@ jumpdrive.preflight_check = function(source, destination, radius, playername)
 	if destination.y > -20 and destination.y < 100 and not has_landing_priv then
 		return { success=false, message="Atmospheric travel not allowed!" }
 	end
-	
 	-- check for height limit, only space travel allowed
 	if source.y > -20 and source.y < 100 and not has_landing_priv then
 		return { success=false, message="Atmospheric travel not allowed!" }
