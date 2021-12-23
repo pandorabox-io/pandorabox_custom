@@ -191,14 +191,14 @@ end
 -- https://github.com/pandorabox-io/pandorabox.io/issues/622
 if minetest.get_modpath("pipeworks") then
 	minetest.register_craft({
-		output = "pipeworks:filter",
-		recipe = {{"pipeworks:mese_filter", "default:mese_crystal"}},
-		replacements = {{"pipeworks:mese_filter", "default:mese"}}
+		output = "pipeworks:filter 2",
+		recipe = {{"pipeworks:mese_filter", "pipeworks:mese_filter", "default:mese_crystal"}},
+		replacements = {{"default:mese_crystal", "default:mese"}}
 	})
 	minetest.register_craft({
-		output = "pipeworks:mese_filter",
-		recipe = {{"pipeworks:filter", "default:mese"}},
-		replacements = {{"pipeworks:filter", "default:mese_crystal"}}
+		output = "pipeworks:mese_filter 2",
+		recipe = {{"pipeworks:filter", "pipeworks:filter", "default:mese"}},
+		replacements = {{"default:mese", "default:mese_crystal"}}
 	})
 	if minetest.get_modpath("digilines") then
 		minetest.register_craft({
