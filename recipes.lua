@@ -191,35 +191,35 @@ end
 -- https://github.com/pandorabox-io/pandorabox.io/issues/622
 if minetest.get_modpath("pipeworks") then
 	minetest.register_craft({
-		output = "pipeworks:filter",
-		recipe = {{"pipeworks:mese_filter", "default:mese_crystal"}},
-		replacements = {{"pipeworks:mese_filter", "default:mese"}}
+		output = "pipeworks:filter 2",
+		recipe = {{"pipeworks:mese_filter", "pipeworks:mese_filter", "default:mese_crystal"}},
+		replacements = {{"default:mese_crystal", "default:mese"}}
 	})
 	minetest.register_craft({
-		output = "pipeworks:mese_filter",
-		recipe = {{"pipeworks:filter", "default:mese"}},
-		replacements = {{"pipeworks:filter", "default:mese_crystal"}}
+		output = "pipeworks:mese_filter 2",
+		recipe = {{"pipeworks:filter", "pipeworks:filter", "default:mese"}},
+		replacements = {{"default:mese", "default:mese_crystal"}}
 	})
 	if minetest.get_modpath("digilines") then
 		minetest.register_craft({
-			output = "pipeworks:digiline_filter",
-			recipe = {{"pipeworks:mese_filter", "digilines:wire_std_00000000"}},
-			replacements = {{"pipeworks:mese_filter", "default:mese"}}
+			output = "pipeworks:digiline_filter 2",
+			recipe = {{"pipeworks:mese_filter", "pipeworks:mese_filter", "digilines:wire_std_00000000"}},
+			replacements = {{"digilines:wire_std_00000000", "default:mese"}}
 		})
 		minetest.register_craft({
-			output = "pipeworks:digiline_filter",
-			recipe = {{"pipeworks:filter", "digilines:wire_std_00000000"}},
-			replacements = {{"pipeworks:filter", "default:mese_crystal"}}
+			output = "pipeworks:digiline_filter 2",
+			recipe = {{"pipeworks:filter", "pipeworks:filter", "digilines:wire_std_00000000"}},
+			replacements = {{"digilines:wire_std_00000000", "default:mese_crystal"}}
 		})
 		minetest.register_craft({
-			output = "pipeworks:filter",
-			recipe = {{"pipeworks:digiline_filter", "default:mese_crystal"}},
-			replacements = {{"pipeworks:digiline_filter", "digilines:wire_std_00000000"}}
+			output = "pipeworks:filter 2",
+			recipe = {{"pipeworks:digiline_filter", "pipeworks:digiline_filter", "default:mese_crystal"}},
+			replacements = {{"default:mese_crystal", "digilines:wire_std_00000000"}}
 		})
 		minetest.register_craft({
-			output = "pipeworks:mese_filter",
-			recipe = {{"pipeworks:digiline_filter", "default:mese"}},
-			replacements = {{"pipeworks:digiline_filter", "digilines:wire_std_00000000"}}
+			output = "pipeworks:mese_filter 2",
+			recipe = {{"pipeworks:digiline_filter", "pipeworks:digiline_filter", "default:mese"}},
+			replacements = {{"default:mese", "digilines:wire_std_00000000"}}
 		})
 	end
 end
