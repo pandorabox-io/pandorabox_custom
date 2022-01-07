@@ -19,9 +19,6 @@ if minetest.get_modpath("beerchat") then
 	dofile(MP.."/beerchat.lua")
 end
 
--- xban issue
-dofile(MP.."/get_player_ip.lua")
-
 -- cleanups
 dofile(MP.."/cleanup.lua")
 
