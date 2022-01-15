@@ -189,6 +189,10 @@ if minetest.get_modpath("bonemeal") then
 	dofile(MP.."/bonemeal.lua")
 end
 
+if minetest.get_modpath("mobs") then
+	dofile(MP .. "/mobs.lua")
+end
+
 if minetest.get_modpath("mobs_animal") then
 	-- additional animals/textures
 	dofile(MP.."/mobs_animal.lua")
@@ -222,3 +226,4 @@ end
 if minetest.get_modpath("toolranks") then
 	dofile(MP.."/toolranks.lua")
 end
+
