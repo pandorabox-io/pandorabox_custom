@@ -66,7 +66,7 @@ minetest.register_on_joinplayer(function(player)
 	hud_data[HUD_TEXT_KEY] = player:hud_add({
 		hud_elem_type = "text",
 		position = HUD_POSITION,
-		offset = {x=20, y=0},
+		offset = {x=0, y=0},
 		text = "",
 		alignment = HUD_ALIGNMENT,
 		scale = { x = 100, y = 100 },
