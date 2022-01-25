@@ -164,6 +164,9 @@ dofile(MP.."/recipes.lua")
 -- craft overrides
 dofile(MP.."/crafts.lua")
 
+-- ehlphabet stickers
+dofile(MP.."/ehlphabet.lua")
+
 -- general hacks
 dofile(MP.."/hacks.lua")
 
