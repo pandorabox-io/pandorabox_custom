@@ -1,4 +1,3 @@
-if not minetest.get_modpath('ehlphabet') then return end
 
 -- stickers of mandarin characters
 minetest.register_craft({
