@@ -165,7 +165,9 @@ dofile(MP.."/recipes.lua")
 dofile(MP.."/crafts.lua")
 
 -- ehlphabet stickers
-dofile(MP.."/ehlphabet.lua")
+if minetest.get_modpath("ehlphabet") then
+	dofile(MP.."/ehlphabet.lua")
+end
 
 -- general hacks
 dofile(MP.."/hacks.lua")
