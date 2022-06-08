@@ -41,5 +41,5 @@ read_globals = {
 	"letters", "player_monoids",
 	"pipeworks", "planetoidgen",
 	"xban", "beerchat", "drawers",
-	"toolranks",
+	"toolranks", "stealthnode"
 }
