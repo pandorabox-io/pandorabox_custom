@@ -66,9 +66,6 @@ dofile(MP.."/privs/protection.lua")
 dofile(MP.."/privs/fly.lua")
 dofile(MP.."/privs/layers.lua")
 
--- death message
-dofile(MP.."/death.lua")
-
 -- travel stuff
 dofile(MP.."/travel/travel.lua")
 dofile(MP.."/teleport_back.lua")
