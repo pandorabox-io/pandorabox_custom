@@ -48,6 +48,9 @@ local function apply_overrides()
 		["pipeworks:digiline_detector_tube_9"] = "channel",
 		["pipeworks:digiline_detector_tube_10"] = "channel",
 		["pipeworks:digiline_filter"] = "channel",
+		["spacecannon:cannon_green"] = "channel",
+		["spacecannon:cannon_red"] = "channel",
+		["spacecannon:cannon_yellow"] = "channel",
 		["technic:forcefield_emitter_off"] = "channel", -- formspec is not updated
 		["technic:forcefield_emitter_on"] = "channel", -- formspec is not updated
 		["technic:hv_battery_box0"] = "channel",
