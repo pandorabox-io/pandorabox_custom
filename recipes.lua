@@ -268,19 +268,6 @@ if minetest.get_modpath("mobs_monster") and minetest.get_modpath("homedecor_cobw
 	})
 end
 
--- fix recipe for ropes:ladder_wood conflicting with homedecor:table_legs_wood
--- use default:ladder_wood to craft ropes:ladder_wood
-if minetest.get_modpath("ropes") then
-	minetest.clear_craft({
-		output = "ropes:ladder_wood"
-	})
-	minetest.register_craft({
-		output = "ropes:ladder_wood",
-		recipe = {"default:ladder_wood"},
-		type = "shapeless"
-	})
-end
-
 -- craftable lava
 if minetest.get_modpath("technic") then
 	if minetest.get_modpath("mobs_monster") then
