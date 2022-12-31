@@ -41,14 +41,6 @@ if minetest.get_modpath("advtrains_platform") then
 	dofile(MP.."/advtrains_platform.lua")
 end
 
--- player cleanup
--- NOTE: temporarily disabled, might be the cause of https://github.com/pandorabox-io/pandorabox.io/issues/471
---[[
-if minetest.get_modpath("xp_redo") then
-	dofile(MP.."/player_cleanup.lua")
-end
---]]
-
 -- loot customization
 if minetest.get_modpath("loot") then
 	dofile(MP.."/loot.lua")
@@ -165,9 +157,6 @@ dofile(MP.."/crafts.lua")
 
 -- general hacks
 dofile(MP.."/hacks.lua")
-
--- account creation control
-dofile(MP.."/disallow_new_players.lua")
 
 -- spawn fast walk
 if minetest.get_modpath("player_monoids") then
