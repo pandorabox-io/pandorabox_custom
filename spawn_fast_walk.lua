@@ -1,7 +1,7 @@
 
 
 local spawn_pos = minetest.string_to_pos(minetest.settings:get("static_spawnpoint") or "(0, 0, 0)")
-local range = tonumber(minetest.settings:get("spawn_fast_walk_range") or "150")
+local range = tonumber(minetest.settings:get("spawn_fast_walk_range") or "0")
 
 if range == 0 then
 	-- disabled
