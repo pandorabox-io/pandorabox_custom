@@ -14,14 +14,15 @@ minetest.register_chatcommand("control", {
 		end
 
 		-- check if the travelnet station is valid
-		if travelnet.targets[owner_name] and
-			travelnet.targets[owner_name][network_name] and
-			travelnet.targets[owner_name][network_name][station_name] then
-				local station = travelnet.targets[owner_name][network_name][station_name]
+		local travelnets = travelnet.get_travelnets(owner_name)
+		if travelnets and
+			travelnets[network_name] and
+			travelnets[network_name][station_name] then
+				local station = travelnets[network_name][station_name]
 				local target_pos = station.pos
 				if target_pos then
 					player:setpos(target_pos)
-			    minetest.chat_send_player(name, "Teleported to the control room!")
+					minetest.chat_send_player(name, "Teleported to the control room!")
 				end
 		end
 	end
