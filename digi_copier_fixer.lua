@@ -10,6 +10,7 @@ local function apply_overrides()
 		["beacon:violet"] = "channel",
 		["beacon:white"] = "channel",
 		["beacon:yellow"] = "channel",
+                ["digibuilder:digibuilder"] = "channel",
 		["digicontrol:filter"] = "channel",
 		["digiline_global_memory:controller"] = "channel",
 		["digiline_routing:filter"] = "channel", -- infotext is not updated
