@@ -23,11 +23,16 @@ minetest.unregister_chatcommand("ban")
 -- prevent big towers of papyrus and bamboo from being auto-dug
 -- https://github.com/pandorabox-io/pandorabox.io/issues/611
 function default.dig_up(pos, node, digger)
-	if digger == nil then return end
+	if not digger then return end
 	local np = {x = pos.x, y = pos.y + 1, z = pos.z}
 	local nn = minetest.get_node(np)
 	if nn.name == node.name then
 		local dp = digger:get_pos()
+		if not dp then
+			-- Digger can be non-functional when called by `minetest.dig_node`
+			-- https://github.com/minetest/minetest/blob/d13b12b/src/script/lua_api/l_env.cpp#L477-L478
+			return
+		end
 		if (np.y - dp.y) <= 10 then
 			minetest.node_dig(np, nn, digger)
 		end
