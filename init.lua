@@ -6,6 +6,9 @@ local MP = minetest.get_modpath("pandorabox_custom")
 -- anticheat stuff
 dofile(MP .. "/anticheat/inv_move.lua")
 
+-- protection bypass warning text on hud
+dofile(MP .. "/protection_bypass_warn.lua")
+
 -- unknown item aliasing
 dofile(MP.."/alias.lua")
 
