@@ -6,6 +6,9 @@ local MP = minetest.get_modpath("pandorabox_custom")
 -- anticheat stuff
 dofile(MP .. "/anticheat/inv_move.lua")
 
+-- restart if empty command
+dofile(MP .. "/restart_if_empty.lua")
+
 -- unknown item aliasing
 dofile(MP.."/alias.lua")
 
