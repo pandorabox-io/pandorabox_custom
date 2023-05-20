@@ -12,7 +12,7 @@ minetest.register_on_leaveplayer(function()
 end)
 
 minetest.register_chatcommand("restart_if_empty", {
-    description = "disables global fly",
+    description = "restarts the server when the last player leaves",
     privs = { ban = true },
     func = function()
         restart = true
