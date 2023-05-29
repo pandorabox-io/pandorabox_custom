@@ -16,5 +16,6 @@ minetest.register_chatcommand("restart_if_empty", {
     privs = { ban = true },
     func = function()
         restart = true
+        return true
     end
 })
