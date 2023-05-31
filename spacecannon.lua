@@ -4,3 +4,7 @@ spacecannon.can_shoot = function(pos, playername)
 	-- only allow shooting in space or with priv
 	return has_unrestricted_priv or pos.y > 1000
 end
+
+spacecannon.can_damage = function(obj)
+	return obj:get_pos().y > 1000
+end
