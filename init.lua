@@ -23,7 +23,7 @@ if minetest.get_modpath("beerchat") then
 end
 
 -- additional stealthnodes
-if minetest.get_modpath("mesecons_stealthnodes") then
+if minetest.get_modpath("mesecons_stealthnode") then
 	dofile(MP.."/mesecons_stealthnodes.lua")
 end
 
