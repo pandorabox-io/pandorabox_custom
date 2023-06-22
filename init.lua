@@ -158,6 +158,11 @@ dofile(MP.."/recipes.lua")
 -- craft overrides
 dofile(MP.."/crafts.lua")
 
+-- ehlphabet stickers
+if minetest.get_modpath("ehlphabet") then
+	dofile(MP.."/ehlphabet.lua")
+end
+
 -- general hacks
 dofile(MP.."/hacks.lua")
 
