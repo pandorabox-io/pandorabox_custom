@@ -82,7 +82,7 @@ travelnet.allow_travel = function( player_name, owner_name, network_name, statio
 	end
 
 	-- protected target with "(P) name"
-	if station_name_target and string.sub(station_name_target, 1, 3) == "(P)" then
+	if player_name ~= owner_name and station_name_target and string.sub(station_name_target, 1, 3) == "(P)" then
 		if travelnets and travelnets[network_name] and
 			travelnets[network_name][station_name_target] then
 
