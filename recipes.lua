@@ -288,3 +288,18 @@ if minetest.get_modpath("technic") then
 		})
 	end
 end
+
+-- revert bonemeal recipe changes
+-- see https://github.com/pandorabox-io/pandorabox-mods/pull/2960
+if minetest.get_modpath("bonemeal") then
+	minetest.clear_craft({type = "cooking", recipe = "group:bone"})
+	minetest.clear_craft({recipe = {{"bones:bones"}}})
+	minetest.register_craft({
+		output = "bonemeal:bonemeal 4",
+		recipe = {{"bones:bones"}}
+	})
+	minetest.register_craft({
+		output = "bonemeal:bonemeal 2",
+		recipe = {{"bonemeal:bone"}}
+	})
+end
