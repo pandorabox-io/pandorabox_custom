@@ -42,6 +42,15 @@ for i = 1, 12 do
 	technic.register_separating_recipe({
 		input = {"mobs:beehive_" .. i .. " 1"},
 		output = {"mobs:beehive", "mobs:honey " .. i},
-		time = ( i + 2 ) * 3 - i
+		time = ( i + 2 ) * 3 - i,
+		hidden = true,
 	})
 end
+
+-- show example recipe in unified inventory
+unified_inventory.register_craft({
+	type = "separating",
+	items = {"mobs:beehive 1"},
+	output = "mobs:honey 1",
+	width = 0,
+})
