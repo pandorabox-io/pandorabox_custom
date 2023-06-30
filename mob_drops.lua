@@ -19,12 +19,14 @@ local function add_drop_recipes(name)
 		return
 	end
 	for _,drop in pairs(mob.drops) do
-		unified_inventory.register_craft({
-			type = drop.min > 0 and "mob_drop" or "mob_drop_player",
-			output = drop.name,
-			items = {name},
-			width = 0,
-		})
+		if minetest.registered_items[drop.name] then
+			unified_inventory.register_craft({
+				type = drop.min > 0 and "mob_drop" or "mob_drop_player",
+				output = drop.name,
+				items = {name},
+				width = 0,
+			})
+		end
 	end
 end
 
