@@ -182,6 +182,9 @@ end
 
 if minetest.get_modpath("mobs") then
 	dofile(MP .. "/mobs.lua")
+	if minetest.get_modpath("unified_inventory") then
+		dofile(MP .. "/mob_drops.lua")
+	end
 end
 
 if minetest.get_modpath("mobs_animal") then
