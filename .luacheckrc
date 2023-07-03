@@ -17,6 +17,7 @@ globals = {
 	"mobs",
 	"unpack",
 	"farming",
+	"farmingNG",
 	"protector",
 	-- Advtrains global functions
 	"atdebug", "atwarn"
