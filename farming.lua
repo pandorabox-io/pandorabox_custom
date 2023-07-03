@@ -102,6 +102,12 @@ minetest.register_craft({
 farming.registered_plants["farming:pea_pod"].seed = "farming:peas"
 farming.registered_plants["farming:soy_pod"].seed = "farming:soy_beans"
 
+-- Add peas and soy beans to seeder list
+if minetest.get_modpath("farming_nextgen") then
+	table.insert(farmingNG.seeder_seed, {"farming:soy_beans", "farming:soy_1"})
+	table.insert(farmingNG.seeder_seed, {"farming:peas", "farming:pea_1"})
+end
+
 -- Adjust pie nutrition and recipe output to match new textures
 minetest.override_item("farming:apple_pie", {
 	on_use = minetest.item_eat(1)
