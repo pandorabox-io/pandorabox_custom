@@ -2,7 +2,7 @@
 -- Dig beehives while keeping inventory count information.
 -- Add centrifuge recipe for beehives with honey in inventory.
 
-local S = mobs.intllib
+local S = minetest.get_translator("mobs_animal")
 
 minetest.override_item("mobs:beehive", {
 on_dig = function(pos, node, digger)
