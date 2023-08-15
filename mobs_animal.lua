@@ -1,4 +1,4 @@
-local S = mobs.intllib
+local S = minetest.get_translator("mobs_animal")
 
 -- viking panda with texture
 mobs:register_mob("pandorabox_custom:panda_viking", {
