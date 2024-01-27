@@ -22,6 +22,11 @@ if minetest.get_modpath("beerchat") then
 	dofile(MP.."/beerchat.lua")
 end
 
+-- beds
+if minetest.get_modpath("beds") then
+	dofile(MP.."/beds.lua")
+end
+
 -- additional stealthnodes
 if minetest.get_modpath("mesecons_stealthnode") then
 	dofile(MP.."/mesecons_stealthnodes.lua")
