@@ -303,3 +303,13 @@ if minetest.get_modpath("bonemeal") then
 		recipe = {{"bonemeal:bone"}}
 	})
 end
+
+-- add group:food_seaweed to kelp for onigiri recipe
+do
+	local def = minetest.registered_items["default:sand_with_kelp"]
+	local groups = table.copy(def.groups)
+	groups.food_seaweed = 1
+	minetest.override_item("default:sand_with_kelp", {
+		groups = groups
+	})
+end
