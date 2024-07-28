@@ -12,7 +12,7 @@ minetest.register_privilege("asteroids_access", {
 })
 
 minetest.register_privilege("mars_access", {
-	description = "Can travel to the mars",
+	description = "Can travel to Mars",
 	otp_keep = true
 })
 
