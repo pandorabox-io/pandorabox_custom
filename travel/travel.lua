@@ -22,7 +22,7 @@ pandorabox.can_travel = function(player, pos)
 
 	-- mars
 	if pos.y > 10000 and pos.y < 17000 and not minetest.check_player_privs(player, "mars_access") then
-		return false, "You need the 'mars_access' priv to go to the mars!"
+		return false, "You need the 'mars_access' priv to go to Mars!"
 	end
 
 	-- warzone
