@@ -4,6 +4,7 @@ globals = {
 	"minetest",
 	"pandorabox",
 	"default",
+	"replacer",
 	"travelnet",
 	"sethome",
 	"jumpdrive",
