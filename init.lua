@@ -202,6 +202,10 @@ if minetest.get_modpath("mobs_animal") then
 	end
 end
 
+if minetest.get_modpath("mobs_fish") then
+	dofile(MP .. "/mobs_fish.lua")
+end
+
 -- digistuff:channelcopier fix
 if minetest.get_modpath("digistuff") then
 	dofile(MP .. "/digi_copier_fixer.lua")
