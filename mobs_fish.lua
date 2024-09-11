@@ -1,7 +1,7 @@
 -- Add extra areas where fish spawn
 
 local l_spawn_chance = 10000
-local l_water_level = minetest.settings:get("water_level")
+local l_water_level = tonumber(minetest.settings:get("water_level")) or 1
 local l_max_height_Earth = 777 -- Vacuum sometimes extends well below 1k
 local l_max_height_Mars = 15777
 local l_min_height_Mars = 11111
