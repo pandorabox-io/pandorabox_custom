@@ -2,6 +2,8 @@
 local nodes = {
     {"default", "copperblock"},
     {"default", "goldblock"},
+    {"default", "chest"},
+    {"more_chests", "shared"},
     {"scifi_nodes", "white"},
     {"technic", "blast_resistant_concrete"},
     {"technic", "chromium_block"},
