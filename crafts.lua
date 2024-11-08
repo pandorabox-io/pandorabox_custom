@@ -130,7 +130,7 @@ local tool_materials = {
 }
 
 -- assume mese unmeltable unless mesecons_wires exists
-if core.get_modpath("mesecons_wires") then
+if minetest.get_modpath("mesecons_wires") then
 	tool_materials["mese"] = {"default:mese_crystal", 1}
 	table.insert(cookable_items, {"multitools:multitool_mese", "default:mese_crystal 9"})
 end
