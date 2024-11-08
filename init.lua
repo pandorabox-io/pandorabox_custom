@@ -89,6 +89,13 @@ if minetest.get_modpath("pipeworks") then
 	end
 end
 
+if minetest.get_modpath("replacer")
+	and minetest.global_exists('replacer')
+	and replacer.register_limit
+then
+	dofile(MP .. "/replacer.lua")
+end
+
 if minetest.get_modpath("telemosaic") then
 	-- limit telemosaic travel
 	dofile(MP.."/travel/telemosaic.lua")
