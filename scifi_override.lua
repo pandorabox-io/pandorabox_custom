@@ -45,9 +45,6 @@ minetest.register_entity("pandorabox_custom:scifi_item",{
 				   obj:get_properties() and
 				   obj:get_properties().textures and
 				   obj:get_properties().textures[1] == self.texture then
-					minetest.log("action","[scifi_nodes] Removing extra " ..
-						self.texture .. " found in " .. self.nodename .. " at " ..
-						minetest.pos_to_string(entity_pos))
 					self.object:remove()
 					break
 				end
@@ -175,9 +172,6 @@ minetest.register_lbm({
 					end
 					local objs = minetest.get_objects_inside_radius(entity_pos, 0.5)
 					if #objs == 0 then
-						minetest.log("action","[scifi_node1s] Replacing missing " ..
-							itemstring.." in ".. node1.name.." at "..
-							minetest.pos_to_string(pos1))
 						update_item(pos1, node1)
 					end
 				end
