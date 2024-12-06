@@ -113,7 +113,7 @@ minetest.register_craft({
 
 
 -- 2020-10-21
--- cookable tools and armor (91 recipes total)
+-- cookable tools and armor
 
 local cookable_items = {
 	{"farming:scythe_mithril", "moreores:mithril_ingot 3"},
@@ -131,8 +131,10 @@ local tool_materials = {
 
 -- assume mese unmeltable unless mesecons_wires exists
 if minetest.get_modpath("mesecons_wires") then
-	tool_materials["mese"] = {"default:mese_crystal", 1}
-	table.insert(cookable_items, {"multitools:multitool_mese", "default:mese_crystal 9"})
+	tool_materials["mese"] = { "mesecons:wire_00000000_off", 18 }
+	table.insert(cookable_items, {
+		"multitools:multitool_mese", "mesecons:wire_00000000_off 162"
+	})
 end
 
 local tool_items = {["hoe"] = 2, ["shovel"] = 1, ["sword"] = 2, ["axe"] = 3, ["pick"] = 3}
