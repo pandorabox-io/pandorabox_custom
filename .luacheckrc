@@ -1,6 +1,7 @@
 unused_args = false
 
 globals = {
+	"core",
 	"minetest",
 	"pandorabox",
 	"default",

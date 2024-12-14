@@ -38,6 +38,9 @@ dofile(MP.."/cleanup.lua")
 -- prejoin log
 dofile(MP.."/prejoin.lua")
 
+-- no-announce priv, chatcommands and functions
+dofile(MP .. "/announce_player.lua")
+
 -- bucket and xp limitation
 if minetest.get_modpath("bucket") and minetest.get_modpath("xp_redo") then
 	dofile(MP.."/onplace_restriction.lua")
