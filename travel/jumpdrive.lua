@@ -21,13 +21,9 @@ jumpdrive.preflight_check = function(source, destination, radius, playername)
 		return { success=false, message="Atmospheric travel not allowed!" }
 	end
 
-	local player = minetest.get_player_by_name(playername)
-	if player then
-		-- player is online, check limits (non-automatic jump)
-		local can_teleport, err_msg = pandorabox.can_teleport(player, destination)
-		if not can_teleport then
-			return { success=false, message="Jump failed: " .. (err_msg or "") }
-		end
+	local can_teleport, err_msg = pandorabox.can_teleport(playername, destination)
+	if not can_teleport then
+		return { success=false, message="Jump failed: " .. (err_msg or "") }
 	end
 
 	-- everything ok
