@@ -38,6 +38,9 @@ dofile(MP.."/cleanup.lua")
 -- prejoin log
 dofile(MP.."/prejoin.lua")
 
+-- no-announce priv, chatcommands and functions
+dofile(MP .. "/announce_player.lua")
+
 -- bucket and xp limitation
 if minetest.get_modpath("bucket") and minetest.get_modpath("xp_redo") then
 	dofile(MP.."/onplace_restriction.lua")
@@ -81,6 +84,10 @@ if minetest.get_modpath("jumpdrive") then
 
 	-- jumppoints (different energy requirements)
 	dofile(MP.."/jumppoints.lua")
+end
+
+if core.get_modpath("ccompass") then
+	dofile(MP .. "/ccompass.lua")
 end
 
 if minetest.get_modpath("pipeworks") then

@@ -1,13 +1,14 @@
 unused_args = false
 
 globals = {
+	"core",
 	"minetest",
 	"pandorabox",
+	"ccompass",
 	"default",
 	"travelnet",
 	"sethome",
 	"jumpdrive",
-	"minetest",
 	"unified_inventory",
 	"telemosaic",
 	"gravity_manager",
