@@ -6,6 +6,9 @@ local MP = minetest.get_modpath("pandorabox_custom")
 -- anticheat stuff
 dofile(MP .. "/anticheat/inv_move.lua")
 
+-- protection bypass warning text on hud
+dofile(MP .. "/protection_bypass_warn.lua")
+
 -- restart if empty command
 dofile(MP .. "/restart_if_empty.lua")
 
