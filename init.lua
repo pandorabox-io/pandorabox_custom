@@ -9,6 +9,9 @@ dofile(MP .. "/anticheat/inv_move.lua")
 -- protection bypass warning text on hud
 dofile(MP .. "/protection_bypass_warn.lua")
 
+-- restart if empty command
+dofile(MP .. "/restart_if_empty.lua")
+
 -- unknown item aliasing
 dofile(MP.."/alias.lua")
 
@@ -22,11 +25,24 @@ if minetest.get_modpath("beerchat") then
 	dofile(MP.."/beerchat.lua")
 end
 
+-- beds
+if minetest.get_modpath("beds") then
+	dofile(MP.."/beds.lua")
+end
+
+-- additional stealthnodes
+if minetest.get_modpath("mesecons_stealthnode") then
+	dofile(MP.."/mesecons_stealthnodes.lua")
+end
+
 -- cleanups
 dofile(MP.."/cleanup.lua")
 
 -- prejoin log
 dofile(MP.."/prejoin.lua")
+
+-- no-announce priv, chatcommands and functions
+dofile(MP .. "/announce_player.lua")
 
 -- bucket and xp limitation
 if minetest.get_modpath("bucket") and minetest.get_modpath("xp_redo") then
@@ -38,14 +54,6 @@ end
 if minetest.get_modpath("advtrains_platform") then
 	dofile(MP.."/advtrains_platform.lua")
 end
-
--- player cleanup
--- NOTE: temporarily disabled, might be the cause of https://github.com/pandorabox-io/pandorabox.io/issues/471
---[[
-if minetest.get_modpath("xp_redo") then
-	dofile(MP.."/player_cleanup.lua")
-end
---]]
 
 -- loot customization
 if minetest.get_modpath("loot") then
@@ -64,9 +72,6 @@ dofile(MP.."/privs/protection.lua")
 dofile(MP.."/privs/fly.lua")
 dofile(MP.."/privs/layers.lua")
 
--- death message
-dofile(MP.."/death.lua")
-
 -- travel stuff
 dofile(MP.."/travel/travel.lua")
 dofile(MP.."/teleport_back.lua")
@@ -82,6 +87,10 @@ if minetest.get_modpath("jumpdrive") then
 
 	-- jumppoints (different energy requirements)
 	dofile(MP.."/jumppoints.lua")
+end
+
+if core.get_modpath("ccompass") then
+	dofile(MP .. "/ccompass.lua")
 end
 
 if minetest.get_modpath("pipeworks") then
@@ -132,9 +141,6 @@ if minetest.get_modpath("technic") then
 
 	-- extractor recipes
 	dofile(MP.."/extractor.lua")
-
-	-- tweaks
-	dofile(MP.."/technic.lua")
 end
 
 if minetest.get_modpath("technic_cnc") then
@@ -170,9 +176,6 @@ dofile(MP.."/crafts.lua")
 -- general hacks
 dofile(MP.."/hacks.lua")
 
--- account creation control
-dofile(MP.."/disallow_new_players.lua")
-
 -- spawn fast walk
 if minetest.get_modpath("player_monoids") then
 	dofile(MP.."/spawn_fast_walk.lua")
@@ -192,6 +195,13 @@ if minetest.get_modpath("bonemeal") then
 	dofile(MP.."/bonemeal.lua")
 end
 
+if minetest.get_modpath("mobs") then
+	dofile(MP .. "/mobs.lua")
+	if minetest.get_modpath("unified_inventory") then
+		dofile(MP .. "/mob_drops.lua")
+	end
+end
+
 if minetest.get_modpath("mobs_animal") then
 	-- additional animals/textures
 	dofile(MP.."/mobs_animal.lua")
@@ -200,6 +210,10 @@ if minetest.get_modpath("mobs_animal") then
 		-- beehive enhancements (technic centrifuge)
 		dofile(MP.."/mobs_bees.lua")
 	end
+end
+
+if minetest.get_modpath("mobs_fish") then
+	dofile(MP .. "/mobs_fish.lua")
 end
 
 -- digistuff:channelcopier fix
@@ -225,3 +239,4 @@ end
 if minetest.get_modpath("toolranks") then
 	dofile(MP.."/toolranks.lua")
 end
+

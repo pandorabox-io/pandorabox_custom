@@ -2,6 +2,7 @@
 local privs = {
 	{ xp = 10000, name = "areas_protect" },
 	{ xp = 10000, name = "moon_access" },
+	{ xp = 15000, name = "blockexchange_protected_upload" },
 	{ xp = 20000, name = "asteroids_access" },
 	{ xp = 40000, name = "lavastone_remove" },
 

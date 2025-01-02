@@ -17,7 +17,7 @@ minetest.register_globalstep(function(dtime)
 
 	for _,player in ipairs(minetest.get_connected_players()) do
 
-		local pos = player:getpos()
+		local pos = player:get_pos()
 
 		-- check if player can travel there
 		local can_travel, err_msg = pandorabox.can_travel(player, pos)

@@ -1,13 +1,14 @@
 unused_args = false
 
 globals = {
+	"core",
 	"minetest",
 	"pandorabox",
+	"ccompass",
 	"default",
 	"travelnet",
 	"sethome",
 	"jumpdrive",
-	"minetest",
 	"unified_inventory",
 	"telemosaic",
 	"gravity_manager",
@@ -17,6 +18,7 @@ globals = {
 	"mobs",
 	"unpack",
 	"farming",
+	"farmingNG",
 	"protector",
 	-- Advtrains global functions
 	"atdebug", "atwarn"
@@ -41,5 +43,5 @@ read_globals = {
 	"letters", "player_monoids",
 	"pipeworks", "planetoidgen",
 	"xban", "beerchat", "drawers",
-	"toolranks",
+	"toolranks", "stealthnode"
 }

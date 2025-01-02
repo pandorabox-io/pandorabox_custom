@@ -1,4 +1,4 @@
-local S = mobs.intllib
+local S = minetest.get_translator("mobs_animal")
 
 -- viking panda with texture
 mobs:register_mob("pandorabox_custom:panda_viking", {
@@ -103,19 +103,3 @@ minetest.register_craft({
 	},
 })
 
-local chicken_do_custom = minetest.registered_entities["mobs_animal:chicken"].do_custom
-minetest.registered_entities["mobs_animal:chicken"].do_custom = function(self, dtime, ...)
-	if not self.child then
-		self.feather_timer = (self.feather_timer or 0) + dtime
-		if self.feather_timer > 20 then
-			self.feather_timer = 0
-			if math.random(1, 500) == 1 then
-				local pos = self.object:get_pos()
-				if pos then
-					minetest.add_item(pos, "mobs:chicken_feather")
-				end
-			end
-		end
-	end
-	return chicken_do_custom(self, dtime, ...)
-end

@@ -268,19 +268,6 @@ if minetest.get_modpath("mobs_monster") and minetest.get_modpath("homedecor_cobw
 	})
 end
 
--- fix recipe for ropes:ladder_wood conflicting with homedecor:table_legs_wood
--- use default:ladder_wood to craft ropes:ladder_wood
-if minetest.get_modpath("ropes") then
-	minetest.clear_craft({
-		output = "ropes:ladder_wood"
-	})
-	minetest.register_craft({
-		output = "ropes:ladder_wood",
-		recipe = {"default:ladder_wood"},
-		type = "shapeless"
-	})
-end
-
 -- craftable lava
 if minetest.get_modpath("technic") then
 	if minetest.get_modpath("mobs_monster") then
@@ -300,4 +287,29 @@ if minetest.get_modpath("technic") then
 			time = 20  -- seconds
 		})
 	end
+end
+
+-- revert bonemeal recipe changes
+-- see https://github.com/pandorabox-io/pandorabox-mods/pull/2960
+if minetest.get_modpath("bonemeal") then
+	minetest.clear_craft({type = "cooking", recipe = "group:bone"})
+	minetest.clear_craft({recipe = {{"bones:bones"}}})
+	minetest.register_craft({
+		output = "bonemeal:bonemeal 4",
+		recipe = {{"bones:bones"}}
+	})
+	minetest.register_craft({
+		output = "bonemeal:bonemeal 2",
+		recipe = {{"bonemeal:bone"}}
+	})
+end
+
+-- add group:food_seaweed to kelp for onigiri recipe
+do
+	local def = minetest.registered_items["default:sand_with_kelp"]
+	local groups = table.copy(def.groups)
+	groups.food_seaweed = 1
+	minetest.override_item("default:sand_with_kelp", {
+		groups = groups
+	})
 end

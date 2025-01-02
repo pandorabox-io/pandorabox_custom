@@ -70,19 +70,21 @@ travelnet.allow_travel = function( player_name, owner_name, network_name, statio
 	-- extracted target pos
 	local target_pos
 
+	-- travelnets of the owner
+	local travelnets = travelnet.get_travelnets(owner_name)
+
 	-- sanity check
-	if travelnet.targets[owner_name] and travelnet.targets[owner_name][network_name] and
-		travelnet.targets[owner_name][network_name][station_name_target] then
-		target_pos = travelnet.targets[owner_name][network_name][station_name_target].pos
+	if travelnets and travelnets[network_name] and travelnets[network_name][station_name_target] then
+		target_pos = travelnets[network_name][station_name_target].pos
 	else
 		-- error!
 		return false
 	end
 
 	-- protected target with "(P) name"
-	if station_name_target and string.sub(station_name_target, 1, 3) == "(P)" then
-		if travelnet.targets[owner_name] and travelnet.targets[owner_name][network_name] and
-				travelnet.targets[owner_name][network_name][station_name_target] then
+	if player_name ~= owner_name and station_name_target and string.sub(station_name_target, 1, 3) == "(P)" then
+		if travelnets and travelnets[network_name] and
+			travelnets[network_name][station_name_target] then
 
 			minetest.load_area(target_pos)
 			if minetest.is_protected(target_pos, player_name) then

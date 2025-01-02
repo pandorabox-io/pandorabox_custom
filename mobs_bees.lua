@@ -2,7 +2,7 @@
 -- Dig beehives while keeping inventory count information.
 -- Add centrifuge recipe for beehives with honey in inventory.
 
-local S = mobs.intllib
+local S = minetest.get_translator("mobs_animal")
 
 minetest.override_item("mobs:beehive", {
 on_dig = function(pos, node, digger)
@@ -42,6 +42,15 @@ for i = 1, 12 do
 	technic.register_separating_recipe({
 		input = {"mobs:beehive_" .. i .. " 1"},
 		output = {"mobs:beehive", "mobs:honey " .. i},
-		time = ( i + 2 ) * 3 - i
+		time = ( i + 2 ) * 3 - i,
+		hidden = true,
 	})
 end
+
+-- show example recipe in unified inventory
+unified_inventory.register_craft({
+	type = "separating",
+	items = {"mobs:beehive 1"},
+	output = "mobs:honey 1",
+	width = 0,
+})
