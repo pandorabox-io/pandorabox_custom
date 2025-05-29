@@ -117,7 +117,8 @@ minetest.register_craft({
 
 local cookable_items = {
 	{"farming:scythe_mithril", "moreores:mithril_ingot 3"},
-	{"multitools:multitool_mithril", "moreores:mithril_ingot 9"}
+	{"multitools:multitool_mithril", "moreores:mithril_ingot 9"},
+	{"wrench:wrench", "technic:stainless_steel_ingot 4"},
 }
 
 local tool_materials = {
@@ -163,7 +164,7 @@ local armor_materials = {
 	["lead"] = {"technic:lead_ingot", 1, "technic_armor"},
 	["silver"] = {"moreores:silver_ingot", 1, "technic_armor"},
 	["stainless"] = {"technic:stainless_steel_ingot", 1, "technic_armor"},
-	["tin"] = {"default:tin_ingot", 1, "technic_armor"}
+	["tin"] = {"default:tin_ingot", 1, "technic_armor"},
 }
 
 local armor_items = {["boots"] = 4, ["chestplate"] = 8, ["helmet"] = 5, ["leggings"] = 7, ["shield"] = 7}
