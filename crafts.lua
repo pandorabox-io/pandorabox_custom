@@ -113,12 +113,20 @@ minetest.register_craft({
 
 
 -- 2020-10-21
+-- last updated 2025-05-30
 -- cookable tools and armor
+
+-- format is {recipe, output[, replacement]}
 
 local cookable_items = {
 	{"farming:scythe_mithril", "moreores:mithril_ingot 3"},
 	{"multitools:multitool_mithril", "moreores:mithril_ingot 9"},
 	{"wrench:wrench", "technic:stainless_steel_ingot 4"},
+	{"anvil:anvil", "default:steel_ingot 7"},
+	{"anvil:hammer", "default:steel_ingot 6"},
+	{"3d_armor_stand:armor_stand", "default:steel_ingot 3"},
+	{"3d_armor_stand:locked_armor_stand", "default:steel_ingot 4"},
+	{"3d_armor_stand:shared_armor_stand", "default:steel_ingot 3", "default:copper_ingot"},
 }
 
 local tool_materials = {
@@ -180,9 +188,13 @@ for m,v in pairs(armor_materials) do
 end
 
 for _,v in pairs(cookable_items) do
-	minetest.register_craft({
+	local def = {
 		type = "cooking",
 		output = v[2],
-		recipe = v[1]
-	})
+		recipe = v[1],
+	}
+	if v[3] then
+		def.replacements = {{v[1], v[3]}}
+	end
+	core.register_craft(def)
 end
