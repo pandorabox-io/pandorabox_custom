@@ -106,6 +106,14 @@ local function apply_overrides()
 		["technic:quarry"] = "channel",
 		["technic:supply_converter"] = "channel",  -- formspec is not updated
 		["technic:switching_station"] = "channel",
+		["telemosaic:beacon"] = "channel",
+		["telemosaic:beacon_disabled"] = "channel",
+		["telemosaic:beacon_disabled_protected"] = "channel",
+		["telemosaic:beacon_err"] = "channel",
+		["telemosaic:beacon_err_protected"] = "channel",
+		["telemosaic:beacon_off"] = "channel",
+		["telemosaic:beacon_off_protected"] = "channel",
+		["telemosaic:beacon_protected"] = "channel",
 		["textline:lcd"] = "channel",
 	}
 
