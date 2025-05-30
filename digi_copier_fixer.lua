@@ -30,6 +30,8 @@ local function apply_overrides()
 		["digiterms:scifi_widescreen"] = "channel",
 		["digiterms:white_keyboard"] = "channel",
 		["drawers:controller"] = "digilineChannel",
+		["ilights:light_off"] = "channel",
+		["ilights:light_on"] = "channel",
 		["jumpdrive:engine"] = "channel", -- formspec is not updated (reset button does it)
 		["jumpdrive:fleet_controller"] = "channel", -- formspec is not updated (reset button does it)
 		["mesecons_detector:node_detector_off"] = "digiline_channel",
