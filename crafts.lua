@@ -127,6 +127,10 @@ local cookable_items = {
 	{"3d_armor_stand:armor_stand", "default:steel_ingot 3"},
 	{"3d_armor_stand:locked_armor_stand", "default:steel_ingot 4"},
 	{"3d_armor_stand:shared_armor_stand", "default:steel_ingot 3", "default:copper_ingot"},
+	{"mobs:horseshoe_bronze",  "default:bronze_ingot 13"},
+	{"mobs:horseshoe_steel",   "default:steel_ingot 13"},
+	{"mobs:horseshoe_mese",   "mesecons:wire_00000000_off 170"},
+	{"mobs:horseshoe_diamond", "default:diamond 13"},
 }
 
 local tool_materials = {
