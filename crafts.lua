@@ -126,9 +126,8 @@ local cookable_items = {
 	{"anvil:hammer", "default:steel_ingot 6"},
 	{"3d_armor_stand:armor_stand", "default:steel_ingot 3"},
 	{"3d_armor_stand:locked_armor_stand", "default:steel_ingot 4"},
-	{"3d_armor_stand:shared_armor_stand", "default:steel_ingot 3", "default:copper_ingot"},
 	{"mobs:horseshoe_bronze",  "default:bronze_ingot 13"},
-	{"mobs:horseshoe_steel",   "default:steel_ingot 13"},
+	{"3d_armor_stand:shared_armor_stand", "default:steel_ingot 3"},
 }
 
 local tool_materials = {
@@ -198,8 +197,5 @@ for _,v in pairs(cookable_items) do
 		output = v[2],
 		recipe = v[1],
 	}
-	if v[3] then
-		def.replacements = {{v[1], v[3]}}
-	end
 	core.register_craft(def)
 end
