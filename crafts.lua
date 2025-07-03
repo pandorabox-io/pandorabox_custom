@@ -113,11 +113,22 @@ minetest.register_craft({
 
 
 -- 2020-10-21
+-- last updated 2025-05-30
 -- cookable tools and armor
+
+-- format is {recipe, output[, replacement]}
 
 local cookable_items = {
 	{"farming:scythe_mithril", "moreores:mithril_ingot 3"},
-	{"multitools:multitool_mithril", "moreores:mithril_ingot 9"}
+	{"multitools:multitool_mithril", "moreores:mithril_ingot 9"},
+	{"wrench:wrench", "technic:stainless_steel_ingot 4"},
+	{"anvil:anvil", "default:steel_ingot 7"},
+	{"anvil:hammer", "default:steel_ingot 6"},
+	{"3d_armor_stand:armor_stand", "default:steel_ingot 3"},
+	{"3d_armor_stand:locked_armor_stand", "default:steel_ingot 4"},
+	{"3d_armor_stand:shared_armor_stand", "default:steel_ingot 3"},
+	{"mobs:horseshoe_bronze", "default:bronze_ingot 13"},
+	{"mobs:horseshoe_steel", "default:steel_ingot 13"},
 }
 
 local tool_materials = {
@@ -134,6 +145,9 @@ if minetest.get_modpath("mesecons_wires") then
 	tool_materials["mese"] = { "mesecons:wire_00000000_off", 18 }
 	table.insert(cookable_items, {
 		"multitools:multitool_mese", "mesecons:wire_00000000_off 162"
+	})
+	table.insert(cookable_items, {
+		"mobs:horseshoe_mese", "mesecons:wire_00000000_off 170"
 	})
 end
 
@@ -163,7 +177,7 @@ local armor_materials = {
 	["lead"] = {"technic:lead_ingot", 1, "technic_armor"},
 	["silver"] = {"moreores:silver_ingot", 1, "technic_armor"},
 	["stainless"] = {"technic:stainless_steel_ingot", 1, "technic_armor"},
-	["tin"] = {"default:tin_ingot", 1, "technic_armor"}
+	["tin"] = {"default:tin_ingot", 1, "technic_armor"},
 }
 
 local armor_items = {["boots"] = 4, ["chestplate"] = 8, ["helmet"] = 5, ["leggings"] = 7, ["shield"] = 7}
@@ -178,10 +192,12 @@ for m,v in pairs(armor_materials) do
 	end
 end
 
-for _,v in pairs(cookable_items) do
-	minetest.register_craft({
+for _, v in pairs(cookable_items) do
+	local def = {
 		type = "cooking",
 		output = v[2],
-		recipe = v[1]
-	})
+		recipe = v[1],
+	}
+	core.register_craft(def)
 end
+
