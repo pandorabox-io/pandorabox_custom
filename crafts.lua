@@ -126,8 +126,9 @@ local cookable_items = {
 	{"anvil:hammer", "default:steel_ingot 6"},
 	{"3d_armor_stand:armor_stand", "default:steel_ingot 3"},
 	{"3d_armor_stand:locked_armor_stand", "default:steel_ingot 4"},
-	{"mobs:horseshoe_bronze",  "default:bronze_ingot 13"},
 	{"3d_armor_stand:shared_armor_stand", "default:steel_ingot 3"},
+	{"mobs:horseshoe_bronze", "default:bronze_ingot 13"},
+	{"mobs:horseshoe_steel", "default:steel_ingot 13"},
 }
 
 local tool_materials = {
@@ -146,7 +147,7 @@ if minetest.get_modpath("mesecons_wires") then
 		"multitools:multitool_mese", "mesecons:wire_00000000_off 162"
 	})
 	table.insert(cookable_items, {
-		"mobs:horseshoe_mese",   "mesecons:wire_00000000_off 170"
+		"mobs:horseshoe_mese", "mesecons:wire_00000000_off 170"
 	})
 end
 
@@ -191,7 +192,7 @@ for m,v in pairs(armor_materials) do
 	end
 end
 
-for _,v in pairs(cookable_items) do
+for _, v in pairs(cookable_items) do
 	local def = {
 		type = "cooking",
 		output = v[2],
@@ -199,3 +200,4 @@ for _,v in pairs(cookable_items) do
 	}
 	core.register_craft(def)
 end
+
