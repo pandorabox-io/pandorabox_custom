@@ -129,8 +129,6 @@ local cookable_items = {
 	{"3d_armor_stand:shared_armor_stand", "default:steel_ingot 3", "default:copper_ingot"},
 	{"mobs:horseshoe_bronze",  "default:bronze_ingot 13"},
 	{"mobs:horseshoe_steel",   "default:steel_ingot 13"},
-	{"mobs:horseshoe_mese",   "mesecons:wire_00000000_off 170"},
-	{"mobs:horseshoe_diamond", "default:diamond 13"},
 }
 
 local tool_materials = {
@@ -147,6 +145,9 @@ if minetest.get_modpath("mesecons_wires") then
 	tool_materials["mese"] = { "mesecons:wire_00000000_off", 18 }
 	table.insert(cookable_items, {
 		"multitools:multitool_mese", "mesecons:wire_00000000_off 162"
+	})
+	table.insert(cookable_items, {
+		"mobs:horseshoe_mese",   "mesecons:wire_00000000_off 170"
 	})
 end
 
