@@ -30,6 +30,8 @@ local function apply_overrides()
 		["digiterms:scifi_widescreen"] = "channel",
 		["digiterms:white_keyboard"] = "channel",
 		["drawers:controller"] = "digilineChannel",
+		["ilights:light_off"] = "channel",
+		["ilights:light_on"] = "channel",
 		["jumpdrive:engine"] = "channel", -- formspec is not updated (reset button does it)
 		["jumpdrive:fleet_controller"] = "channel", -- formspec is not updated (reset button does it)
 		["mesecons_detector:node_detector_off"] = "digiline_channel",
@@ -106,6 +108,14 @@ local function apply_overrides()
 		["technic:quarry"] = "channel",
 		["technic:supply_converter"] = "channel",  -- formspec is not updated
 		["technic:switching_station"] = "channel",
+		["telemosaic:beacon"] = "channel",
+		["telemosaic:beacon_disabled"] = "channel",
+		["telemosaic:beacon_disabled_protected"] = "channel",
+		["telemosaic:beacon_err"] = "channel",
+		["telemosaic:beacon_err_protected"] = "channel",
+		["telemosaic:beacon_off"] = "channel",
+		["telemosaic:beacon_off_protected"] = "channel",
+		["telemosaic:beacon_protected"] = "channel",
 		["textline:lcd"] = "channel",
 	}
 
