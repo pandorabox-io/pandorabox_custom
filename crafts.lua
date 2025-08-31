@@ -118,10 +118,46 @@ core.register_craft({
 
 -- format is {recipe, output[, replacement]}
 
-local cookable_items = {
+local cookable_items = { --DRAWER UPGRADE, BRIDGER
 	{ "farming:scythe_mithril", "moreores:mithril_ingot 3" },
 	{ "multitools:multitool_mithril", "moreores:mithril_ingot 9" },
 	{ "wrench:wrench", "technic:stainless_steel_ingot 4" },
+	{ "default:screwdrvier", "default:steel_ingot 1" },
+	{ "farming:cutting_board", "default:steel_ingot 1" },
+	{ "spacesuit:helmet", "default:steel_ingot 14" },
+	{ "signs_road:blue_street_sign", "default:steel_ingot 1" },      -- floor(6 in / 4 out) = 1
+	{ "homedecor:trash_can", "default:steel_ingot 1" },              -- floor(4+0.5*2 in / 3 out) = floor(4 in / 3 out) = 1
+	{ "castle_gates:steel_gate_panel" "default:steel_ingot 2" },     -- (int div shorthand) 18 in // 8 out
+	{ "castle_gates:steel_gate_hinge" "default:steel_ingot 2" },     -- 62 in // 24 out
+	{ "advtrains:signal_off", "default:steel_ingot 1" },             -- 3 in // 2 out
+	{ "advtrains:signal_wall_r_off", "default:steel_ingot 2" },      -- 5 in // 2 out
+	{ "advtrains_signals_ks:hs_danger_0", "default:steel_ingot 2" }, -- 5.2 in // 2 out
+	{ "advtrains_signals_ks:ra_danger_0", "default:steel_ingot 2" }, -- 4.2 in // 2 out
+	{ "advtrains_signals_ks:zs3_off_0", "default:steel_ingot 1" },   -- 3.2 in // 2 out
+	{ "advtrains_signals_ks:zs3v_off_0", "default:steel_ingot 1" },  -- 3.2 in // 2 out
+	{ "more_chests:toolbox_steel", "default:steel_ingot 8" },        -- pickaxe of unknown material
+	{ "pipeworks_elbow:pipeworks_elbow", "default:steel_ingot 6" },
+	{ "letters:letter_cutter_upper", "default:steel_ingot 2" },
+	{ "letters:letter_cutter_lower", "default:steel_ingot 1" },
+	{ "more_chests:shared", "default:steel_ingot 1" },
+	{ "pipeworks:storage_tank_0", "default:steel_ingot 3" },
+	{ "advtrains:chimney", "default:steel_ingot 3" },
+	{ "bucket:bucket_empty", "default:steel_ingot 3" },
+	{ "more_chests:cobble", "default:steel_ingot 1" },
+	{ "homedecor:shower_head", "default:steel_ingot 4" },
+	{ "pipeworks:steel_block_embedded_tube", "default:steel_ingot 8" },
+	{ "farming:skillet", "default:steel_ingot 2" },
+	{ "ilights:light_on", "default:steel_ingot 1" },
+	{ "castle_weapons:battleaxe", "default:steel_ingot 5" },
+	{ "advtrains:retrosignal_off", "default:steel_ingot 2" },
+	{ "morelights_modern:streetpost_d", "default:steel_ingot 2" },
+	{ "framedglass:steel_framed_obsidian_glass", "default:steel_ingot 1" },
+	{ "prefab:electric_fence_end", "default:steel_ingot 1" },
+	{ "prefab:electric_fence", "default:steel_ingot 1" },
+	{ "prefab:electric_fence_corner", "default:steel_ingot 1" },
+	{ "carts:cart", "default:steel_ingot 5" },
+	{ "home_workshop_misc:beer_tap", "default:steel_ingot 6" },
+	{ "pipeworks:steel_pane_embedded_tube" "default:steel_ingot 2" },
 	{ "anvil:anvil", "default:steel_ingot 7" },
 	{ "anvil:hammer", "default:steel_ingot 6" },
 	{ "3d_armor_stand:armor_stand", "default:steel_ingot 3" },
