@@ -125,6 +125,8 @@ local cookable_items = { --DRAWER UPGRADE, BRIDGER
 	{ "default:screwdrvier", "default:steel_ingot 1" },
 	{ "farming:cutting_board", "default:steel_ingot 1" },
 	{ "spacesuit:helmet", "default:steel_ingot 14" },
+	{ "spacesuit:pants", "default:steel_ingot 4" },
+	{ "spacesuit:boots", "default:steel_ingot 15" },
 	{ "signs_road:blue_street_sign", "default:steel_ingot 1" },      -- floor(6 in / 4 out) = 1
 	{ "homedecor:trash_can", "default:steel_ingot 1" },              -- floor(4+0.5*2 in / 3 out) = floor(4 in / 3 out) = 1
 	{ "castle_gates:steel_gate_panel" "default:steel_ingot 2" },     -- (int div shorthand) 18 in // 8 out
