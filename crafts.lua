@@ -137,10 +137,39 @@ local cookable_items = { --DRAWER UPGRADE, BRIDGER
 	{ "advtrains_signals_ks:ra_danger_0", "default:steel_ingot 2" }, -- 4.2 in // 2 out
 	{ "advtrains_signals_ks:zs3_off_0", "default:steel_ingot 1" },   -- 3.2 in // 2 out
 	{ "advtrains_signals_ks:zs3v_off_0", "default:steel_ingot 1" },  -- 3.2 in // 2 out
+	-- iron sign (6 in // 4 out)
+		{ "default:sign_wall_steel", "default:steel_ingot 1" },
+		{ "basic_signs:sign_wall_steel_blue", "default:steel_ingot 1" },
+		{ "basic_signs:sign_wall_steel_brown", "default:steel_ingot 1" },
+		{ "basic_signs:sign_wall_steel_green", "default:steel_ingot 1" },
+		{ "basic_signs:sign_wall_steel_orange", "default:steel_ingot 1" },
+		{ "basic_signs:sign_wall_steel_red", "default:steel_ingot 1" },
+		{ "basic_signs:sign_wall_steel_yellow", "default:steel_ingot 1" },
+		{ "basic_signs:sign_wall_steel_white_black", "default:steel_ingot 1" },
+		{ "basic_signs:sign_wall_steel_white_red", "default:steel_ingot 1" },
+		{ "signs_road:blue_street_sign", "default:steel_ingot 1" },
+	-- street signs (3 in // 2 out)
+		{ "signs_road:black_right_sign", "default:steel_ingot 1" },
+		{ "signs_road:red_street_sign", "default:steel_ingot 1" },
+
+		{ "signs_road:signs_road:red_right_sign", "default:steel_ingot 1" },
+		{ "signs_road:signs_road:green_right_sign", "default:steel_ingot 1" },
+		{ "signs_road:signs_road:blue_right_sign", "default:steel_ingot 1" },
+		{ "signs_road:signs_road:yellow_right_sign", "default:steel_ingot 1" },
+		{ "signs_road:signs_road:white_right_sign", "default:steel_ingot 1" },
+	
+		{ "signs_road:signs_road:red_sign", "default:steel_ingot 1" },
+		{ "signs_road:signs_road:green_sign", "default:steel_ingot 1" },
+		{ "signs_road:signs_road:blue_sign", "default:steel_ingot 1" },
+		{ "signs_road:signs_road:yellow_sign", "default:steel_ingot 1" },
+		{ "signs_road:signs_road:white_sign", "default:steel_ingot 1" },
 	{ "more_chests:toolbox_steel", "default:steel_ingot 8" },        -- pickaxe of unknown material
+	{ "bike:bike", "default:steel_ingot 7" },
+	{ "signs_road:large_street_sign", "default:steel_ingot 6" },
 	{ "pipeworks_elbow:pipeworks_elbow", "default:steel_ingot 6" },
 	{ "letters:letter_cutter_upper", "default:steel_ingot 2" },
 	{ "letters:letter_cutter_lower", "default:steel_ingot 1" },
+	{ "fire:flint_and_steel", "default:steel_ingot 1" },
 	{ "more_chests:shared", "default:steel_ingot 1" },
 	{ "pipeworks:storage_tank_0", "default:steel_ingot 3" },
 	{ "advtrains:chimney", "default:steel_ingot 3" },
@@ -167,6 +196,9 @@ local cookable_items = { --DRAWER UPGRADE, BRIDGER
 	{ "3d_armor_stand:shared_armor_stand", "default:steel_ingot 3" },
 	{ "mobs:horseshoe_bronze", "default:bronze_ingot 13" },
 	{ "mobs:horseshoe_steel", "default:steel_ingot 13" },
+	{ "jumping:trampoline1", "default:steel_ingot 2" },
+	{ "more_chests:fridge", "default:steel_ingot 4" },
+	{ "more_chests:big_fridge", "default:steel_ingot 8" },
 }
 
 local tool_materials = {
