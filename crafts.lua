@@ -159,7 +159,7 @@ local cookable_items = { --DRAWER UPGRADE, BRIDGER
 	{ "prefab:electric_fence_corner", "default:steel_ingot 1" },
 	{ "carts:cart", "default:steel_ingot 5" },
 	{ "home_workshop_misc:beer_tap", "default:steel_ingot 6" },
-	{ "pipeworks:steel_pane_embedded_tube" "default:steel_ingot 2" },
+	{ "pipeworks:steel_pane_embedded_tube", "default:steel_ingot 2" },
 	{ "anvil:anvil", "default:steel_ingot 7" },
 	{ "anvil:hammer", "default:steel_ingot 6" },
 	{ "3d_armor_stand:armor_stand", "default:steel_ingot 3" },
