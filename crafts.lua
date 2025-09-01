@@ -157,7 +157,7 @@ local cookable_items = { --DRAWER UPGRADE, BRIDGER
 		{ "signs_road:signs_road:blue_right_sign", "default:steel_ingot 1" },
 		{ "signs_road:signs_road:yellow_right_sign", "default:steel_ingot 1" },
 		{ "signs_road:signs_road:white_right_sign", "default:steel_ingot 1" },
-	
+
 		{ "signs_road:signs_road:red_sign", "default:steel_ingot 1" },
 		{ "signs_road:signs_road:green_sign", "default:steel_ingot 1" },
 		{ "signs_road:signs_road:blue_sign", "default:steel_ingot 1" },
