@@ -129,8 +129,8 @@ local cookable_items = { --DRAWER UPGRADE, BRIDGER
 	{ "spacesuit:boots", "default:steel_ingot 15" },
 	{ "signs_road:blue_street_sign", "default:steel_ingot 1" },      -- floor(6 in / 4 out) = 1
 	{ "homedecor:trash_can", "default:steel_ingot 1" },              -- floor(4+0.5*2 in / 3 out) = floor(4 in / 3 out) = 1
-	{ "castle_gates:steel_gate_panel" "default:steel_ingot 2" },     -- (int div shorthand) 18 in // 8 out
-	{ "castle_gates:steel_gate_hinge" "default:steel_ingot 2" },     -- 62 in // 24 out
+	{ "castle_gates:steel_gate_panel", "default:steel_ingot 2" },     -- (int div shorthand) 18 in // 8 out
+	{ "castle_gates:steel_gate_hinge", "default:steel_ingot 2" },     -- 62 in // 24 out
 	{ "advtrains:signal_off", "default:steel_ingot 1" },             -- 3 in // 2 out
 	{ "advtrains:signal_wall_r_off", "default:steel_ingot 2" },      -- 5 in // 2 out
 	{ "advtrains_signals_ks:hs_danger_0", "default:steel_ingot 2" }, -- 5.2 in // 2 out
