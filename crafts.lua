@@ -110,10 +110,16 @@ core.register_craft({
 	recipe = { "default:dry_grass_1", "default:dirt" },
 })
 
+-- the density of ethereal mod charcoal is ~1/10 of coal, otherwise it's pure carbon
+-- the volume of charcoal mod charcoal is 1/8 of ethereal mod charcoal, since it uses planks for 2x the output count
+technic.register_compressor_recipe({ input = {"charcoal:charcoal_lump 80"}, output = "default:coal_lump 1" })
+
+technic.register_compressor_recipe({ input = {"factory_bridges:i00 30"}, output = "factory_bridges:b00 1" })
+technic.register_grinder_recipe({ input = {"factory_bridges:b00 10"}, output = "technic:wrought_iron_dust 3" })
 
 
 -- 2020-10-21
--- last updated 2025-05-30
+-- last updated 2025-09-25
 -- cookable tools and armor
 
 -- format is {recipe, output[, replacement]}
@@ -199,6 +205,8 @@ local cookable_items = { --DRAWER UPGRADE, BRIDGER
 	{ "jumping:trampoline1", "default:steel_ingot 2" },
 	{ "more_chests:fridge", "default:steel_ingot 4" },
 	{ "more_chests:big_fridge", "default:steel_ingot 8" },
+	-- using factory_bridges components for smaller subdivisions
+	{ "advtrains:dtrack_placer", "factory_bridges:i00 12"}
 }
 
 local tool_materials = {
