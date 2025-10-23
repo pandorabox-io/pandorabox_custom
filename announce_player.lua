@@ -10,6 +10,8 @@ core.register_privilege(no_announce_priv, {
 	give_to_singleplayer = false,
 })
 
+local store = core.get_mod_storage()
+local last_was_join = {}
 
 --
 -- [beerchat] compat.
@@ -39,30 +41,47 @@ else
 end
 
 --
--- chat commands so players can announce themselves.
+-- chat command so players can announce themselves.
 --
 
-core.register_chatcommand("announce_join", {
-	description = "join message",
-	privs = { [no_announce_priv] = true },
-	func = function(player_name)
-		core.chat_send_all("*** " .. player_name .. " joined the game")
-		if has_beerchat then
-			beerchat_on_channel_message(beerchat.main_channel_name,
-				player_name, "❱ Joined the game")
-		end
-	end,
-})
+local function announce_join(player_name)
+	last_was_join[player_name] = true
+	core.chat_send_all("*** " .. player_name .. " joined the game")
+	if has_beerchat then
+		beerchat_on_channel_message(beerchat.main_channel_name,
+			player_name, "❱ Joined the game")
+	end
+end
 
 
-core.register_chatcommand("announce_leave", {
-	description = "leave message",
+local function announce_leave(player_name)
+	last_was_join[player_name] = nil
+	core.chat_send_all("*** " ..  player_name .. " left the game.")
+	if has_beerchat then
+		beerchat_on_channel_message(beerchat.main_channel_name,
+			player_name, "❰ Left the game")
+	end
+end
+
+
+core.register_chatcommand("announce", {
+	description = "announce [join | leave | auto [<number of events>]]",
 	privs = { [no_announce_priv] = true },
-	func = function(player_name)
-		core.chat_send_all("*** " ..  player_name .. " left the game.")
-		if has_beerchat then
-			beerchat_on_channel_message(beerchat.main_channel_name,
-				player_name, "❰ Left the game")
+	func = function(player_name, params)
+		local first = string.lower(params):sub(1, 1)
+		if 'j' == first then announce_join(player_name)
+		elseif 'l' == first then announce_leave(player_name)
+		elseif 'a' == first then
+			-- Suppress priv for next i events.
+			local i = tonumber(params:split(' ')[2]) or 2
+			store:set_int("announce_" .. player_name, i)
+		else
+			-- Do the announcement that is not the last one made.
+			if last_was_join[player_name] then
+				announce_leave(player_name)
+			else
+				announce_join(player_name)
+			end
 		end
 	end,
 })
@@ -71,10 +90,28 @@ core.register_chatcommand("announce_leave", {
 -- Override functions implementing the priv.
 --
 
+local function has_suspended_priv(player_name)
+	local key = "announce_" .. player_name
+	local i = store:get_int(key)
+	if 0 >= i then return false end
+
+	i = i - 1
+	store:set_int(key, i)
+	if 0 == i then
+		core.chat_send_player(player_name, no_announce_priv .. " priv is active again.")
+	end
+	return true
+end
+
+
 local core_send_join_message = core.send_join_message
 core.send_join_message = function(player_name)
 	if core.check_player_privs(player_name, { [no_announce_priv] = true }) then
-		return
+		if has_suspended_priv(player_name) then
+			last_was_join[player_name] = true
+		else
+			return
+		end
 	end
 
 	core_send_join_message(player_name)
@@ -84,7 +121,11 @@ end
 local core_send_leave_message = core.send_leave_message
 core.send_leave_message = function(player_name, timed_out)
 	if core.check_player_privs(player_name, { [no_announce_priv] = true }) then
-		return
+		if has_suspended_priv(player_name) then
+			last_was_join[player_name] = nil
+		else
+			return
+		end
 	end
 
 	core_send_leave_message(player_name, timed_out)
