@@ -13,11 +13,35 @@ core.register_privilege(no_announce_priv, {
 local store = core.get_mod_storage()
 local last_was_join = {}
 
+-- Check priv and keep track of event count.
+local function skip_announce(player_name, deduct)
+	local has_priv = core.check_player_privs(player_name, { [no_announce_priv] = true })
+	if not has_priv then
+		return false, has_priv
+	end
+
+	local key = "announce_" .. player_name
+	local i = store:get_int(key)
+	if 0 >= i then
+		return true, has_priv
+	end
+
+	-- If beerchat is used this function is called twice.
+	if deduct then
+		i = i - 1
+		store:set_int(key, i)
+		if 0 == i then
+			core.chat_send_player(player_name, no_announce_priv .. " priv is active again.")
+		end
+	end
+	return false, has_priv
+end
+
 --
 -- [beerchat] compat.
 --
 local has_beerchat = core.get_modpath("beerchat") and true
-local beerchat_on_channel_message
+local beerchat_on_channel_message = function() end
 if has_beerchat then
 	-- Intercept sending to remote bridge.
 	beerchat_on_channel_message = beerchat.on_channel_message
@@ -27,7 +51,7 @@ if has_beerchat then
 			and (message == "❱ Joined the game"
 				-- Catch time-out messages too. (❰ is 3 bytes long)
 				or message:sub(1, 17) == "❰ Left the game")
-			and core.check_player_privs(player_name, { [no_announce_priv] = true })
+			and skip_announce(player_name, false)
 		then
 			return
 		end
@@ -35,13 +59,10 @@ if has_beerchat then
 		-- Send normally.
 		beerchat_on_channel_message(channel, player_name, message, event)
 	end
-else
-	-- Noop to satisfy luacheck.
-	beerchat_on_channel_message = function() end
 end
 
 --
--- chat command so players can announce themselves.
+-- Chat command so players can announce themselves.
 --
 
 local function announce_join(player_name)
@@ -90,28 +111,13 @@ core.register_chatcommand("announce", {
 -- Override functions implementing the priv.
 --
 
-local function has_suspended_priv(player_name)
-	local key = "announce_" .. player_name
-	local i = store:get_int(key)
-	if 0 >= i then return false end
-
-	i = i - 1
-	store:set_int(key, i)
-	if 0 == i then
-		core.chat_send_player(player_name, no_announce_priv .. " priv is active again.")
-	end
-	return true
-end
-
-
 local core_send_join_message = core.send_join_message
 core.send_join_message = function(player_name)
-	if core.check_player_privs(player_name, { [no_announce_priv] = true }) then
-		if has_suspended_priv(player_name) then
-			last_was_join[player_name] = true
-		else
-			return
-		end
+	local skip, has_priv = skip_announce(player_name, true)
+	if skip then
+		return
+	elseif has_priv then
+		last_was_join[player_name] = true
 	end
 
 	core_send_join_message(player_name)
@@ -120,12 +126,11 @@ end
 
 local core_send_leave_message = core.send_leave_message
 core.send_leave_message = function(player_name, timed_out)
-	if core.check_player_privs(player_name, { [no_announce_priv] = true }) then
-		if has_suspended_priv(player_name) then
-			last_was_join[player_name] = nil
-		else
-			return
-		end
+	local skip, has_priv = skip_announce(player_name, true)
+	if skip then
+		return
+	elseif has_priv then
+		last_was_join[player_name] = nil
 	end
 
 	core_send_leave_message(player_name, timed_out)
