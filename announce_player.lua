@@ -14,7 +14,7 @@ local store = core.get_mod_storage()
 local last_was_join = {}
 
 -- Check priv and keep track of event count.
-local function skip_announce(player_name, deduct)
+local function skip_announce(player_name)
 	local has_priv = core.check_player_privs(player_name, { [no_announce_priv] = true })
 	if not has_priv then
 		return false, has_priv
@@ -27,12 +27,10 @@ local function skip_announce(player_name, deduct)
 	end
 
 	-- If beerchat is used this function is called twice.
-	if deduct then
-		i = i - 1
-		store:set_int(key, i)
-		if 0 == i then
-			core.chat_send_player(player_name, no_announce_priv .. " priv is active again.")
-		end
+	i = i - (has_beerchat and .5 or 1)
+	store:set_int(key, i)
+	if 0 == i then
+		core.chat_send_player(player_name, no_announce_priv .. " priv is active again.")
 	end
 	return false, has_priv
 end
@@ -113,7 +111,7 @@ core.register_chatcommand("announce", {
 
 local core_send_join_message = core.send_join_message
 core.send_join_message = function(player_name)
-	local skip, has_priv = skip_announce(player_name, true)
+	local skip, has_priv = skip_announce(player_name)
 	if skip then
 		return
 	elseif has_priv then
@@ -126,7 +124,7 @@ end
 
 local core_send_leave_message = core.send_leave_message
 core.send_leave_message = function(player_name, timed_out)
-	local skip, has_priv = skip_announce(player_name, true)
+	local skip, has_priv = skip_announce(player_name)
 	if skip then
 		return
 	elseif has_priv then
