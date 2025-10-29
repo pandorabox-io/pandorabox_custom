@@ -10,6 +10,8 @@ core.register_privilege(no_announce_priv, {
 	give_to_singleplayer = false,
 })
 
+local has_beerchat = core.get_modpath("beerchat") and true
+local beerchat_skip = {}
 local store = core.get_mod_storage()
 local last_was_join = {}
 
@@ -23,14 +25,15 @@ local function skip_announce(player_name)
 	local key = "announce_" .. player_name
 	local i = store:get_int(key)
 	if 0 >= i then
+		beerchat_skip[player_name] = true
 		return true, has_priv
 	end
 
-	-- If beerchat is used this function is called twice.
-	i = i - (has_beerchat and .5 or 1)
+	i = i - 1
 	store:set_int(key, i)
 	if 0 == i then
-		core.chat_send_player(player_name, no_announce_priv .. " priv is active again.")
+		core.chat_send_player(player_name, 'The "' .. no_announce_priv
+			.. '" priv is active again.')
 	end
 	return false, has_priv
 end
@@ -38,7 +41,6 @@ end
 --
 -- [beerchat] compat.
 --
-local has_beerchat = core.get_modpath("beerchat") and true
 local beerchat_on_channel_message = function() end
 if has_beerchat then
 	-- Intercept sending to remote bridge.
@@ -49,8 +51,9 @@ if has_beerchat then
 			and (message == "❱ Joined the game"
 				-- Catch time-out messages too. (❰ is 3 bytes long)
 				or message:sub(1, 17) == "❰ Left the game")
-			and skip_announce(player_name, false)
+			and beerchat_skip[player_name]
 		then
+			beerchat_skip[player_name] = nil
 			return
 		end
 
@@ -94,6 +97,11 @@ core.register_chatcommand("announce", {
 			-- Suppress priv for next i events.
 			local i = tonumber(params:split(' ')[2]) or 2
 			store:set_int("announce_" .. player_name, i)
+			local message = "Automatic announce is off."
+			if 0 < i then
+				message = "Next " .. (1 == i and "event" or i .. " events")
+					.. " will be announced automatically." end
+			return true, message
 		else
 			-- Do the announcement that is not the last one made.
 			if last_was_join[player_name] then
