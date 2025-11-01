@@ -12,7 +12,13 @@ if minetest.get_modpath("ccompass") and minetest.get_modpath("digtron") then
 	})
 end
 
-if core.get_modpath("digiterms") then do
+if core.get_modpath("digiterms")
+	and core.get_modpath("basic_materials")
+	and core.get_modpath("digilines")
+	and core.get_modpath("dye")
+	and core.get_modpath("mesecons_microcontroller")
+	and core.get_modpath("xpanes")
+then do
 	-- Preserve recipes changed by https://github.com/mt-mods/digiterms/commit/a8c1ed3b6812d5297160c81956c7c810a6e044e6
 	local mat = {
 		plastic = 'basic_materials:plastic_sheet',
@@ -351,3 +357,4 @@ do
 		groups = groups
 	})
 end
+
