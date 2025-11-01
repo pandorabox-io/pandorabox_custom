@@ -111,7 +111,7 @@ core.register_craft({
 })
 
 
-if core.global_exists("technic") then
+if core.get_modpath("technic") then
 	-- the density of ethereal mod charcoal is ~1/10 of coal, otherwise it's pure carbon
 	-- the volume of charcoal mod charcoal is 1/8 of ethereal mod charcoal, since it uses planks for 2x the output count
 	technic.register_compressor_recipe({ input = { "charcoal:charcoal_lump 80" }, output = "default:coal_lump 1" })
@@ -149,38 +149,37 @@ local cookable_items = {
 	{ "advtrains_signals_ks:ra_danger_0", "default:steel_ingot 2" }, -- 4.2 in // 2 out
 	{ "advtrains_signals_ks:zs3_off_0", "default:steel_ingot 1" },   -- 3.2 in // 2 out
 	{ "advtrains_signals_ks:zs3v_off_0", "default:steel_ingot 1" },  -- 3.2 in // 2 out
-	
+
 	-- iron sign (6 in // 4 out):
-		{ "default:sign_wall_steel", "default:steel_ingot 1" },
-		{ "basic_signs:sign_wall_steel_blue", "default:steel_ingot 1" },
-		{ "basic_signs:sign_wall_steel_brown", "default:steel_ingot 1" },
-		{ "basic_signs:sign_wall_steel_green", "default:steel_ingot 1" },
-		{ "basic_signs:sign_wall_steel_orange", "default:steel_ingot 1" },
-		{ "basic_signs:sign_wall_steel_red", "default:steel_ingot 1" },
-		{ "basic_signs:sign_wall_steel_yellow", "default:steel_ingot 1" },
-		{ "basic_signs:sign_wall_steel_white_black", "default:steel_ingot 1" },
-		{ "basic_signs:sign_wall_steel_white_red", "default:steel_ingot 1" },
-		{ "signs_road:blue_street_sign", "default:steel_ingot 1" },
-	
+	{ "default:sign_wall_steel", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_blue", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_brown", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_green", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_orange", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_red", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_yellow", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_white_black", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_white_red", "default:steel_ingot 1" },
+	{ "signs_road:blue_street_sign", "default:steel_ingot 1" },
+
 	-- street signs (3 in // 2 out):
-		{ "signs_road:black_right_sign", "default:steel_ingot 1" },
-		{ "signs_road:red_street_sign", "default:steel_ingot 1" },
-		{ "signs_road:blue_street_sign", "default:steel_ingot 1" },
+	{ "signs_road:black_right_sign", "default:steel_ingot 1" },
+	{ "signs_road:red_street_sign", "default:steel_ingot 1" },
+	{ "signs_road:blue_street_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:red_right_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:green_right_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:blue_right_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:yellow_right_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:white_right_sign", "default:steel_ingot 1" },
 
-		{ "signs_road:signs_road:red_right_sign", "default:steel_ingot 1" },
-		{ "signs_road:signs_road:green_right_sign", "default:steel_ingot 1" },
-		{ "signs_road:signs_road:blue_right_sign", "default:steel_ingot 1" },
-		{ "signs_road:signs_road:yellow_right_sign", "default:steel_ingot 1" },
-		{ "signs_road:signs_road:white_right_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:red_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:green_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:blue_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:yellow_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:white_sign", "default:steel_ingot 1" },
 
-		{ "signs_road:signs_road:red_sign", "default:steel_ingot 1" },
-		{ "signs_road:signs_road:green_sign", "default:steel_ingot 1" },
-		{ "signs_road:signs_road:blue_sign", "default:steel_ingot 1" },
-		{ "signs_road:signs_road:yellow_sign", "default:steel_ingot 1" },
-		{ "signs_road:signs_road:white_sign", "default:steel_ingot 1" },
-	
 	-- other signs:
-		{ "signs_road:large_street_sign", "default:steel_ingot 6" },
+	{ "signs_road:large_street_sign", "default:steel_ingot 6" },
 	
 	{ "more_chests:toolbox_steel", "default:steel_ingot 8" },        -- pickaxe of unknown material
 	{ "bike:bike", "default:steel_ingot 7" },
