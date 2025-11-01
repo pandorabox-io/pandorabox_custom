@@ -180,7 +180,7 @@ local cookable_items = {
 
 	-- other signs:
 	{ "signs_road:large_street_sign", "default:steel_ingot 6" },
-	
+
 	{ "more_chests:toolbox_steel", "default:steel_ingot 8" },        -- pickaxe of unknown material
 	{ "bike:bike", "default:steel_ingot 7" },
 	{ "pipeworks_elbow:pipeworks_elbow", "default:steel_ingot 6" },
