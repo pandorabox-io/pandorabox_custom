@@ -22,8 +22,6 @@ bonemeal:add_deco({
 -- https://en.wikipedia.org/wiki/Biochar
 if minetest.get_modpath("charcoal") then
 
-	local creative_mode = minetest.settings:get_bool("creative_mode")
-
 	minetest.register_craftitem("pandorabox_custom:super_fertiliser", {
 		description = "Super Fertiliser",
 		inventory_image = "bonemeal_item.png^[multiply:#00a000ff",
@@ -31,13 +29,14 @@ if minetest.get_modpath("charcoal") then
 			if pointed_thing.type ~= "node" then
 				return
 			end
-			if minetest.is_protected(pointed_thing.under, user:get_player_name()) then
+			local name = user:get_player_name()
+			if minetest.is_protected(pointed_thing.under, name) then
 				return
 			end
-			if not creative_mode or not minetest.check_player_privs(user:get_player_name(), {creative = true}) then
+			local used = bonemeal:on_use(pointed_thing.under, 4)
+			if used and not bonemeal.is_creative(name) then
 				itemstack:take_item()
 			end
-			bonemeal:on_use(pointed_thing.under, 4)
 			return itemstack
 		end
 	})
