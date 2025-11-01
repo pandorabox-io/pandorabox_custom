@@ -89,10 +89,6 @@ if minetest.get_modpath("jumpdrive") then
 	dofile(MP.."/jumppoints.lua")
 end
 
-if core.get_modpath("ccompass") then
-	dofile(MP .. "/ccompass.lua")
-end
-
 if minetest.get_modpath("pipeworks") then
 	if pipeworks.tptube then
 		dofile(MP.."/tp_tube_fixer.lua")
@@ -196,7 +192,6 @@ if minetest.get_modpath("bonemeal") then
 end
 
 if minetest.get_modpath("mobs") then
-	dofile(MP .. "/mobs.lua")
 	if minetest.get_modpath("unified_inventory") then
 		dofile(MP .. "/mob_drops.lua")
 	end
