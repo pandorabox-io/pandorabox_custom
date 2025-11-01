@@ -40,7 +40,7 @@ if core.get_modpath("digiterms") then do
 	for _, v in ipairs(monitors) do
 		core.clear_craft({ output = v.name })
 		core.register_craft({
-				output = v.name
+				output = v.name,
 				recipe = {
 					{ mat.plastic, mat.plastic, mat[v.colour1] },
 					{ mat.glass, mat[v.colour2], mat.cpu },
