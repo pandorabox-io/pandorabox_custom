@@ -110,21 +110,28 @@ core.register_craft({
 	recipe = { "default:dry_grass_1", "default:dirt" },
 })
 
--- the density of ethereal mod charcoal is ~1/10 of coal, otherwise it's pure carbon
--- the volume of charcoal mod charcoal is 1/8 of ethereal mod charcoal, since it uses planks for 2x the output count
-technic.register_compressor_recipe({ input = {"charcoal:charcoal_lump 80"}, output = "default:coal_lump 1" })
 
-technic.register_compressor_recipe({ input = {"factory_bridges:i00 30"}, output = "factory_bridges:b00 1" })
-technic.register_grinder_recipe({ input = {"factory_bridges:b00 10"}, output = "technic:wrought_iron_dust 3" })
+if core.global_exists("technic") then
+	-- the density of ethereal mod charcoal is ~1/10 of coal, otherwise it's pure carbon
+	-- the volume of charcoal mod charcoal is 1/8 of ethereal mod charcoal, since it uses planks for 2x the output count
+	technic.register_compressor_recipe({ input = { "charcoal:charcoal_lump 80" }, output = "default:coal_lump 1" })
+
+	-- factory bridges components used as percentile divisions of iron
+	technic.register_compressor_recipe({ input = { "factory_bridges:i00 30" }, output = "factory_bridges:b00 1" })
+	technic.register_grinder_recipe({ input = { "factory_bridges:b00 10" }, output = "technic:wrought_iron_dust 3" })
+end
+
 
 
 -- 2020-10-21
--- last updated 2025-09-25
+-- last updated 2025-11-01
 -- cookable tools and armor
+
+-- drawer upgrades and bridger components are planned
 
 -- format is {recipe, output[, replacement]}
 
-local cookable_items = { --DRAWER UPGRADE, BRIDGER
+local cookable_items = {
 	{ "farming:scythe_mithril", "moreores:mithril_ingot 3" },
 	{ "multitools:multitool_mithril", "moreores:mithril_ingot 9" },
 	{ "wrench:wrench", "technic:stainless_steel_ingot 4" },
@@ -133,7 +140,6 @@ local cookable_items = { --DRAWER UPGRADE, BRIDGER
 	{ "spacesuit:helmet", "default:steel_ingot 14" },
 	{ "spacesuit:pants", "default:steel_ingot 4" },
 	{ "spacesuit:boots", "default:steel_ingot 15" },
-	{ "signs_road:blue_street_sign", "default:steel_ingot 1" },      -- floor(6 in / 4 out) = 1
 	{ "homedecor:trash_can", "default:steel_ingot 1" },              -- floor(4+0.5*2 in / 3 out) = floor(4 in / 3 out) = 1
 	{ "castle_gates:steel_gate_panel", "default:steel_ingot 2" },     -- (int div shorthand) 18 in // 8 out
 	{ "castle_gates:steel_gate_hinge", "default:steel_ingot 2" },     -- 62 in // 24 out
@@ -143,7 +149,8 @@ local cookable_items = { --DRAWER UPGRADE, BRIDGER
 	{ "advtrains_signals_ks:ra_danger_0", "default:steel_ingot 2" }, -- 4.2 in // 2 out
 	{ "advtrains_signals_ks:zs3_off_0", "default:steel_ingot 1" },   -- 3.2 in // 2 out
 	{ "advtrains_signals_ks:zs3v_off_0", "default:steel_ingot 1" },  -- 3.2 in // 2 out
-	-- iron sign (6 in // 4 out)
+	
+	-- iron sign (6 in // 4 out):
 		{ "default:sign_wall_steel", "default:steel_ingot 1" },
 		{ "basic_signs:sign_wall_steel_blue", "default:steel_ingot 1" },
 		{ "basic_signs:sign_wall_steel_brown", "default:steel_ingot 1" },
@@ -154,9 +161,11 @@ local cookable_items = { --DRAWER UPGRADE, BRIDGER
 		{ "basic_signs:sign_wall_steel_white_black", "default:steel_ingot 1" },
 		{ "basic_signs:sign_wall_steel_white_red", "default:steel_ingot 1" },
 		{ "signs_road:blue_street_sign", "default:steel_ingot 1" },
-	-- street signs (3 in // 2 out)
+	
+	-- street signs (3 in // 2 out):
 		{ "signs_road:black_right_sign", "default:steel_ingot 1" },
 		{ "signs_road:red_street_sign", "default:steel_ingot 1" },
+		{ "signs_road:blue_street_sign", "default:steel_ingot 1" },
 
 		{ "signs_road:signs_road:red_right_sign", "default:steel_ingot 1" },
 		{ "signs_road:signs_road:green_right_sign", "default:steel_ingot 1" },
@@ -169,9 +178,12 @@ local cookable_items = { --DRAWER UPGRADE, BRIDGER
 		{ "signs_road:signs_road:blue_sign", "default:steel_ingot 1" },
 		{ "signs_road:signs_road:yellow_sign", "default:steel_ingot 1" },
 		{ "signs_road:signs_road:white_sign", "default:steel_ingot 1" },
+	
+	-- other signs:
+		{ "signs_road:large_street_sign", "default:steel_ingot 6" },
+	
 	{ "more_chests:toolbox_steel", "default:steel_ingot 8" },        -- pickaxe of unknown material
 	{ "bike:bike", "default:steel_ingot 7" },
-	{ "signs_road:large_street_sign", "default:steel_ingot 6" },
 	{ "pipeworks_elbow:pipeworks_elbow", "default:steel_ingot 6" },
 	{ "letters:letter_cutter_upper", "default:steel_ingot 2" },
 	{ "letters:letter_cutter_lower", "default:steel_ingot 1" },
