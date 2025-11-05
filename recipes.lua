@@ -29,7 +29,6 @@ then do
 		black = 'dye:black', green = 'dye:green', orange = 'dye:orange',
 		white = 'dye:white', yellow = 'dye:yellow',
 	}
-	core.clear_craft({ output = 'digiterms:lcd_monitor' })
 	core.register_craft({
 		output = 'digiterms:lcd_monitor',
 		recipe = {
@@ -44,7 +43,6 @@ then do
 		{ name = 'digiterms:cathodic_white_monitor', colour1 = 'white', colour2 = 'green' },
 	}
 	for _, v in ipairs(monitors) do
-		core.clear_craft({ output = v.name })
 		core.register_craft({
 				output = v.name,
 				recipe = {
