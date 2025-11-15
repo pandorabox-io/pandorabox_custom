@@ -112,11 +112,10 @@ core.register_craft({
 
 
 if core.get_modpath("technic") then
-	--[[ (below recipe was undesired, see https://github.com/pandorabox-io/in-game/issues/245)
+	-- (below recipe was undesired, see https://github.com/pandorabox-io/in-game/issues/245)
 	-- the density of ethereal mod charcoal is ~1/10 of coal, otherwise it's pure carbon
 	-- the volume of charcoal mod charcoal is 1/8 of ethereal mod charcoal, since it uses planks for 2x the output count
-	technic.register_compressor_recipe({ input = { "charcoal:charcoal_lump 80" }, output = "default:coal_lump 1" })
-	--]]
+	--technic.register_compressor_recipe({ input = { "charcoal:charcoal_lump 80" }, output = "default:coal_lump 1" })
 
 	-- factory bridges components used as percentile divisions of iron
 	technic.register_compressor_recipe({ input = { "factory_bridges:i00 30" }, output = "factory_bridges:b00 1" })
