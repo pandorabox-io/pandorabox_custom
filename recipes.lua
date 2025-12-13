@@ -12,6 +12,48 @@ if minetest.get_modpath("ccompass") and minetest.get_modpath("digtron") then
 	})
 end
 
+if core.get_modpath("digiterms")
+	and core.get_modpath("basic_materials")
+	and core.get_modpath("digilines")
+	and core.get_modpath("dye")
+	and core.get_modpath("mesecons_microcontroller")
+	and core.get_modpath("xpanes")
+then
+	-- Preserve recipes changed by https://github.com/mt-mods/digiterms/commit/a8c1ed3b6812d5297160c81956c7c810a6e044e6
+	local mat = {
+		plastic = 'basic_materials:plastic_sheet',
+		cpu = 'mesecons_microcontroller:microcontroller0000',
+		glass = 'xpanes:pane_flat',
+		silicon = 'basic_materials:silicon',
+		wire = 'digilines:wire_std_00000000',
+		black = 'dye:black', green = 'dye:green', orange = 'dye:orange',
+		white = 'dye:white', yellow = 'dye:yellow',
+	}
+	core.register_craft({
+		output = 'digiterms:lcd_monitor',
+		recipe = {
+			{ mat.plastic, mat.cpu },
+			{ mat.glass, mat.silicon },
+			{ mat.plastic, mat.wire }
+		}
+	})
+	local monitors = {
+		{ name = 'digiterms:cathodic_beige_monitor', colour1 = 'yellow', colour2 = 'orange' },
+		{ name = 'digiterms:cathodic_black_monitor', colour1 = 'black', colour2 = 'white' },
+		{ name = 'digiterms:cathodic_white_monitor', colour1 = 'white', colour2 = 'green' },
+	}
+	for _, v in ipairs(monitors) do
+		core.register_craft({
+				output = v.name,
+				recipe = {
+					{ mat.plastic, mat.plastic, mat[v.colour1] },
+					{ mat.glass, mat[v.colour2], mat.cpu },
+					{ mat.plastic, mat.plastic, mat.wire },
+				}
+		})
+	end
+end
+
 if minetest.get_modpath("mypaths") then
 	-- fake grass collides with compressed dirt
 	-- changing fake grass recipe
