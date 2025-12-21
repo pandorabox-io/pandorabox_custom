@@ -23,9 +23,12 @@ minetest.register_lbm({
 		if not db[hash] then
 			local meta = minetest.get_meta(pos)
 			local channel = meta:get_string("channel")
+			if "" == channel then return end
+
 			local can_receive = meta:get_int("can_receive")
-			db[hash] = {x=pos.x, y=pos.y, z=pos.z, channel=channel, cr=can_receive}
-			pipeworks.tptube.save_tube_db()
+			db[hash] = { x = pos.x, y = pos.y, z = pos.z, channel = channel, cr = can_receive }
+			pipeworks.tptube.save_tube(hash)
+			pipeworks.tptube.update_meta(meta) -- not passing can_receive intentionally
 		end
 	end
 })
