@@ -24,7 +24,7 @@ minetest.register_lbm({
 			local meta = minetest.get_meta(pos)
 			local channel = meta:get_string("channel")
 			if "" == channel then return end
-			
+
 			local can_receive = meta:get_int("can_receive")
 			db[hash] = { x = pos.x, y = pos.y, z = pos.z, channel = channel, cr = can_receive }
 			pipeworks.tptube.save_tube(hash)
