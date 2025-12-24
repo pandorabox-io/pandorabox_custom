@@ -208,7 +208,7 @@ if minetest.get_modpath("mypaths") and minetest.get_modpath("technic") then
 end
 
 -- Add recipes for silver and mithril hoes
--- moreoes does not add recipes due to "rare material" hoes being removed from Minetest Game:
+-- moreores does not add recipes due to "rare material" hoes being removed from Minetest Game:
 -- https://github.com/minetest-mods/moreores/blob/3fe0ba8fcb3a19222c23c0d1b01a671df43d655c/init.lua#L219-L222
 if minetest.get_modpath("farming") and minetest.get_modpath("moreores") then
 	minetest.register_craft({
