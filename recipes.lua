@@ -208,7 +208,7 @@ if minetest.get_modpath("mypaths") and minetest.get_modpath("technic") then
 end
 
 -- Add recipes for silver and mithril hoes
--- moreoes does not add recipes due to "rare material" hoes being removed from Minetest Game:
+-- moreores does not add recipes due to "rare material" hoes being removed from Minetest Game:
 -- https://github.com/minetest-mods/moreores/blob/3fe0ba8fcb3a19222c23c0d1b01a671df43d655c/init.lua#L219-L222
 if minetest.get_modpath("farming") and minetest.get_modpath("moreores") then
 	minetest.register_craft({
@@ -288,13 +288,25 @@ if minetest.get_modpath("digilines") and minetest.get_modpath("basic_materials")
 	})
 end
 
--- clear ehlphabet to paper recipe, moreblocks overrides the balance so it could potentially
+-- restore ehlphabet-block/sticker to paper recipes,
+-- moreblocks overrides the balance so it could potentially
 -- be abused for infinite paper
-if minetest.get_modpath("ehlphabet") and minetest.get_modpath("moreblocks") then
-	minetest.clear_craft({
-		recipe = {"ehlphabet:block"},
+if core.get_modpath("ehlphabet") and core.get_modpath("moreblocks") then
+	local recipe_block = {
+		recipe = { "ehlphabet:block" },
 		type = "shapeless"
-	})
+	}
+	core.clear_craft(recipe_block)
+	recipe_block.output = "default:paper"
+	core.register_craft(recipe_block)
+
+	local recipe_sticker = {
+		recipe = { "group:ehlphabet_sticker" },
+		type = "shapeless",
+	}
+	core.clear_craft(recipe_sticker)
+	recipe_sticker.output = "default:paper"
+	core.register_craft(recipe_sticker)
 end
 
 -- fix conflicting cobweb recipes
