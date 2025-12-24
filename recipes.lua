@@ -288,13 +288,25 @@ if minetest.get_modpath("digilines") and minetest.get_modpath("basic_materials")
 	})
 end
 
--- clear ehlphabet to paper recipe, moreblocks overrides the balance so it could potentially
+-- restore ehlphabet-block/sticker to paper recipes,
+-- moreblocks overrides the balance so it could potentially
 -- be abused for infinite paper
-if minetest.get_modpath("ehlphabet") and minetest.get_modpath("moreblocks") then
-	minetest.clear_craft({
-		recipe = {"ehlphabet:block"},
+if core.get_modpath("ehlphabet") and core.get_modpath("moreblocks") then
+	local recipe_block = {
+		recipe = { "ehlphabet:block" },
 		type = "shapeless"
-	})
+	}
+	core.clear_craft(recipe_block)
+	recipe_block.output = "default:paper"
+	core.register_craft(recipe_block)
+
+	local recipe_sticker = {
+		recipe = { "group:ehlphabet_sticker" },
+		type = "shapeless",
+	}
+	core.clear_craft(recipe_sticker)
+	recipe_sticker.output = "default:paper"
+	core.register_craft(recipe_sticker)
 end
 
 -- fix conflicting cobweb recipes
