@@ -146,3 +146,17 @@ minetest.register_craft({
 	},
 	replacements = {{"group:food_baking_tray", "farming:baking_tray"}}
 })
+
+-- Fix mayonnaise recipe.
+core.clear_craft({ output = "farming:mayonnaise" })
+core.register_craft({
+	output = "farming:mayonnaise",
+	recipe = {
+		{ "farming:sunflower_oil", "farming:pepper_ground" },
+		{ "group:food_egg", "farming:salt" },
+	},
+	replacements = {
+		{ "farming:sunflower_oil", "vessels:glass_bottle" },
+		{ "farming:pepper_ground", "vessels:glass_bottle" },
+	},
+})
