@@ -111,10 +111,24 @@ core.register_craft({
 })
 
 
+if core.get_modpath("technic") then
+	-- (below recipe was undesired, see https://github.com/pandorabox-io/in-game/issues/245)
+	-- the density of ethereal mod charcoal is ~1/10 of coal, otherwise it's pure carbon
+	-- the volume of charcoal mod charcoal is 1/8 of ethereal mod charcoal, since it uses planks for 2x the output count
+	--technic.register_compressor_recipe({ input = { "charcoal:charcoal_lump 80" }, output = "default:coal_lump 1" })
+
+	-- factory bridges components used as percentile divisions of iron
+	technic.register_compressor_recipe({ input = { "factory_bridges:i00 30" }, output = "factory_bridges:b00 1" })
+	technic.register_grinder_recipe({ input = { "factory_bridges:b00 10" }, output = "technic:wrought_iron_dust 3" })
+end
+
+
 
 -- 2020-10-21
--- last updated 2025-05-30
+-- last updated 2025-11-01
 -- cookable tools and armor
+
+-- drawer upgrades and bridger components are planned
 
 -- format is {recipe, output[, replacement]}
 
@@ -122,6 +136,77 @@ local cookable_items = {
 	{ "farming:scythe_mithril", "moreores:mithril_ingot 3" },
 	{ "multitools:multitool_mithril", "moreores:mithril_ingot 9" },
 	{ "wrench:wrench", "technic:stainless_steel_ingot 4" },
+	{ "default:screwdrvier", "default:steel_ingot 1" },
+	{ "farming:cutting_board", "default:steel_ingot 1" },
+	{ "spacesuit:helmet", "default:steel_ingot 14" },
+	{ "spacesuit:pants", "default:steel_ingot 4" },
+	{ "spacesuit:boots", "default:steel_ingot 15" },
+	{ "homedecor:trash_can", "default:steel_ingot 1" },              -- floor(4+0.5*2 in / 3 out) = floor(4 in / 3 out) = 1
+	{ "castle_gates:steel_gate_panel", "default:steel_ingot 2" },     -- (int div shorthand) 18 in // 8 out
+	{ "castle_gates:steel_gate_hinge", "default:steel_ingot 2" },     -- 62 in // 24 out
+	{ "advtrains:signal_off", "default:steel_ingot 1" },             -- 3 in // 2 out
+	{ "advtrains:signal_wall_r_off", "default:steel_ingot 2" },      -- 5 in // 2 out
+	{ "advtrains_signals_ks:hs_danger_0", "default:steel_ingot 2" }, -- 5.2 in // 2 out
+	{ "advtrains_signals_ks:ra_danger_0", "default:steel_ingot 2" }, -- 4.2 in // 2 out
+	{ "advtrains_signals_ks:zs3_off_0", "default:steel_ingot 1" },   -- 3.2 in // 2 out
+	{ "advtrains_signals_ks:zs3v_off_0", "default:steel_ingot 1" },  -- 3.2 in // 2 out
+
+	-- iron sign (6 in // 4 out):
+	{ "default:sign_wall_steel", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_blue", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_brown", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_green", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_orange", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_red", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_yellow", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_white_black", "default:steel_ingot 1" },
+	{ "basic_signs:sign_wall_steel_white_red", "default:steel_ingot 1" },
+	{ "signs_road:blue_street_sign", "default:steel_ingot 1" },
+
+	-- street signs (3 in // 2 out):
+	{ "signs_road:black_right_sign", "default:steel_ingot 1" },
+	{ "signs_road:red_street_sign", "default:steel_ingot 1" },
+	{ "signs_road:blue_street_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:red_right_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:green_right_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:blue_right_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:yellow_right_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:white_right_sign", "default:steel_ingot 1" },
+
+	{ "signs_road:signs_road:red_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:green_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:blue_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:yellow_sign", "default:steel_ingot 1" },
+	{ "signs_road:signs_road:white_sign", "default:steel_ingot 1" },
+
+	-- other signs:
+	{ "signs_road:large_street_sign", "default:steel_ingot 6" },
+
+	{ "more_chests:toolbox_steel", "default:steel_ingot 8" },        -- pickaxe of unknown material
+	{ "bike:bike", "default:steel_ingot 7" },
+	{ "pipeworks_elbow:pipeworks_elbow", "default:steel_ingot 6" },
+	{ "letters:letter_cutter_upper", "default:steel_ingot 2" },
+	{ "letters:letter_cutter_lower", "default:steel_ingot 1" },
+	{ "fire:flint_and_steel", "default:steel_ingot 1" },
+	{ "more_chests:shared", "default:steel_ingot 1" },
+	{ "pipeworks:storage_tank_0", "default:steel_ingot 3" },
+	{ "advtrains:chimney", "default:steel_ingot 3" },
+	{ "bucket:bucket_empty", "default:steel_ingot 3" },
+	{ "more_chests:cobble", "default:steel_ingot 1" },
+	{ "homedecor:shower_head", "default:steel_ingot 4" },
+	{ "pipeworks:steel_block_embedded_tube", "default:steel_ingot 8" },
+	{ "farming:skillet", "default:steel_ingot 2" },
+	{ "ilights:light_on", "default:steel_ingot 1" },
+	{ "castle_weapons:battleaxe", "default:steel_ingot 5" },
+	{ "advtrains:retrosignal_off", "default:steel_ingot 2" },
+	{ "morelights_modern:streetpost_d", "default:steel_ingot 2" },
+	{ "framedglass:steel_framed_obsidian_glass", "default:steel_ingot 1" },
+	{ "prefab:electric_fence_end", "default:steel_ingot 1" },
+	{ "prefab:electric_fence", "default:steel_ingot 1" },
+	{ "prefab:electric_fence_corner", "default:steel_ingot 1" },
+	{ "carts:cart", "default:steel_ingot 5" },
+	{ "home_workshop_misc:beer_tap", "default:steel_ingot 6" },
+	{ "pipeworks:steel_pane_embedded_tube", "default:steel_ingot 2" },
 	{ "anvil:anvil", "default:steel_ingot 7" },
 	{ "anvil:hammer", "default:steel_ingot 6" },
 	{ "3d_armor_stand:armor_stand", "default:steel_ingot 3" },
@@ -129,6 +214,11 @@ local cookable_items = {
 	{ "3d_armor_stand:shared_armor_stand", "default:steel_ingot 3" },
 	{ "mobs:horseshoe_bronze", "default:bronze_ingot 13" },
 	{ "mobs:horseshoe_steel", "default:steel_ingot 13" },
+	{ "jumping:trampoline1", "default:steel_ingot 2" },
+	{ "more_chests:fridge", "default:steel_ingot 4" },
+	{ "more_chests:big_fridge", "default:steel_ingot 8" },
+	-- using factory_bridges components for smaller subdivisions
+	{ "advtrains:dtrack_placer", "factory_bridges:i00 12"}
 }
 
 local tool_materials = {
