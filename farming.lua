@@ -157,6 +157,5 @@ core.register_craft({
 	},
 	replacements = {
 		{ "farming:sunflower_oil", "vessels:glass_bottle" },
-		{ "farming:pepper_ground", "vessels:glass_bottle" },
 	},
 })
