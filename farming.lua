@@ -159,3 +159,6 @@ core.register_craft({
 		{ "farming:sunflower_oil", "vessels:glass_bottle" },
 	},
 })
+
+-- Nerf kiwi to avoid griefing (until fixed upstream)
+farming.grow_kiwi_vine = function() end
