@@ -48,13 +48,3 @@ if minetest.get_modpath("charcoal") then
 	})
 end
 
--- Nerf kiwi growth for now.
-bonemeal.on_use_original = bonemeal.on_use
-function bonemeal:on_use(pos, strength, node)
-	local n = node or core.get_node(pos)
-	if n.name == "farming:kiwi_sapling" then
-		return false
-	end
-	return bonemeal:on_use_original(pos, strength, n)
-end
-
