@@ -226,10 +226,6 @@ if minetest.get_modpath("illumination") then
 	dofile(MP.."/illumination.lua")
 end
 
-if minetest.get_modpath("drawers") then
-	dofile(MP.."/chat/drawers_fix.lua")
-end
-
 -- extra toolranks support
 if minetest.get_modpath("toolranks") then
 	dofile(MP.."/toolranks.lua")
