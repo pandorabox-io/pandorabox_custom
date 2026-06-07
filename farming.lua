@@ -160,5 +160,3 @@ core.register_craft({
 	},
 })
 
--- Nerf kiwi to avoid griefing (until fixed upstream)
-farming.grow_kiwi_vine = function() end
